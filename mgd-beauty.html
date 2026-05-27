@@ -157,7 +157,7 @@
             }} />
           ))}
 
-          <div style={{ position: 'relative', zIndex: 3, maxWidth: 1380, margin: '0 auto', padding: '0 48px', width: '100%', paddingTop: 120 }}>
+          <div className="hero-inner" style={{ position: 'relative', zIndex: 3, maxWidth: 1380, margin: '0 auto', padding: '0 48px', width: '100%', paddingTop: 120 }}>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 36, opacity: 0, animation: 'fadeSlide 1.2s ease 0.4s forwards' }}>
               <div style={{ width: 40, height: 1, background: 'linear-gradient(90deg, transparent, #C5A059)' }} />
@@ -202,9 +202,9 @@
                 { num: '5+',  label: '專業美療項目' },
                 { num: '18歲', label: '創業・韓國原廠授權' },
               ].map(s => (
-                <div key={s.label}>
-                  <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 36, fontWeight: 300, color: '#C5A059', lineHeight: 1 }}>{s.num}</div>
-                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 16, color: '#9EA89C', marginTop: 8, letterSpacing: '0.1em' }}>{s.label}</div>
+                <div key={s.label} className="hero-stat-item">
+                  <div className="hero-stat-num" style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 36, fontWeight: 300, color: '#C5A059', lineHeight: 1 }}>{s.num}</div>
+                  <div className="hero-stat-label" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 16, color: '#9EA89C', marginTop: 8, letterSpacing: '0.1em' }}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -221,7 +221,10 @@
               to   { opacity: 1; transform: translateY(0); }
             }
             @media (max-width: 640px) {
-              .hero-stats { gap: 24px !important; flex-wrap: wrap !important; }
+              .hero-inner { padding: 0 24px !important; padding-top: 90px !important; }
+              .hero-stats { gap: 16px !important; flex-wrap: nowrap !important; margin-top: 40px !important; }
+              .hero-stat-num { font-size: 22px !important; }
+              .hero-stat-label { font-size: 11px !important; letter-spacing: 0.05em !important; margin-top: 4px !important; }
             }
           `}</style>
         </section>

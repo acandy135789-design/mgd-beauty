@@ -281,9 +281,9 @@
                 { num: '5+',  label: '專業美療項目' },
                 { num: '18歲', label: '創業・韓國原廠授權' },
               ].map(s => (
-                <div key={s.label}>
-                  <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 36, fontWeight: 300, color: '#C5A059', lineHeight: 1 }}>{s.num}</div>
-                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 16, color: '#9EA89C', marginTop: 8, letterSpacing: '0.1em' }}>{s.label}</div>
+                <div key={s.label} className="hero-stat-item">
+                  <div className="hero-stat-num" style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 36, fontWeight: 300, color: '#C5A059', lineHeight: 1 }}>{s.num}</div>
+                  <div className="hero-stat-label" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 16, color: '#9EA89C', marginTop: 8, letterSpacing: '0.1em' }}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -298,7 +298,10 @@
               to   { opacity: 1; transform: translateY(0); }
             }
             @media (max-width: 640px) {
-              .hero-stats { gap: 24px !important; flex-wrap: wrap !important; }
+              .hero-inner { padding: 0 24px !important; padding-top: 90px !important; }
+              .hero-stats { gap: 16px !important; flex-wrap: nowrap !important; margin-top: 40px !important; }
+              .hero-stat-num { font-size: 22px !important; }
+              .hero-stat-label { font-size: 11px !important; letter-spacing: 0.05em !important; margin-top: 4px !important; }
             }
           `}</style>
         </section>
