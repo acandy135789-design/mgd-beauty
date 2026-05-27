@@ -166,11 +166,11 @@
       const partners = [
         { shop: '美肌花園-桃園區 輔導中心', name: 'Momo 老師', role: '技術顧問', area: '北北基・桃園', specialty: '開運美容技術顧問・K-POP舞蹈啟蒙/進階・身心舞動療癒・數位行銷', feature: '', photo: 'images/portraits/Momo1.png', qr: 'images/qr/momo-qr.jpg', line: 'https://line.me/ti/p/~a65778', lineId: 'a65778' },
         { shop: '美肌花園-桃園區 輔導中心', name: 'Ellie（愛莉）老師', role: '科技健髮調理技術顧問', area: '北北基・桃園', specialty: '科技健髮調理技術顧問・AI應用教學・神籤占卜・能量精品・親子關係經營', feature: '', photo: 'images/portraits/Ellie.png', qr: 'images/qr/ellie-qr.jpg', line: 'https://line.me/ti/p/~s186901', lineId: 's186901' },
-        { shop: '美肌花園-新屋區 馥花園', name: '馥甄老師', role: '美容/育髮技術老師', area: '桃竹苗', specialty: '科技健髮・開運美容・神籤占卜', feature: '親切溫柔、陪伴客人找回自信', photo: 'images/portraits/馥甄.JPEG', qr: 'images/qr/fuzhen-qr.jpg', line: 'https://lin.ee/049fhqur', lineId: '@049fhqur' },
+        { shop: '美肌花園-新屋區 馥花園', name: '馥甄老師', role: '美容/育髮技術老師', area: '桃竹苗', specialty: '科技健髮・開運美容・神籤占卜', feature: '親切溫柔、陪伴客人找回自信', photo: 'images/portraits/馥甄.JPEG', qr: 'images/qr/fuzhen-qr.jpg', line: 'https://line.me/R/ti/p/%40049fhqur', lineId: '@049fhqur' },
         { shop: '美肌花園-新屋區 馥花園', name: '家菱老師', role: '美容技術老師', area: '新屋', specialty: '開運美容・神籤占卜', feature: '溫柔細膩、讓人放鬆安心', photo: 'images/portraits/家菱.png', qr: 'images/qr/jialing-qr.jpg', line: 'https://line.me/ti/p/~0_0yuni', lineId: '0_0yuni' },
         { shop: '美肌花園-桃園市中路區', name: '惠宇老師', role: '美容技術老師', area: '桃園', specialty: '開運美容・神籤占卜', feature: '互動自然、服務大方', photo: 'images/portraits/惠宇.JPEG', qr: 'images/qr/huiyu-qr.jpg', line: 'https://line.me/ti/p/~sharikiss09558903722', lineId: 'sharikiss09558903722' },
         { shop: '美肌花園-桃園市 韻萍開運美容育髮', name: '韻萍老師', role: '美容/育髮技術老師', area: '桃園南崁蘆竹', specialty: '科技健髮・開運美容・神籤占卜', feature: '手法專業、按摩到位、有效釋放緊繃', photo: 'images/portraits/韻萍.JPEG', qr: 'images/qr/yunping-qr.jpg', line: 'https://line.me/ti/p/~0931259848', lineId: '0931259848' },
-        { shop: '美肌花園-桃園市龜山區', name: '雅筑老師', role: '美容/育髮技術老師', area: '桃園市龜山區', specialty: '開運美容・音樂教學', feature: '教學細膩、多元陪伴', photo: 'images/portraits/雅筑.png', qr: 'images/qr/yazhu-qr.jpg', line: 'https://lin.ee/023xagzk', lineId: '@023xagzk' },
+        { shop: '美肌花園-桃園市龜山區', name: '雅筑老師', role: '美容/育髮技術老師', area: '桃園市龜山區', specialty: '開運美容・音樂教學', feature: '教學細膩、多元陪伴', photo: 'images/portraits/雅筑.png', qr: 'images/qr/yazhu-qr.jpg', line: 'https://line.me/R/ti/p/%40023xagzk', lineId: '@023xagzk' },
         { shop: '美肌花園-桃園市平鎮區', name: '資穎老師', role: '美容/育髮技術老師', area: '桃竹苗', specialty: '開運美容・科技健髮・寵物溝通', feature: '手法穩定、溫柔細心', photo: 'images/portraits/資穎.jpg', qr: 'images/qr/ziying-qr.jpg', line: '#', lineId: '' },
         { shop: '美肌花園-桃園市龜山區', name: '亞蓁老師', role: '美容技術老師', area: '桃園', specialty: '開運美容・神籤占卜', feature: '手溫柔細膩、讓人放鬆安心', photo: 'images/portraits/亞蓁.jpg', qr: 'images/qr/yazhen-qr.jpg', line: 'https://line.me/ti/p/~sophie94888', lineId: 'sophie94888' },
         { shop: '美肌花園-桃園市桃園區', name: '睿輿老師', role: '育髮技術老師', area: '桃園', specialty: '科技健髮', feature: '溫柔細心', photo: CDN + '200000311-e8ed2e8ed4/%E7%9D%BF%E8%BC%BF.jpeg', qr: 'images/qr/ruiyu-qr.jpg', line: '#', lineId: '' },
@@ -231,14 +231,22 @@
                         <span style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 15, color: '#9EA89C', textAlign: 'center' }}>QR 圖檔待補</span>
                       </div>
                     )}
-                    <a href={p.line || '#'} target="_blank" rel="noopener noreferrer" style={{
-                      fontFamily: '"Noto Serif TC", serif', fontSize: 18, letterSpacing: '0.2em',
-                      color: 'rgba(197,160,89,0.85)', border: '1px solid rgba(197,160,89,0.3)',
-                      padding: '10px 20px', textDecoration: 'none', display: 'inline-block', transition: 'all 0.3s',
-                    }}
-                      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(197,160,89,0.12)'; e.currentTarget.style.borderColor = '#C5A059'; }}
-                      onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(197,160,89,0.3)'; }}
-                    >LINE 預約</a>
+                    {p.line && p.line !== '#' ? (
+                      <a href={p.line} target="_blank" rel="noopener noreferrer" style={{
+                        fontFamily: '"Noto Serif TC", serif', fontSize: 18, letterSpacing: '0.2em',
+                        color: 'rgba(197,160,89,0.85)', border: '1px solid rgba(197,160,89,0.3)',
+                        padding: '10px 20px', textDecoration: 'none', display: 'inline-block', transition: 'all 0.3s',
+                      }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(197,160,89,0.12)'; e.currentTarget.style.borderColor = '#C5A059'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(197,160,89,0.3)'; }}
+                      >LINE 預約</a>
+                    ) : (
+                      <span style={{
+                        fontFamily: '"Noto Serif TC", serif', fontSize: 16, letterSpacing: '0.1em',
+                        color: 'rgba(158,168,156,0.6)', border: '1px solid rgba(158,168,156,0.2)',
+                        padding: '10px 20px', display: 'inline-block',
+                      }}>掃描 QR 加入</span>
+                    )}
                   </div>
                   </div>
                 </div>
