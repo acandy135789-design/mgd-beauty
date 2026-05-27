@@ -196,7 +196,7 @@
               >認識創辦人 →</a>
             </div>
 
-            <div style={{ display: 'flex', gap: 60, marginTop: 80, paddingTop: 40, borderTop: '1px solid rgba(197,160,89,0.15)', opacity: 0, animation: 'fadeSlide 1.2s ease 1.6s forwards' }}>
+            <div className="hero-stats" style={{ display: 'flex', gap: 60, marginTop: 80, paddingTop: 40, borderTop: '1px solid rgba(197,160,89,0.15)', opacity: 0, animation: 'fadeSlide 1.2s ease 1.6s forwards' }}>
               {[
                 { num: '9+',  label: '全台服務據點' },
                 { num: '5+',  label: '專業美療項目' },
@@ -219,6 +219,9 @@
             @keyframes fadeSlide {
               from { opacity: 0; transform: translateY(30px); }
               to   { opacity: 1; transform: translateY(0); }
+            }
+            @media (max-width: 640px) {
+              .hero-stats { gap: 24px !important; flex-wrap: wrap !important; }
             }
           `}</style>
         </section>
