@@ -119,6 +119,7 @@
     }
 
     function Footer() {
+      const [phoneOpen, setPhoneOpen] = React.useState(false);
       const serviceLinks = [
         { label: '開運科技健髮', href: 'hair.html' },
         { label: '開運科技美容', href: 'beauty.html' },
@@ -133,7 +134,7 @@
       ];
       const contactLinks = [
         { label: 'LINE 預約', href: 'partners.html' },
-        { label: '0906-607-856', href: 'tel:0906607856' }, { label: '0987-186-901', href: 'tel:0987186901' },
+        { label: '電話諮詢', type: 'phone' },
         { label: '電子郵件', href: '#' },
         { label: '桃園全區服務', href: '#' },
       ];
@@ -168,10 +169,25 @@
                   <div style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.35em', color: '#C5A059', marginBottom: 24 }}>{col.title}</div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                     {col.links.map(l => (
-                      <a key={l.label} href={l.href} style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#9EA89C', textDecoration: 'none', letterSpacing: '0.07em', transition: 'color 0.3s' }}
-                        onMouseEnter={e => e.currentTarget.style.color = '#C5A059'}
-                        onMouseLeave={e => e.currentTarget.style.color = '#9EA89C'}
-                      >{l.label}</a>
+                      l.type === 'phone' ? (
+                        <div key={l.label} style={{ position: 'relative' }}>
+                          <span onClick={() => setPhoneOpen(o => !o)} style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#9EA89C', letterSpacing: '0.07em', cursor: 'pointer', transition: 'color 0.3s' }}
+                            onMouseEnter={e => e.currentTarget.style.color = '#C5A059'}
+                            onMouseLeave={e => e.currentTarget.style.color = '#9EA89C'}
+                          >{l.label}</span>
+                          {phoneOpen && (
+                            <div style={{ position: 'absolute', left: 0, top: '110%', background: 'rgba(13,26,14,0.97)', border: '1px solid rgba(197,160,89,0.3)', padding: '12px 20px', zIndex: 100, display: 'flex', flexDirection: 'column', gap: 12 }}>
+                              <a href="tel:0906607856" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#C5A059', textDecoration: 'none', letterSpacing: '0.07em' }}>0906-607-856</a>
+                              <a href="tel:0927186907" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#C5A059', textDecoration: 'none', letterSpacing: '0.07em' }}>0927-186-907</a>
+                            </div>
+                          )}
+                        </div>
+                      ) : (
+                        <a key={l.label} href={l.href} style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#9EA89C', textDecoration: 'none', letterSpacing: '0.07em', transition: 'color 0.3s' }}
+                          onMouseEnter={e => e.currentTarget.style.color = '#C5A059'}
+                          onMouseLeave={e => e.currentTarget.style.color = '#9EA89C'}
+                        >{l.label}</a>
+                      )
                     ))}
                   </div>
                 </div>
