@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>後台管理 · Magic Garden 美肌花園</title>
+  <title>敺蝞∠? 繚 Magic Garden 蝢??勗?</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500&family=Cinzel:wght@400;500&family=Noto+Serif+TC:wght@300;400;500&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -89,17 +89,17 @@
 <!-- Admin Login -->
 <div id="admin-login" class="login-wrap">
   <div class="login-card">
-    <div class="login-title">後台管理</div>
-    <div class="login-sub" style="margin-bottom:32px;">Magic Garden 管理員登入</div>
+    <div class="login-title">敺蝞∠?</div>
+    <div class="login-sub" style="margin-bottom:32px;">Magic Garden 蝞∠??∠??/div>
     <div class="form-group" style="margin-bottom:16px;">
-      <label class="form-label">管理員 Email</label>
+      <label class="form-label">蝞∠???Email</label>
       <input class="form-input" type="email" id="admin-email" placeholder="admin@email.com" />
     </div>
     <div class="form-group" style="margin-bottom:20px;">
-      <label class="form-label">密碼</label>
-      <input class="form-input" type="password" id="admin-password" placeholder="••••••••" />
+      <label class="form-label">撖Ⅳ</label>
+      <input class="form-input" type="password" id="admin-password" placeholder="?ＴＴＴＴＴＴＴ? />
     </div>
-    <button class="btn" style="width:100%;padding:13px;" onclick="adminLogin()">登入後台</button>
+    <button class="btn" style="width:100%;padding:13px;" onclick="adminLogin()">?餃敺</button>
     <div id="admin-login-msg"></div>
   </div>
 </div>
@@ -107,33 +107,33 @@
 <!-- Admin Panel -->
 <div id="admin-panel" class="hidden">
   <nav class="nav">
-    <div class="nav-title">MAGIC GARDEN · 後台管理</div>
+    <div class="nav-title">MAGIC GARDEN 繚 敺蝞∠?</div>
     <div style="display:flex;align-items:center;">
       <span class="nav-user" id="admin-email-display"></span>
-      <span class="logout-link" onclick="adminLogout()">登出</span>
+      <span class="logout-link" onclick="adminLogout()">?餃</span>
     </div>
   </nav>
 
   <div class="layout">
     <div class="sidebar">
-      <div class="sidebar-item active" onclick="showPage('page-service')" id="nav-service">➕ 新增服務紀錄</div>
-      <div class="sidebar-item" onclick="showPage('page-members')" id="nav-members">👥 會員管理</div>
-      <div class="sidebar-item" onclick="showPage('page-adjust')" id="nav-adjust">✏️ 手動調整點數</div>
+      <div class="sidebar-item active" onclick="showPage('page-service')" id="nav-service">???啣???蝝??/div>
+      <div class="sidebar-item" onclick="showPage('page-members')" id="nav-members">? ?蝞∠?</div>
+      <div class="sidebar-item" onclick="showPage('page-adjust')" id="nav-adjust">?? ??隤踵暺</div>
     </div>
 
     <div class="content">
 
-      <!-- 新增服務紀錄 -->
+      <!-- ?啣???蝝??-->
       <div class="page active" id="page-service">
         <div class="card">
-          <div class="card-title">新增服務紀錄（自動計點）</div>
+          <div class="card-title">?啣???蝝???芸?閮?嚗?/div>
 
           <div class="form-row single">
             <div class="form-group">
-              <label class="form-label">搜尋會員（輸入姓名或 Email）</label>
+              <label class="form-label">???嚗撓?亙??? Email嚗?/label>
               <div style="display:flex;gap:10px;">
-                <input class="form-input" type="text" id="search-member-input" placeholder="姓名 / Email" />
-                <button class="btn btn-sm" onclick="searchMember()">搜尋</button>
+                <input class="form-input" type="text" id="search-member-input" placeholder="憪? / Email" />
+                <button class="btn btn-sm" onclick="searchMember()">??</button>
               </div>
             </div>
           </div>
@@ -144,53 +144,53 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label">服務項目</label>
+              <label class="form-label">???</label>
               <select class="form-select" id="service-name" onchange="calcPoints()">
-                <option value="外泌體頭皮深度修護">外泌體頭皮深度修護</option>
-                <option value="基礎韓系護膚">基礎韓系護膚</option>
-                <option value="痘痘粉刺淨化療程">痘痘粉刺淨化療程</option>
-                <option value="微針毛孔精緻療程">微針毛孔精緻療程</option>
-                <option value="韓系水光美白療程">韓系水光美白療程</option>
-                <option value="身心靈整體調理">身心靈整體調理</option>
-                <option value="其他服務">其他服務</option>
+                <option value="憭?擃?格楛摨虫耨霅?>憭?擃?格楛摨虫耨霅?/option>
+                <option value="?箇??頂霅瑁?">?箇??頂霅瑁?</option>
+                <option value="??蝎瘛典???">??蝎瘛典???</option>
+                <option value="敺桅?瘥?蝎曄溶??">敺桅?瘥?蝎曄溶??</option>
+                <option value="?頂瘞游?蝢??">?頂瘞游?蝢??</option>
+                <option value="頨怠??擃矽??>頨怠??擃矽??/option>
+                <option value="?嗡???">?嗡???</option>
               </select>
             </div>
             <div class="form-group">
-              <label class="form-label">消費金額（NT$）</label>
+              <label class="form-label">瘨祥??嚗T$嚗?/label>
               <input class="form-input" type="number" id="service-amount" placeholder="3500" min="0" oninput="calcPoints()" />
             </div>
           </div>
 
           <div class="form-row single">
             <div class="form-group">
-              <label class="form-label">備註（可選）</label>
-              <input class="form-input" type="text" id="service-notes" placeholder="例：套組第3堂" />
+              <label class="form-label">?酉嚗?賂?</label>
+              <input class="form-input" type="text" id="service-notes" placeholder="靘?憟?蝚??? />
             </div>
           </div>
 
-          <div class="pts-preview" id="pts-preview">輸入金額後自動計算點數（每 NT$100 = 1 點）</div>
-          <button class="btn" onclick="addService()">確認新增 · 自動發放點數</button>
+          <div class="pts-preview" id="pts-preview">頛詨??敺??蝞??賂?瘥?NT$100 = 1 暺?</div>
+          <button class="btn" onclick="addService()">蝣箄??啣? 繚 ?芸??潭暺</button>
           <div id="service-msg"></div>
         </div>
       </div>
 
-      <!-- 會員管理 -->
+      <!-- ?蝞∠? -->
       <div class="page" id="page-members">
         <div class="stats-row" id="stats-row">
-          <div class="stat-card"><div class="stat-num" id="stat-total">—</div><div class="stat-label">總會員人數</div></div>
-          <div class="stat-card"><div class="stat-num" id="stat-points">—</div><div class="stat-label">系統總點數</div></div>
-          <div class="stat-card"><div class="stat-num" id="stat-vip">—</div><div class="stat-label">VIP 黑卡會員</div></div>
+          <div class="stat-card"><div class="stat-num" id="stat-total">??/div><div class="stat-label">蝮賣??∩犖??/div></div>
+          <div class="stat-card"><div class="stat-num" id="stat-points">??/div><div class="stat-label">蝟餌絞蝮賡???/div></div>
+          <div class="stat-card"><div class="stat-num" id="stat-vip">??/div><div class="stat-label">VIP 暺?</div></div>
         </div>
         <div class="card">
-          <div class="card-title">會員列表</div>
+          <div class="card-title">??”</div>
           <div class="search-bar">
-            <input class="form-input" type="text" id="member-filter" placeholder="搜尋姓名或 Email..." oninput="filterMembers()" />
+            <input class="form-input" type="text" id="member-filter" placeholder="??憪???Email..." oninput="filterMembers()" />
           </div>
           <div style="overflow-x:auto;">
             <table>
               <thead>
                 <tr>
-                  <th>姓名</th><th>Email</th><th>電話</th><th>等級</th><th>可用點數</th><th>累積點數</th><th>加入日期</th>
+                  <th>憪?</th><th>Email</th><th>?餉店</th><th>蝑?</th><th>?舐暺</th><th>蝝舐?暺</th><th>??交?</th>
                 </tr>
               </thead>
               <tbody id="members-tbody"></tbody>
@@ -199,16 +199,16 @@
         </div>
       </div>
 
-      <!-- 手動調整點數 -->
+      <!-- ??隤踵暺 -->
       <div class="page" id="page-adjust">
         <div class="card">
-          <div class="card-title">手動調整點數</div>
+          <div class="card-title">??隤踵暺</div>
           <div class="form-row single">
             <div class="form-group">
-              <label class="form-label">搜尋會員</label>
+              <label class="form-label">???</label>
               <div style="display:flex;gap:10px;">
-                <input class="form-input" type="text" id="adjust-search-input" placeholder="姓名 / Email" />
-                <button class="btn btn-sm" onclick="searchMemberForAdjust()">搜尋</button>
+                <input class="form-input" type="text" id="adjust-search-input" placeholder="憪? / Email" />
+                <button class="btn btn-sm" onclick="searchMemberForAdjust()">??</button>
               </div>
             </div>
           </div>
@@ -218,15 +218,15 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label">調整點數（正數為加點，負數為扣點）</label>
-              <input class="form-input" type="number" id="adjust-points" placeholder="例：100 或 -50" />
+              <label class="form-label">隤踵暺嚗迤?貊??嚗??貊???嚗?/label>
+              <input class="form-input" type="number" id="adjust-points" placeholder="靘?100 ??-50" />
             </div>
             <div class="form-group">
-              <label class="form-label">調整原因</label>
-              <input class="form-input" type="text" id="adjust-reason" placeholder="例：活動贈點、錯誤更正" />
+              <label class="form-label">隤踵??</label>
+              <input class="form-input" type="text" id="adjust-reason" placeholder="靘?瘣餃?韐??隤斗甇? />
             </div>
           </div>
-          <button class="btn" onclick="adjustPoints()">確認調整點數</button>
+          <button class="btn" onclick="adjustPoints()">蝣箄?隤踵暺</button>
           <div id="adjust-msg"></div>
         </div>
       </div>
@@ -243,13 +243,13 @@
   let allMembers = [];
 
   const TIERS = [
-    { name: '一般會員', min: 0, max: 999 },
-    { name: '銀卡會員', min: 1000, max: 4999 },
-    { name: '金卡會員', min: 5000, max: 14999 },
-    { name: 'VIP 黑卡', min: 15000, max: Infinity },
+    { name: '銝?祆???, min: 0, max: 999 },
+    { name: '??⊥???, min: 1000, max: 4999 },
+    { name: '??', min: 5000, max: 14999 },
+    { name: 'VIP 暺', min: 15000, max: Infinity },
   ];
   function getTier(total) { return (TIERS.find(t => total >= t.min && total <= t.max) || TIERS[0]).name; }
-  function getTierClass(t) { return t === 'VIP 黑卡' ? 'vip' : t === '金卡會員' ? 'gold' : t === '銀卡會員' ? 'silver' : ''; }
+  function getTierClass(t) { return t === 'VIP 暺' ? 'vip' : t === '??' ? 'gold' : t === '??⊥??? ? 'silver' : ''; }
 
   function showMsg(id, text, type) { const el = document.getElementById(id); el.className = 'msg ' + type; el.textContent = text; }
 
@@ -265,16 +265,16 @@
   async function adminLogin() {
     const email = document.getElementById('admin-email').value.trim();
     const password = document.getElementById('admin-password').value;
-    if (!email || !password) return showMsg('admin-login-msg', '請填寫帳號與密碼', 'error');
-    showMsg('admin-login-msg', '驗證中...', '');
+    if (!email || !password) return showMsg('admin-login-msg', '隢‵撖怠董??撖Ⅳ', 'error');
+    showMsg('admin-login-msg', '撽?銝?..', '');
     const { data, error } = await sb.auth.signInWithPassword({ email, password });
-    if (error) return showMsg('admin-login-msg', '登入失敗：帳號或密碼錯誤', 'error');
+    if (error) return showMsg('admin-login-msg', '?餃憭望?嚗董??撖Ⅳ?航炊', 'error');
 
     // Check admin
     const { data: adminCheck } = await sb.from('admin_users').select('user_id').eq('user_id', data.user.id).single();
     if (!adminCheck) {
       await sb.auth.signOut();
-      return showMsg('admin-login-msg', '此帳號沒有管理員權限', 'error');
+      return showMsg('admin-login-msg', '甇文董???恣?甈?', 'error');
     }
 
     document.getElementById('admin-login').classList.add('hidden');
@@ -291,7 +291,7 @@
   function calcPoints() {
     const amount = parseInt(document.getElementById('service-amount').value) || 0;
     const pts = Math.floor(amount / 100);
-    document.getElementById('pts-preview').textContent = amount > 0 ? `NT$ ${amount.toLocaleString()} → 獲得 ${pts} 點` : '輸入金額後自動計算點數（每 NT$100 = 1 點）';
+    document.getElementById('pts-preview').textContent = amount > 0 ? `NT$ ${amount.toLocaleString()} ???脣? ${pts} 暺 : '頛詨??敺??蝞??賂?瘥?NT$100 = 1 暺?';
   }
 
   async function searchMember() {
@@ -299,21 +299,21 @@
     if (!q) return;
     const { data } = await sb.from('profiles').select('*').or(`name.ilike.%${q}%,email.ilike.%${q}%`);
     const container = document.getElementById('search-results');
-    if (!data || data.length === 0) { container.innerHTML = '<div style="color:var(--mist);font-size:14px;padding:8px 0;">找不到符合的會員</div>'; return; }
+    if (!data || data.length === 0) { container.innerHTML = '<div style="color:var(--mist);font-size:14px;padding:8px 0;">?曆??啁泵???</div>'; return; }
     container.innerHTML = data.map(m => `
       <div class="member-result">
         <div class="member-result-info">
-          <div class="member-result-name">${m.name || '未設定姓名'}</div>
-          <div class="member-result-sub">${m.email} · ${m.phone || '無電話'} · 可用點數 ${(m.points||0).toLocaleString()} 點</div>
+          <div class="member-result-name">${m.name || '?芾身摰???}</div>
+          <div class="member-result-sub">${m.email} 繚 ${m.phone || '?⊿閰?} 繚 ?舐暺 ${(m.points||0).toLocaleString()} 暺?/div>
         </div>
-        <button class="btn btn-sm" onclick="selectMember('${m.id}','${m.name||m.email}','${(m.points||0)}')">選擇</button>
+        <button class="btn btn-sm" onclick="selectMember('${m.id}','${m.name||m.email}','${(m.points||0)}')">?豢?</button>
       </div>
     `).join('');
   }
 
   function selectMember(id, name, points) {
     document.getElementById('selected-user-id').value = id;
-    document.getElementById('selected-member-info').textContent = `已選擇：${name}（目前 ${parseInt(points).toLocaleString()} 點）`;
+    document.getElementById('selected-member-info').textContent = `撌脤??${name}嚗??${parseInt(points).toLocaleString()} 暺?`;
     document.getElementById('selected-member-info').classList.remove('hidden');
     document.getElementById('search-results').innerHTML = '';
   }
@@ -323,14 +323,14 @@
     const serviceName = document.getElementById('service-name').value;
     const amount = parseInt(document.getElementById('service-amount').value) || 0;
     const notes = document.getElementById('service-notes').value.trim();
-    if (!userId) return showMsg('service-msg', '請先搜尋並選擇會員', 'error');
-    if (amount <= 0) return showMsg('service-msg', '請輸入消費金額', 'error');
+    if (!userId) return showMsg('service-msg', '隢???銝阡????, 'error');
+    if (amount <= 0) return showMsg('service-msg', '隢撓?交?鞎駁?憿?, 'error');
     const pts = Math.floor(amount / 100);
-    showMsg('service-msg', '處理中...', '');
+    showMsg('service-msg', '??銝?..', '');
 
     // Get current profile
     const { data: profile } = await sb.from('profiles').select('points,total_earned').eq('id', userId).single();
-    if (!profile) return showMsg('service-msg', '找不到會員資料', 'error');
+    if (!profile) return showMsg('service-msg', '?曆??唳??∟???, 'error');
 
     const newPoints = (profile.points || 0) + pts;
     const newTotal = (profile.total_earned || 0) + pts;
@@ -338,21 +338,21 @@
 
     // Insert service record
     const { error: sErr } = await sb.from('services').insert({ user_id: userId, service_name: serviceName, amount, points_earned: pts, notes });
-    if (sErr) return showMsg('service-msg', '新增服務失敗：' + sErr.message, 'error');
+    if (sErr) return showMsg('service-msg', '?啣???憭望?嚗? + sErr.message, 'error');
 
     // Insert points history
-    await sb.from('points_history').insert({ user_id: userId, points: pts, type: 'earn', description: serviceName + (notes ? `（${notes}）` : '') });
+    await sb.from('points_history').insert({ user_id: userId, points: pts, type: 'earn', description: serviceName + (notes ? `嚗?{notes}嚗 : '') });
 
     // Update profile
     const { error: uErr } = await sb.from('profiles').update({ points: newPoints, total_earned: newTotal, tier: newTier }).eq('id', userId);
-    if (uErr) return showMsg('service-msg', '更新點數失敗：' + uErr.message, 'error');
+    if (uErr) return showMsg('service-msg', '?湔暺憭望?嚗? + uErr.message, 'error');
 
-    showMsg('service-msg', `✓ 成功！已發放 ${pts} 點，累積點數 ${newTotal.toLocaleString()}，等級：${newTier}`, 'success');
+    showMsg('service-msg', `????嚗歇?潭 ${pts} 暺?蝝舐?暺 ${newTotal.toLocaleString()}嚗?蝝?${newTier}`, 'success');
     document.getElementById('service-amount').value = '';
     document.getElementById('service-notes').value = '';
     document.getElementById('selected-user-id').value = '';
     document.getElementById('selected-member-info').classList.add('hidden');
-    document.getElementById('pts-preview').textContent = '輸入金額後自動計算點數（每 NT$100 = 1 點）';
+    document.getElementById('pts-preview').textContent = '頛詨??敺??蝞??賂?瘥?NT$100 = 1 暺?';
   }
 
   async function loadMembers() {
@@ -368,14 +368,14 @@
 
   function renderMembers(list) {
     const tbody = document.getElementById('members-tbody');
-    if (!list || list.length === 0) { tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--mist);padding:32px;">尚無會員</td></tr>'; return; }
+    if (!list || list.length === 0) { tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--mist);padding:32px;">撠?</td></tr>'; return; }
     tbody.innerHTML = list.map(m => {
       const tier = getTier(m.total_earned || 0);
       const tc = getTierClass(tier);
       return `<tr>
-        <td>${m.name || '—'}</td>
+        <td>${m.name || '??}</td>
         <td style="color:var(--mist)">${m.email}</td>
-        <td style="color:var(--mist)">${m.phone || '—'}</td>
+        <td style="color:var(--mist)">${m.phone || '??}</td>
         <td><span class="tier-pill ${tc}">${tier}</span></td>
         <td style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:18px;">${(m.points||0).toLocaleString()}</td>
         <td style="color:var(--mist)">${(m.total_earned||0).toLocaleString()}</td>
@@ -394,21 +394,21 @@
     if (!q) return;
     const { data } = await sb.from('profiles').select('*').or(`name.ilike.%${q}%,email.ilike.%${q}%`);
     const container = document.getElementById('adjust-results');
-    if (!data || data.length === 0) { container.innerHTML = '<div style="color:var(--mist);font-size:14px;padding:8px 0;">找不到符合的會員</div>'; return; }
+    if (!data || data.length === 0) { container.innerHTML = '<div style="color:var(--mist);font-size:14px;padding:8px 0;">?曆??啁泵???</div>'; return; }
     container.innerHTML = data.map(m => `
       <div class="member-result">
         <div class="member-result-info">
-          <div class="member-result-name">${m.name || '未設定姓名'}</div>
-          <div class="member-result-sub">${m.email} · 可用點數 ${(m.points||0).toLocaleString()} 點</div>
+          <div class="member-result-name">${m.name || '?芾身摰???}</div>
+          <div class="member-result-sub">${m.email} 繚 ?舐暺 ${(m.points||0).toLocaleString()} 暺?/div>
         </div>
-        <button class="btn btn-sm" onclick="selectMemberForAdjust('${m.id}','${m.name||m.email}','${m.points||0}')">選擇</button>
+        <button class="btn btn-sm" onclick="selectMemberForAdjust('${m.id}','${m.name||m.email}','${m.points||0}')">?豢?</button>
       </div>
     `).join('');
   }
 
   function selectMemberForAdjust(id, name, points) {
     document.getElementById('adjust-user-id').value = id;
-    document.getElementById('adjust-member-info').textContent = `已選擇：${name}（目前 ${parseInt(points).toLocaleString()} 點）`;
+    document.getElementById('adjust-member-info').textContent = `撌脤??${name}嚗??${parseInt(points).toLocaleString()} 暺?`;
     document.getElementById('adjust-member-info').classList.remove('hidden');
     document.getElementById('adjust-results').innerHTML = '';
   }
@@ -417,13 +417,13 @@
     const userId = document.getElementById('adjust-user-id').value;
     const pts = parseInt(document.getElementById('adjust-points').value);
     const reason = document.getElementById('adjust-reason').value.trim();
-    if (!userId) return showMsg('adjust-msg', '請先搜尋並選擇會員', 'error');
-    if (isNaN(pts) || pts === 0) return showMsg('adjust-msg', '請輸入要調整的點數', 'error');
-    if (!reason) return showMsg('adjust-msg', '請填寫調整原因', 'error');
-    showMsg('adjust-msg', '處理中...', '');
+    if (!userId) return showMsg('adjust-msg', '隢???銝阡????, 'error');
+    if (isNaN(pts) || pts === 0) return showMsg('adjust-msg', '隢撓?亥?隤踵????, 'error');
+    if (!reason) return showMsg('adjust-msg', '隢‵撖怨矽?游???, 'error');
+    showMsg('adjust-msg', '??銝?..', '');
 
     const { data: profile } = await sb.from('profiles').select('points,total_earned').eq('id', userId).single();
-    if (!profile) return showMsg('adjust-msg', '找不到會員', 'error');
+    if (!profile) return showMsg('adjust-msg', '?曆??唳???, 'error');
 
     const newPoints = Math.max(0, (profile.points || 0) + pts);
     const newTotal = Math.max(0, (profile.total_earned || 0) + (pts > 0 ? pts : 0));
@@ -432,8 +432,8 @@
     await sb.from('points_history').insert({ user_id: userId, points: pts, type: 'adjust', description: reason });
     const { error } = await sb.from('profiles').update({ points: newPoints, total_earned: newTotal, tier: newTier }).eq('id', userId);
 
-    if (error) return showMsg('adjust-msg', '調整失敗：' + error.message, 'error');
-    showMsg('adjust-msg', `✓ 成功！${pts > 0 ? '增加' : '扣除'} ${Math.abs(pts)} 點，目前可用點數：${newPoints.toLocaleString()}`, 'success');
+    if (error) return showMsg('adjust-msg', '隤踵憭望?嚗? + error.message, 'error');
+    showMsg('adjust-msg', `????嚗?{pts > 0 ? '憓?' : '??'} ${Math.abs(pts)} 暺??桀??舐暺嚗?{newPoints.toLocaleString()}`, 'success');
     document.getElementById('adjust-points').value = '';
     document.getElementById('adjust-reason').value = '';
     document.getElementById('adjust-user-id').value = '';
