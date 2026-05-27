@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>創辦人故事 · Magic Garden 美肌花園</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Cinzel:wght@400;500;600;700;900&family=Noto+Serif+TC:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    window.tailwind = {
+      config: {
+        theme: {
+          extend: {
+            colors: {
+              midnight:'#060d06',forest:'#0d1a0e','deep-forest':'#0a1509',moss:'#2d4a30',leaf:'#3d6840',
+              bronze:'#C5A059','bronze-lt':'#D4B06A','bronze-pale':'#E8D5A3',mist:'#9EA89C','mist-lt':'#C8D0C4',
+              pearl:'#F0ECE4',cream:'#FAF7F2',
+            },
+            fontFamily: {
+              serif:['"Cormorant Garamond"','Georgia','serif'],
+              display:['Cinzel','serif'],
+              body:['"Noto Serif TC"','sans-serif'],
+            },
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="mgd-beauty.css">
+</head>
+<body>
+  <canvas id="mist-canvas"></canvas>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    function useScrollReveal() {
+      useEffect(() => {
+        const targets = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+        }, { threshold: 0.12 });
+        targets.forEach(t => io.observe(t));
+        return () => io.disconnect();
+      }, []);
+    }
+
+    function Nav({ currentPage = '' }) {
+      const [menuOpen, setMenuOpen] = React.useState(false);
+      const links = [
+        { label: '首頁',       href: 'index.html',    page: 'home' },
+        { label: '開運科技健髮', href: 'hair.html',     page: 'hair' },
+        { label: '開運科技美容', href: 'beauty.html',   page: 'beauty' },
+        { label: '身心靈調理',  href: 'holistic.html', page: 'holistic' },
+        { label: '創辦人故事',  href: 'founder.html',  page: 'founder' },
+        { label: '關於我們',    href: 'team.html',     page: 'team' },
+        { label: '夥伴資訊',    href: 'partners.html', page: 'partners' },
+        { label: '夥伴招募',    href: 'recruit.html',  page: 'recruit' },
+      ];
+      return (
+        <nav style={{
+          position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
+          background: 'rgba(6,13,6,0.97)', backdropFilter: 'blur(14px)',
+          borderBottom: '1px solid rgba(197,160,89,0.22)',
+        }}>
+          <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 76 }}>
+            <a href="index.html" style={{ textDecoration: 'none', flexShrink: 0 }}>
+              <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 21, fontWeight: 500, letterSpacing: '0.1em', color: '#C5A059', lineHeight: 1 }}>Magic Garden 美肌花園</div>
+              <div style={{ fontFamily: 'Cinzel, serif', fontSize: 11, letterSpacing: '0.35em', color: '#9EA89C', marginTop: 4 }}>ENERGY · BEAUTY · VITALITY</div>
+            </a>
+            <div className="nav-links" style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
+              {links.map(l => (
+                <a key={l.label} href={l.href} className="nav-link" style={{
+                  fontFamily: '"Noto Serif TC", serif', fontSize: 17, letterSpacing: '0.05em',
+                  color: currentPage === l.page ? '#C5A059' : '#C8D0C4',
+                  textDecoration: 'none', whiteSpace: 'nowrap',
+                  borderBottom: currentPage === l.page ? '1px solid rgba(197,160,89,0.5)' : 'none',
+                  paddingBottom: 2,
+                }}
+                  onMouseEnter={e => e.currentTarget.style.color = '#C5A059'}
+                  onMouseLeave={e => e.currentTarget.style.color = currentPage === l.page ? '#C5A059' : '#C8D0C4'}
+                >{l.label}</a>
+              ))}
+              <button className="btn-gold" style={{ padding: '11px 24px', fontSize: 15 }}><span>立即預約</span></button>
+            </div>
+            <button className="mobile-menu-btn" onClick={() => setMenuOpen(o => !o)} aria-label="選單">
+              <span style={{ transform: menuOpen ? 'rotate(45deg) translate(0, 8px)' : 'none' }} />
+              <span style={{ opacity: menuOpen ? 0 : 1, transform: menuOpen ? 'scaleX(0)' : 'none' }} />
+              <span style={{ transform: menuOpen ? 'rotate(-45deg) translate(0, -8px)' : 'none' }} />
+            </button>
+          </div>
+          {menuOpen && (
+            <div className="mobile-nav-drawer">
+              {links.map(l => (
+                <a key={l.label} href={l.href} className={`mobile-nav-link${currentPage === l.page ? ' active' : ''}`}>{l.label}</a>
+              ))}
+              <button className="btn-gold" style={{ marginTop: 20, width: '100%' }}><span>立即預約</span></button>
+            </div>
+          )}
+        </nav>
+      );
+    }
+
+    function Footer() {
+      const cols = [
+        { title: '服務項目', links: [{ label: '開運科技健髮', href: 'hair.html' }, { label: '開運科技美容', href: 'beauty.html' }, { label: '身心靈整體調理', href: 'holistic.html' }, { label: '貴賓預約', href: '#' }] },
+        { title: '品牌',     links: [{ label: '創辦人故事', href: 'founder.html' }, { label: '關於我們的團隊', href: 'team.html' }, { label: '夥伴資訊', href: 'partners.html' }, { label: '夥伴招募', href: 'recruit.html' }] },
+        { title: '聯絡',     links: [{ label: 'LINE 預約', href: '#' }, { label: '電話諮詢', href: '#' }, { label: '電子郵件', href: '#' }, { label: '桃園全區服務', href: '#' }] },
+      ];
+      return (
+        <footer style={{ background: '#040904', borderTop: '1px solid rgba(197,160,89,0.15)', padding: '80px 48px 40px' }}>
+          <div style={{ maxWidth: 1380, margin: '0 auto' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 60, paddingBottom: 60, borderBottom: '1px solid rgba(197,160,89,0.1)' }}>
+              <div>
+                <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 26, fontWeight: 500, letterSpacing: '0.15em', color: '#C5A059', marginBottom: 4 }}>Magic Garden 美肌花園</div>
+                <div style={{ fontFamily: 'Cinzel, serif', fontSize: 13, letterSpacing: '0.45em', color: '#9EA89C', marginBottom: 24 }}>ENERGY · BEAUTY · VITALITY</div>
+                <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#9EA89C', lineHeight: 2.2, letterSpacing: '0.07em', maxWidth: 300 }}>能量美學品牌 · 開運美容護膚／秀髮養育<br />貴賓預約優先制</p>
+                <div style={{ marginTop: 20 }}>
+                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#C8D0C4', letterSpacing: '0.07em', marginBottom: 8 }}>📞 0927-186-901</div>
+                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#C8D0C4', letterSpacing: '0.07em' }}>✉️ acandy135789@gmail.com</div>
+                </div>
+                <div style={{ display: 'flex', gap: 14, marginTop: 28 }}>
+                  {['IG', 'FB', 'LINE'].map(s => (
+                    <a key={s} href="#" style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.25em', color: '#9EA89C', textDecoration: 'none', border: '1px solid rgba(197,160,89,0.25)', padding: '8px 14px', transition: 'all 0.3s' }}
+                      onMouseEnter={e => { e.currentTarget.style.borderColor = '#C5A059'; e.currentTarget.style.color = '#C5A059'; }}
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(197,160,89,0.25)'; e.currentTarget.style.color = '#9EA89C'; }}
+                    >{s}</a>
+                  ))}
+                </div>
+              </div>
+              {cols.map(col => (
+                <div key={col.title}>
+                  <div style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.35em', color: '#C5A059', marginBottom: 24 }}>{col.title}</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                    {col.links.map(l => (
+                      <a key={l.label} href={l.href} style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#9EA89C', textDecoration: 'none', letterSpacing: '0.07em', transition: 'color 0.3s' }}
+                        onMouseEnter={e => e.currentTarget.style.color = '#C5A059'}
+                        onMouseLeave={e => e.currentTarget.style.color = '#9EA89C'}
+                      >{l.label}</a>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 32, flexWrap: 'wrap', gap: 16 }}>
+              <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 16, color: 'rgba(158,168,156,0.5)', letterSpacing: '0.1em' }}>© 2025 Magic Garden 美肌花園. All Rights Reserved.</div>
+              <div style={{ display: 'flex', gap: 28 }}>
+                {['隱私政策', '服務條款', 'Cookie 設定'].map(l => (
+                  <a key={l} href="#" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 16, color: 'rgba(158,168,156,0.5)', textDecoration: 'none', letterSpacing: '0.08em' }}>{l}</a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </footer>
+      );
+    }
+
+    function FounderStory() {
+      return (
+        <section className="sec-dark" style={{ padding: '140px 0', position: 'relative', overflow: 'hidden' }}>
+          <div className="two-col-grid" style={{ maxWidth: 1380, margin: '0 auto', padding: '0 48px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
+            <div className="reveal-left">
+              <div style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.5em', color: '#C5A059', marginBottom: 24 }}>FOUNDER'S STORY</div>
+              <div className="gold-line-left" />
+              <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 100, fontWeight: 300, color: 'rgba(197,160,89,0.06)', lineHeight: 1, marginBottom: -30, userSelect: 'none' }}>Momo</div>
+              <h2 style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 400, color: '#F0ECE4', lineHeight: 1.3, letterSpacing: '0.02em' }}>
+                從敏感肌的困擾<br />
+                <em style={{ fontStyle: 'italic', color: '#C5A059' }}>到美麗的魔法師</em>
+              </h2>
+              <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 20, fontWeight: 300, color: '#9EA89C', lineHeight: 2.2, marginTop: 32, letterSpacing: '0.08em' }}>
+                創辦人 Momo 自國中起即飽受嚴重敏感肌困擾——臉頰長期泛紅、反覆長痘，縱使嘗試各大專業品牌與皮膚科治療，症狀始終未能改善。因從小參與舞蹈表演，對外貌十分在意，肌膚問題帶來的困擾更加深刻。
+              </p>
+              <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 20, fontWeight: 300, color: '#9EA89C', lineHeight: 2.2, marginTop: 16, letterSpacing: '0.08em' }}>
+                17歲時，Momo 遠赴韓國深入研究，親身試用超過 30 種護膚配方，終於找到真正穩定膚況的解方。18歲正式創立 Magic Garden 美肌花園，取得多個韓國品牌台灣總代理權，並取得外泌體原液的台灣獨家專利技術，將科技美容與育髮帶入全新境界。
+              </p>
+              <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 20, fontWeight: 300, color: '#9EA89C', lineHeight: 2.2, marginTop: 16, letterSpacing: '0.08em' }}>
+                品牌名稱 Magic Garden，源自她對護膚的信念——保養品擁有讓人重拾自信、如花朵般盛放的「魔法」力量。
+              </p>
+              <div className="stats-row" style={{ display: 'flex', gap: 40, marginTop: 48 }}>
+                {[['17歲', '赴韓研究護膚'], ['30+', '親試護膚配方'], ['18歲', '創立品牌・取得授權']].map(([t, d]) => (
+                  <div key={t}>
+                    <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 26, color: '#C5A059', fontWeight: 500, letterSpacing: '0.1em' }}>{t}</div>
+                    <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 16, color: '#9EA89C', marginTop: 6, letterSpacing: '0.06em' }}>{d}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="reveal-right" style={{ position: 'relative' }}>
+              <div style={{ position: 'absolute', top: -20, right: -20, width: '100%', height: '100%', border: '1px solid rgba(197,160,89,0.2)', zIndex: 0 }} />
+              <div style={{ position: 'relative', zIndex: 1, overflow: 'hidden' }}>
+                <img
+                  src="https://a4366bee14.cbaul-cdnwnd.com/ca02d7fdd37bb4374589c36778190278/200000283-a49cca49ce/image-crop-200000275-0.jpeg?ph=a4366bee14"
+                  alt="創辦人 Momo"
+                  style={{ width: '100%', display: 'block', filter: 'brightness(0.82) saturate(0.85)' }}
+                  onError={e => { e.target.src = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80'; }}
+                />
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(transparent, rgba(6,13,6,0.88))', padding: '40px 32px 28px' }}>
+                  <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 19, color: '#C5A059', letterSpacing: '0.25em', fontStyle: 'italic' }}>
+                    "幫助更多人重拾自信，從美麗開始盛放"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function App() {
+      useScrollReveal();
+      return (
+        <React.Fragment>
+          <Nav currentPage="founder" />
+          <FounderStory />
+          <Footer />
+        </React.Fragment>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+
+  <script src="mgd-beauty-particles.js"></script>
+</body>
+</html>

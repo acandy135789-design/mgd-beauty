@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>身心靈調理 · Magic Garden 美肌花園</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Cinzel:wght@400;500;600;700;900&family=Noto+Serif+TC:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    window.tailwind = {
+      config: {
+        theme: {
+          extend: {
+            colors: {
+              midnight:'#060d06',forest:'#0d1a0e','deep-forest':'#0a1509',moss:'#2d4a30',leaf:'#3d6840',
+              bronze:'#C5A059','bronze-lt':'#D4B06A','bronze-pale':'#E8D5A3',mist:'#9EA89C','mist-lt':'#C8D0C4',
+              pearl:'#F0ECE4',cream:'#FAF7F2',
+            },
+            fontFamily: {
+              serif:['"Cormorant Garamond"','Georgia','serif'],
+              display:['Cinzel','serif'],
+              body:['"Noto Serif TC"','sans-serif'],
+            },
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="mgd-beauty.css">
+</head>
+<body>
+  <canvas id="mist-canvas"></canvas>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    function useScrollReveal() {
+      useEffect(() => {
+        const targets = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+        }, { threshold: 0.12 });
+        targets.forEach(t => io.observe(t));
+        return () => io.disconnect();
+      }, []);
+    }
+
+    function Nav({ currentPage = '' }) {
+      const [menuOpen, setMenuOpen] = React.useState(false);
+      const links = [
+        { label: '首頁',       href: 'index.html',    page: 'home' },
+        { label: '開運科技健髮', href: 'hair.html',     page: 'hair' },
+        { label: '開運科技美容', href: 'beauty.html',   page: 'beauty' },
+        { label: '身心靈調理',  href: 'holistic.html', page: 'holistic' },
+        { label: '創辦人故事',  href: 'founder.html',  page: 'founder' },
+        { label: '關於我們',    href: 'team.html',     page: 'team' },
+        { label: '夥伴資訊',    href: 'partners.html', page: 'partners' },
+        { label: '夥伴招募',    href: 'recruit.html',  page: 'recruit' },
+      ];
+      return (
+        <nav style={{
+          position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
+          background: 'rgba(6,13,6,0.97)', backdropFilter: 'blur(14px)',
+          borderBottom: '1px solid rgba(197,160,89,0.22)',
+        }}>
+          <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 76 }}>
+            <a href="index.html" style={{ textDecoration: 'none', flexShrink: 0 }}>
+              <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 21, fontWeight: 500, letterSpacing: '0.1em', color: '#C5A059', lineHeight: 1 }}>Magic Garden 美肌花園</div>
+              <div style={{ fontFamily: 'Cinzel, serif', fontSize: 11, letterSpacing: '0.35em', color: '#9EA89C', marginTop: 4 }}>ENERGY · BEAUTY · VITALITY</div>
+            </a>
+            <div className="nav-links" style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
+              {links.map(l => (
+                <a key={l.label} href={l.href} className="nav-link" style={{
+                  fontFamily: '"Noto Serif TC", serif', fontSize: 17, letterSpacing: '0.05em',
+                  color: currentPage === l.page ? '#C5A059' : '#C8D0C4',
+                  textDecoration: 'none', whiteSpace: 'nowrap',
+                  borderBottom: currentPage === l.page ? '1px solid rgba(197,160,89,0.5)' : 'none',
+                  paddingBottom: 2,
+                }}
+                  onMouseEnter={e => e.currentTarget.style.color = '#C5A059'}
+                  onMouseLeave={e => e.currentTarget.style.color = currentPage === l.page ? '#C5A059' : '#C8D0C4'}
+                >{l.label}</a>
+              ))}
+              <button className="btn-gold" style={{ padding: '11px 24px', fontSize: 15 }}><span>立即預約</span></button>
+            </div>
+            <button className="mobile-menu-btn" onClick={() => setMenuOpen(o => !o)} aria-label="選單">
+              <span style={{ transform: menuOpen ? 'rotate(45deg) translate(0, 8px)' : 'none' }} />
+              <span style={{ opacity: menuOpen ? 0 : 1, transform: menuOpen ? 'scaleX(0)' : 'none' }} />
+              <span style={{ transform: menuOpen ? 'rotate(-45deg) translate(0, -8px)' : 'none' }} />
+            </button>
+          </div>
+          {menuOpen && (
+            <div className="mobile-nav-drawer">
+              {links.map(l => (
+                <a key={l.label} href={l.href} className={`mobile-nav-link${currentPage === l.page ? ' active' : ''}`}>{l.label}</a>
+              ))}
+              <button className="btn-gold" style={{ marginTop: 20, width: '100%' }}><span>立即預約</span></button>
+            </div>
+          )}
+        </nav>
+      );
+    }
+
+    function Footer() {
+      const cols = [
+        { title: '服務項目', links: [{ label: '開運科技健髮', href: 'hair.html' }, { label: '開運科技美容', href: 'beauty.html' }, { label: '身心靈整體調理', href: 'holistic.html' }, { label: '貴賓預約', href: '#' }] },
+        { title: '品牌',     links: [{ label: '創辦人故事', href: 'founder.html' }, { label: '關於我們的團隊', href: 'team.html' }, { label: '夥伴資訊', href: 'partners.html' }, { label: '夥伴招募', href: 'recruit.html' }] },
+        { title: '聯絡',     links: [{ label: 'LINE 預約', href: '#' }, { label: '電話諮詢', href: '#' }, { label: '電子郵件', href: '#' }, { label: '桃園全區服務', href: '#' }] },
+      ];
+      return (
+        <footer style={{ background: '#040904', borderTop: '1px solid rgba(197,160,89,0.15)', padding: '80px 48px 40px' }}>
+          <div style={{ maxWidth: 1380, margin: '0 auto' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 60, paddingBottom: 60, borderBottom: '1px solid rgba(197,160,89,0.1)' }}>
+              <div>
+                <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 26, fontWeight: 500, letterSpacing: '0.15em', color: '#C5A059', marginBottom: 4 }}>Magic Garden 美肌花園</div>
+                <div style={{ fontFamily: 'Cinzel, serif', fontSize: 13, letterSpacing: '0.45em', color: '#9EA89C', marginBottom: 24 }}>ENERGY · BEAUTY · VITALITY</div>
+                <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#9EA89C', lineHeight: 2.2, letterSpacing: '0.07em', maxWidth: 300 }}>能量美學品牌 · 開運美容護膚／秀髮養育<br />貴賓預約優先制</p>
+                <div style={{ marginTop: 20 }}>
+                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#C8D0C4', letterSpacing: '0.07em', marginBottom: 8 }}>📞 0927-186-901</div>
+                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#C8D0C4', letterSpacing: '0.07em' }}>✉️ acandy135789@gmail.com</div>
+                </div>
+                <div style={{ display: 'flex', gap: 14, marginTop: 28 }}>
+                  {['IG', 'FB', 'LINE'].map(s => (
+                    <a key={s} href="#" style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.25em', color: '#9EA89C', textDecoration: 'none', border: '1px solid rgba(197,160,89,0.25)', padding: '8px 14px', transition: 'all 0.3s' }}
+                      onMouseEnter={e => { e.currentTarget.style.borderColor = '#C5A059'; e.currentTarget.style.color = '#C5A059'; }}
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(197,160,89,0.25)'; e.currentTarget.style.color = '#9EA89C'; }}
+                    >{s}</a>
+                  ))}
+                </div>
+              </div>
+              {cols.map(col => (
+                <div key={col.title}>
+                  <div style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.35em', color: '#C5A059', marginBottom: 24 }}>{col.title}</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                    {col.links.map(l => (
+                      <a key={l.label} href={l.href} style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#9EA89C', textDecoration: 'none', letterSpacing: '0.07em', transition: 'color 0.3s' }}
+                        onMouseEnter={e => e.currentTarget.style.color = '#C5A059'}
+                        onMouseLeave={e => e.currentTarget.style.color = '#9EA89C'}
+                      >{l.label}</a>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 32, flexWrap: 'wrap', gap: 16 }}>
+              <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 16, color: 'rgba(158,168,156,0.5)', letterSpacing: '0.1em' }}>© 2025 Magic Garden 美肌花園. All Rights Reserved.</div>
+              <div style={{ display: 'flex', gap: 28 }}>
+                {['隱私政策', '服務條款', 'Cookie 設定'].map(l => (
+                  <a key={l} href="#" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 16, color: 'rgba(158,168,156,0.5)', textDecoration: 'none', letterSpacing: '0.08em' }}>{l}</a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </footer>
+      );
+    }
+
+    function HolisticCare() {
+      const items = [
+        {
+          icon: '🌟', title: '開運能量加持', en: 'ENERGY & FORTUNE',
+          desc: '結合仙佛加持概念與能量場調頻，透過信念與磁場共振，強化顧客的內在能量與氣場，讓美麗從心靈散發，帶來活力與正能量。',
+        },
+        {
+          icon: '🧘', title: '身心靈整體調理', en: 'HOLISTIC WELLNESS',
+          desc: '針對壓力、情緒與外在形象的整體調理方案，幫助您找回身心平衡，以充沛活力面對每一天，從內而外綻放自信光芒。',
+        },
+        {
+          icon: '🔮', title: '占卜諮詢服務', en: 'DIVINATION CONSULTATION',
+          desc: '結合傳統命理智慧與現代能量療法，為您解讀運勢、制定開運方案，讓美容護膚與人生運勢相輔相成，全面提升您的氣場與魅力。',
+        },
+      ];
+
+      return (
+        <section style={{ background: 'linear-gradient(135deg, #060d06 0%, #0d1a0e 50%, #060d06 100%)', padding: '140px 0', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', top: 0, right: 0, width: '40%', height: '100%', background: 'rgba(197,160,89,0.025)', clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0 100%)' }} />
+          <div style={{ maxWidth: 1380, margin: '0 auto', padding: '0 48px', position: 'relative' }}>
+            <div style={{ textAlign: 'center', marginBottom: 80 }}>
+              <div className="reveal" style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.55em', color: '#C5A059' }}>MIND · BODY · SPIRIT</div>
+              <span className="gold-line" />
+              <h2 className="reveal delay-1" style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 'clamp(2rem, 3.5vw, 3.2rem)', fontWeight: 400, color: '#F0ECE4', lineHeight: 1.3 }}>
+                身心靈整體調理<br />
+                <em style={{ color: '#C5A059', fontStyle: 'italic' }}>能量共振・內外兼修</em>
+              </h2>
+            </div>
+            <div className="three-col-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 28 }}>
+              {items.map((item, i) => (
+                <div key={item.title} className={`ing-circle reveal delay-${i + 1}`} style={{
+                  background: 'rgba(13,26,14,0.6)', padding: '52px 40px',
+                  backdropFilter: 'blur(8px)', textAlign: 'center',
+                }}>
+                  <div style={{ fontSize: 44, marginBottom: 24 }}>{item.icon}</div>
+                  <div style={{ fontFamily: 'Cinzel, serif', fontSize: 14, letterSpacing: '0.4em', color: '#C5A059', marginBottom: 12 }}>{item.en}</div>
+                  <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 24, fontWeight: 500, color: '#F0ECE4', letterSpacing: '0.05em', marginBottom: 16 }}>{item.title}</div>
+                  <div style={{ width: 40, height: 1, background: 'rgba(197,160,89,0.4)', margin: '0 auto 20px' }} />
+                  <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 19, color: '#9EA89C', lineHeight: 2.1, letterSpacing: '0.06em' }}>{item.desc}</p>
+                </div>
+              ))}
+            </div>
+            <div className="reveal delay-3" style={{ textAlign: 'center', marginTop: 60 }}>
+              <button className="btn-gold"><span>預約身心靈調理</span></button>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function DanceWorkshop() {
+      return (
+        <section style={{ background: '#060d06', padding: '100px 0 140px', position: 'relative', overflow: 'hidden' }}>
+          <div className="two-col-grid" style={{ maxWidth: 1380, margin: '0 auto', padding: '0 48px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
+            <div className="reveal-right" style={{ position: 'relative' }}>
+              <div style={{ position: 'absolute', top: -20, left: -20, width: '100%', height: '100%', border: '1px solid rgba(197,160,89,0.2)', zIndex: 0 }} />
+              <div style={{ position: 'relative', zIndex: 1, overflow: 'hidden' }}>
+                <img
+                  src="https://duyn491kcolsw.cloudfront.net/files/03/030/030tro.jpg?ph=a4366bee14"
+                  alt="身心靈舞蹈工作坊"
+                  style={{ width: '100%', display: 'block', filter: 'brightness(0.82) saturate(0.85)' }}
+                />
+              </div>
+            </div>
+            <div className="reveal-left">
+              <div style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.5em', color: '#C5A059', marginBottom: 24 }}>MIND · BODY · SPIRIT DANCE</div>
+              <div className="gold-line-left" />
+              <h2 style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 400, color: '#F0ECE4', lineHeight: 1.3, letterSpacing: '0.02em' }}>
+                身心靈舞蹈<br />
+                <em style={{ fontStyle: 'italic', color: '#C5A059' }}>讓身體回到順・心回到靜</em>
+              </h2>
+              <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 20, fontWeight: 300, color: '#9EA89C', lineHeight: 2.2, marginTop: 32, letterSpacing: '0.08em' }}>
+                這不是「再學更多」的課程，而是釋放你長久積累緊繃的旅程。透過溫柔的身體引導、呼吸技術與能量流設計，針對那些你平常用不到、卻不斷在承受壓力的身體部位。
+              </p>
+              <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 20, fontWeight: 300, color: '#9EA89C', lineHeight: 2.2, marginTop: 16, letterSpacing: '0.08em' }}>
+                「身心靈覺察・重塑流動工作坊」結合運動科學原理與能量優化方法，透過啟動正確的肌肉連結，打破疼痛循環，恢復動態美學。
+              </p>
+              <div style={{ display: 'flex', gap: 40, marginTop: 48, flexWrap: 'wrap' }}>
+                {[['精準感知', '覺察身體細微訊號'], ['導正慣性', '修正長期代償模式'], ['動態美學', '重塑流暢的生命律動']].map(([t, d]) => (
+                  <div key={t}>
+                    <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 22, color: '#C5A059', fontWeight: 500, letterSpacing: '0.1em' }}>{t}</div>
+                    <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 15, color: '#9EA89C', marginTop: 6, letterSpacing: '0.06em' }}>{d}</div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ marginTop: 40 }}>
+                <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: 'rgba(197,160,89,0.8)', letterSpacing: '0.05em', marginBottom: 24 }}>✓ 完全初學者亦適合 · 持續改善而非暫時紓緩</div>
+                <button className="btn-gold"><span>了解工作坊詳情</span></button>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function DivinationSection() {
+      return (
+        <section style={{ background: '#0d1a0e', padding: '100px 0 140px' }}>
+          <div className="two-col-grid" style={{ maxWidth: 1380, margin: '0 auto', padding: '0 48px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
+            <div className="reveal-left">
+              <div style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.5em', color: '#C5A059', marginBottom: 24 }}>DIVINATION · FORTUNE READING</div>
+              <div className="gold-line-left" />
+              <h2 style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 400, color: '#F0ECE4', lineHeight: 1.3 }}>
+                神籤占卜<br />
+                <em style={{ fontStyle: 'italic', color: '#C5A059' }}>指引方向・開啟好運</em>
+              </h2>
+              <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 20, fontWeight: 300, color: '#9EA89C', lineHeight: 2.2, marginTop: 32, letterSpacing: '0.08em' }}>
+                結合傳統命理智慧與現代能量療法，透過神籤占卜為您解讀當下運勢、制定個人化的開運方案，讓美容護膚與人生運勢相輔相成。
+              </p>
+              <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 20, fontWeight: 300, color: '#9EA89C', lineHeight: 2.2, marginTop: 16, letterSpacing: '0.08em' }}>
+                無論您面臨感情、事業、健康或人際關係的困惑，神籤占卜都能為您帶來清晰的指引，全面提升您的氣場與正向磁場。
+              </p>
+              <div style={{ marginTop: 40 }}>
+                <button className="btn-gold"><span>預約占卜諮詢</span></button>
+              </div>
+            </div>
+            <div className="reveal-right" style={{ position: 'relative' }}>
+              <div style={{ position: 'absolute', top: -20, right: -20, width: '100%', height: '100%', border: '1px solid rgba(197,160,89,0.2)', zIndex: 0 }} />
+              <div style={{ position: 'relative', zIndex: 1, overflow: 'hidden' }}>
+                <img
+                  src="https://a4366bee14.cbaul-cdnwnd.com/ca02d7fdd37bb4374589c36778190278/200000002-13c5713c59/image-crop-200000000.png?ph=a4366bee14"
+                  alt="神籤占卜"
+                  style={{ width: '100%', display: 'block', filter: 'brightness(0.85)' }}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function App() {
+      useScrollReveal();
+      return (
+        <React.Fragment>
+          <Nav currentPage="holistic" />
+          <HolisticCare />
+          <DanceWorkshop />
+          <DivinationSection />
+          <Footer />
+        </React.Fragment>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+
+  <script src="mgd-beauty-particles.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:magic-garden0.webnode.page)",
+      "Bash(dir \"D:\\\\APP\\\\科技健髮資料\\\\對比照\" /b)",
+      "Bash(ls \"D:/APP/科技健髮資料/對比照/\")",
+      "Read(//d/APP/科技健髮資料/對比照/**)",
+      "Bash(git --version)",
+      "Bash(git config *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git branch *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(python3)",
+      "Bash(python3 -c ' *)",
+      "Bash(node -e ' *)",
+      "Bash(npx netlify-cli *)",
+      "PowerShell($env:APPDATA; ls \"$env:APPDATA\\\\netlify\" -ErrorAction SilentlyContinue)",
+      "PowerShell(ls \"$env:APPDATA\\\\netlify\\\\Config\")",
+      "PowerShell(\\(Get-Command netlify -ErrorAction SilentlyContinue\\).Source; netlify --version 2>&1)",
+      "PowerShell(npm install -g netlify-cli 2>&1)",
+      "PowerShell(npm install -g @anthropic-ai/claude-code)"
+    ]
+  }
+}

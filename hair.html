@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>開運科技健髮 · Magic Garden 美肌花園</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Cinzel:wght@400;500;600;700;900&family=Noto+Serif+TC:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    window.tailwind = {
+      config: {
+        theme: {
+          extend: {
+            colors: {
+              midnight:'#060d06',forest:'#0d1a0e','deep-forest':'#0a1509',moss:'#2d4a30',leaf:'#3d6840',
+              bronze:'#C5A059','bronze-lt':'#D4B06A','bronze-pale':'#E8D5A3',mist:'#9EA89C','mist-lt':'#C8D0C4',
+              pearl:'#F0ECE4',cream:'#FAF7F2',
+            },
+            fontFamily: {
+              serif:['"Cormorant Garamond"','Georgia','serif'],
+              display:['Cinzel','serif'],
+              body:['"Noto Serif TC"','sans-serif'],
+            },
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="mgd-beauty.css">
+</head>
+<body>
+  <canvas id="mist-canvas"></canvas>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    function useScrollReveal() {
+      useEffect(() => {
+        const targets = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+        }, { threshold: 0.12 });
+        targets.forEach(t => io.observe(t));
+        return () => io.disconnect();
+      }, []);
+    }
+
+    function Nav({ currentPage = '' }) {
+      const [menuOpen, setMenuOpen] = useState(false);
+      const links = [
+        { label: '首頁',       href: 'index.html',    page: 'home' },
+        { label: '開運科技健髮', href: 'hair.html',     page: 'hair' },
+        { label: '開運科技美容', href: 'beauty.html',   page: 'beauty' },
+        { label: '身心靈調理',  href: 'holistic.html', page: 'holistic' },
+        { label: '創辦人故事',  href: 'founder.html',  page: 'founder' },
+        { label: '關於我們',    href: 'team.html',     page: 'team' },
+        { label: '夥伴資訊',    href: 'partners.html', page: 'partners' },
+        { label: '夥伴招募',    href: 'recruit.html',  page: 'recruit' },
+      ];
+      return (
+        <nav style={{
+          position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
+          background: 'rgba(6,13,6,0.97)', backdropFilter: 'blur(14px)',
+          borderBottom: '1px solid rgba(197,160,89,0.22)',
+        }}>
+          <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 76 }}>
+            <a href="index.html" style={{ textDecoration: 'none', flexShrink: 0 }}>
+              <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 21, fontWeight: 500, letterSpacing: '0.1em', color: '#C5A059', lineHeight: 1 }}>Magic Garden 美肌花園</div>
+              <div style={{ fontFamily: 'Cinzel, serif', fontSize: 11, letterSpacing: '0.35em', color: '#9EA89C', marginTop: 4 }}>ENERGY · BEAUTY · VITALITY</div>
+            </a>
+            <div className="nav-links" style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
+              {links.map(l => (
+                <a key={l.label} href={l.href} className="nav-link" style={{
+                  fontFamily: '"Noto Serif TC", serif', fontSize: 17, letterSpacing: '0.05em',
+                  color: currentPage === l.page ? '#C5A059' : '#C8D0C4',
+                  textDecoration: 'none', whiteSpace: 'nowrap',
+                  borderBottom: currentPage === l.page ? '1px solid rgba(197,160,89,0.5)' : 'none',
+                  paddingBottom: 2,
+                }}
+                  onMouseEnter={e => e.currentTarget.style.color = '#C5A059'}
+                  onMouseLeave={e => e.currentTarget.style.color = currentPage === l.page ? '#C5A059' : '#C8D0C4'}
+                >{l.label}</a>
+              ))}
+              <button className="btn-gold" style={{ padding: '11px 24px', fontSize: 15 }}><span>立即預約</span></button>
+            </div>
+            <button className="mobile-menu-btn" onClick={() => setMenuOpen(o => !o)} aria-label="選單">
+              <span style={{ transform: menuOpen ? 'rotate(45deg) translate(0, 8px)' : 'none' }} />
+              <span style={{ opacity: menuOpen ? 0 : 1, transform: menuOpen ? 'scaleX(0)' : 'none' }} />
+              <span style={{ transform: menuOpen ? 'rotate(-45deg) translate(0, -8px)' : 'none' }} />
+            </button>
+          </div>
+          {menuOpen && (
+            <div className="mobile-nav-drawer">
+              {links.map(l => (
+                <a key={l.label} href={l.href} className={`mobile-nav-link${currentPage === l.page ? ' active' : ''}`}>{l.label}</a>
+              ))}
+              <button className="btn-gold" style={{ marginTop: 20, width: '100%' }}><span>立即預約</span></button>
+            </div>
+          )}
+        </nav>
+      );
+    }
+
+    function Footer() {
+      const cols = [
+        { title: '服務項目', links: [{ label: '開運科技健髮', href: 'hair.html' }, { label: '開運科技美容', href: 'beauty.html' }, { label: '身心靈整體調理', href: 'holistic.html' }, { label: '貴賓預約', href: '#' }] },
+        { title: '品牌',     links: [{ label: '創辦人故事', href: 'founder.html' }, { label: '關於我們的團隊', href: 'team.html' }, { label: '夥伴資訊', href: 'partners.html' }, { label: '夥伴招募', href: 'recruit.html' }] },
+        { title: '聯絡',     links: [{ label: 'LINE 預約', href: '#' }, { label: '電話諮詢', href: '#' }, { label: '電子郵件', href: '#' }, { label: '桃園全區服務', href: '#' }] },
+      ];
+      return (
+        <footer style={{ background: '#040904', borderTop: '1px solid rgba(197,160,89,0.15)', padding: '80px 48px 40px' }}>
+          <div style={{ maxWidth: 1380, margin: '0 auto' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 60, paddingBottom: 60, borderBottom: '1px solid rgba(197,160,89,0.1)' }}>
+              <div>
+                <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 26, fontWeight: 500, letterSpacing: '0.15em', color: '#C5A059', marginBottom: 4 }}>Magic Garden 美肌花園</div>
+                <div style={{ fontFamily: 'Cinzel, serif', fontSize: 13, letterSpacing: '0.45em', color: '#9EA89C', marginBottom: 24 }}>ENERGY · BEAUTY · VITALITY</div>
+                <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#9EA89C', lineHeight: 2.2, letterSpacing: '0.07em', maxWidth: 300 }}>能量美學品牌 · 開運美容護膚／秀髮養育<br />貴賓預約優先制</p>
+                <div style={{ marginTop: 20 }}>
+                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#C8D0C4', letterSpacing: '0.07em', marginBottom: 8 }}>📞 0927-186-901</div>
+                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#C8D0C4', letterSpacing: '0.07em' }}>✉️ acandy135789@gmail.com</div>
+                </div>
+                <div style={{ display: 'flex', gap: 14, marginTop: 28 }}>
+                  {['IG', 'FB', 'LINE'].map(s => (
+                    <a key={s} href="#" style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.25em', color: '#9EA89C', textDecoration: 'none', border: '1px solid rgba(197,160,89,0.25)', padding: '8px 14px', transition: 'all 0.3s' }}
+                      onMouseEnter={e => { e.currentTarget.style.borderColor = '#C5A059'; e.currentTarget.style.color = '#C5A059'; }}
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(197,160,89,0.25)'; e.currentTarget.style.color = '#9EA89C'; }}
+                    >{s}</a>
+                  ))}
+                </div>
+              </div>
+              {cols.map(col => (
+                <div key={col.title}>
+                  <div style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.35em', color: '#C5A059', marginBottom: 24 }}>{col.title}</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                    {col.links.map(l => (
+                      <a key={l.label} href={l.href} style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#9EA89C', textDecoration: 'none', letterSpacing: '0.07em', transition: 'color 0.3s' }}
+                        onMouseEnter={e => e.currentTarget.style.color = '#C5A059'}
+                        onMouseLeave={e => e.currentTarget.style.color = '#9EA89C'}
+                      >{l.label}</a>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 32, flexWrap: 'wrap', gap: 16 }}>
+              <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 16, color: 'rgba(158,168,156,0.5)', letterSpacing: '0.1em' }}>© 2025 Magic Garden 美肌花園. All Rights Reserved.</div>
+              <div style={{ display: 'flex', gap: 28 }}>
+                {['隱私政策', '服務條款', 'Cookie 設定'].map(l => (
+                  <a key={l} href="#" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 16, color: 'rgba(158,168,156,0.5)', textDecoration: 'none', letterSpacing: '0.08em' }}>{l}</a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </footer>
+      );
+    }
+
+    function HairCare() {
+      const features = [
+        { icon: '🔬', title: '外泌體育髮科技', desc: '採用台灣獨家專利外泌體原液技術，深度修護頭皮、喚醒休眠毛囊，有效改善落髮與頭皮老化問題。' },
+        { icon: '🌿', title: '頭皮健康深度分析', desc: '由專業顧問進行頭皮與髮質全面檢測，精準解讀您的髮況密碼，制定個人化護髮計畫。' },
+        { icon: '✨', title: '開運能量加持', desc: '融合能量場調頻概念，在科技護髮的同時注入正向能量，從頭皮開始好好照顧自己。' },
+        { icon: '📋', title: '個人化護髮方案', desc: '依據分析結果量身打造護髮路徑，並提供定期追蹤與回診服務，陪伴您的長久健髮旅程。' },
+      ];
+      return (
+        <section className="sec-forest" style={{ padding: '140px 0', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ textAlign: 'center', marginBottom: 80 }}>
+            <div className="reveal" style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.55em', color: '#C5A059' }}>HAIR HEALTH TECHNOLOGY</div>
+            <span className="gold-line" />
+            <h2 className="reveal delay-1" style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 'clamp(2rem, 3.5vw, 3.2rem)', fontWeight: 400, color: '#F0ECE4', lineHeight: 1.3 }}>
+              開運科技健髮<br />
+              <em style={{ color: '#C5A059', fontStyle: 'italic' }}>從頭皮開始，好好照顧自己</em>
+            </h2>
+          </div>
+          <div className="two-col-grid" style={{ maxWidth: 1380, margin: '0 auto', padding: '0 48px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, alignItems: 'start' }}>
+            <div className="svc-card reveal delay-1" style={{ background: 'rgba(13,26,14,0.8)', backdropFilter: 'blur(8px)' }}>
+              <div style={{ overflow: 'hidden', height: 275 }}>
+                <img
+                  src="https://a4366bee14.cbaul-cdnwnd.com/ca02d7fdd37bb4374589c36778190278/200000000-5213352135/%E6%A8%99%E9%A1%8C%E8%83%8C%E6%99%AF%E7%85%A705%20LAEXO%20product%20DM%20%28%E4%B8%AD%E6%96%87page%29.png?ph=a4366bee14"
+                  alt="LAEXO 外泌體產品"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center bottom', display: 'block' }}
+                />
+              </div>
+              <div style={{ padding: '40px 44px 48px' }}>
+                <div style={{ fontFamily: 'Cinzel, serif', fontSize: 14, letterSpacing: '0.5em', color: '#9EA89C', marginBottom: 10 }}>EXOSOME HAIR TECHNOLOGY</div>
+                <h3 style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 28, fontWeight: 500, color: '#F0ECE4', letterSpacing: '0.05em' }}>外泌體頭皮深度修護</h3>
+                <div style={{ width: 48, height: 1, background: 'linear-gradient(90deg, #C5A059, transparent)', margin: '20px 0' }} />
+                <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 19, fontWeight: 300, color: '#9EA89C', lineHeight: 2.1, letterSpacing: '0.07em' }}>
+                  採用台灣獨家專利外泌體原液，結合科技儀器深入頭皮底層，有效改善掉髮、頭皮老化等問題，喚醒髮絲的生命力。每次療程皆由專業技術顧問一對一全程服務，並提供後續追蹤諮詢。
+                </p>
+                <div style={{ marginTop: 32, padding: '20px 24px', border: '1px solid rgba(197,160,89,0.25)', display: 'inline-block' }}>
+                  <div style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.3em', color: '#9EA89C', marginBottom: 4 }}>STARTING FROM</div>
+                  <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 38, color: '#C5A059', fontWeight: 300 }}>NT$ 3,500</div>
+                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#9EA89C', marginTop: 4 }}>單次體驗 · 套組方案另洽技師</div>
+                </div>
+                <div style={{ marginTop: 36 }}>
+                  <button className="btn-gold"><span>預約健髮療程</span></button>
+                </div>
+              </div>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 20, paddingTop: 140 }}>
+              {features.map((f, i) => (
+                <div key={f.title} className={`ing-circle reveal delay-${(i % 3) + 1}`} style={{
+                  background: 'rgba(13,26,14,0.6)', padding: '28px 32px',
+                  backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'flex-start', gap: 20,
+                }}>
+                  <div style={{ fontSize: 26, flexShrink: 0, marginTop: 2 }}>{f.icon}</div>
+                  <div>
+                    <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 24, fontWeight: 500, color: '#F0ECE4', letterSpacing: '0.06em', marginBottom: 10 }}>{f.title}</div>
+                    <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#9EA89C', lineHeight: 2, letterSpacing: '0.06em' }}>{f.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function HairTestimonials() {
+      const [slide, setSlide] = useState(0);
+
+      const slides = [
+        { src: 'images/hair/115899_0.jpg', caption: '你也希望頭髮慢慢變多嗎？' },
+        { src: 'images/hair/115901_0.jpg', caption: '你也想迎接這麼多髮寶寶嗎？' },
+        { src: 'images/hair/115905.jpg',   caption: '你也希望髮絲慢慢變得更強韌嗎？' },
+      ];
+
+      const prev = () => setSlide(s => (s - 1 + slides.length) % slides.length);
+      const next = () => setSlide(s => (s + 1) % slides.length);
+      const cur = slides[slide];
+
+      return (
+        <section style={{ background: '#060d06', padding: '100px 0 140px', position: 'relative' }}>
+          <div style={{ maxWidth: 1380, margin: '0 auto', padding: '0 48px' }}>
+
+            {/* 介紹文字 */}
+            <div style={{ textAlign: 'center', marginBottom: 80 }}>
+              <div className="reveal" style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.55em', color: '#C5A059' }}>BEFORE · AFTER</div>
+              <span className="gold-line" />
+              <h2 className="reveal delay-1" style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 400, color: '#F0ECE4', lineHeight: 1.3 }}>
+                客戶見證成果<br />
+                <em style={{ color: '#C5A059', fontStyle: 'italic' }}>真實案例・有目共睹</em>
+              </h2>
+              <div style={{ marginTop: 40, display: 'flex', flexDirection: 'column', gap: 20, alignItems: 'center' }}>
+                <p className="reveal delay-2" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 22, fontWeight: 400, color: '#F0ECE4', letterSpacing: '0.1em', lineHeight: 1.8 }}>
+                  你也想要這樣的改變嗎？<br />
+                  <span style={{ fontSize: 18, color: '#9EA89C' }}>如果這正是你在找的，我們聊聊</span>
+                </p>
+                <p className="reveal delay-3" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 19, color: '#9EA89C', letterSpacing: '0.08em', lineHeight: 2, maxWidth: 560 }}>
+                  你會為社交及外貌焦慮困擾嗎？<br />
+                  歡迎與有活力及正能量的我們聊聊
+                </p>
+                <a href="partners.html" className="reveal delay-3">
+                  <button className="btn-gold" style={{ padding: '14px 40px', fontSize: 18, marginTop: 8 }}><span>聯絡我們</span></button>
+                </a>
+                <div className="reveal delay-3" style={{ marginTop: 8, padding: '18px 36px', border: '1px solid rgba(197,160,89,0.3)', display: 'inline-block' }}>
+                  <div style={{ fontFamily: 'Cinzel, serif', fontSize: 13, letterSpacing: '0.4em', color: '#9EA89C', marginBottom: 6 }}>SINGLE SESSION</div>
+                  <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 34, color: '#C5A059', fontWeight: 300, letterSpacing: '0.05em' }}>單堂體驗價 NT$ 3,500</div>
+                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 16, color: '#9EA89C', marginTop: 6, letterSpacing: '0.06em' }}>儲值優惠請洽詢技術老師</div>
+                </div>
+              </div>
+            </div>
+
+            {/* 輪播圖 */}
+            <div style={{ position: 'relative', userSelect: 'none', maxWidth: 860, margin: '0 auto' }}>
+              {/* 大標題說明文字 */}
+              <div style={{ textAlign: 'center', marginBottom: 32 }}>
+                <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', fontWeight: 500, color: '#C5A059', letterSpacing: '0.12em', lineHeight: 1.5 }}>{cur.caption}</p>
+              </div>
+
+              <div style={{ overflow: 'hidden', border: '1px solid rgba(197,160,89,0.2)' }}>
+                <img src={cur.src} alt={cur.caption} style={{ width: '100%', display: 'block', aspectRatio: '4/3', objectFit: 'cover', objectPosition: 'center bottom' }} />
+              </div>
+
+              {/* 左右箭頭 */}
+              {[{ fn: prev, side: { left: -28 } }, { fn: next, side: { right: -28 } }].map(({ fn, side }, idx) => (
+                <button key={idx} onClick={fn} style={{
+                  position: 'absolute', top: '50%', transform: 'translateY(-50%)',
+                  ...side, zIndex: 10,
+                  width: 52, height: 52, borderRadius: '50%',
+                  background: 'rgba(6,13,6,0.82)', border: '1px solid rgba(197,160,89,0.4)',
+                  color: '#C5A059', fontSize: 26, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  transition: 'all 0.3s',
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(197,160,89,0.2)'; e.currentTarget.style.borderColor = '#C5A059'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(6,13,6,0.82)'; e.currentTarget.style.borderColor = 'rgba(197,160,89,0.4)'; }}
+                >
+                  {idx === 0 ? '‹' : '›'}
+                </button>
+              ))}
+
+              {/* 頁碼點 */}
+              <div style={{ display: 'flex', justifyContent: 'center', gap: 10, marginTop: 24 }}>
+                {slides.map((_, i) => (
+                  <button key={i} onClick={() => setSlide(i)} style={{
+                    width: i === slide ? 28 : 10, height: 10, borderRadius: 5, border: 'none', cursor: 'pointer',
+                    background: i === slide ? '#C5A059' : 'rgba(197,160,89,0.3)',
+                    transition: 'all 0.3s', padding: 0,
+                  }} />
+                ))}
+              </div>
+            </div>
+
+
+          </div>
+        </section>
+      );
+    }
+
+    function HairCustomerShares() {
+      const photos = [
+        { src: 'images/hair/116330.jpg', caption: '客戶療程前後對比紀錄' },
+        { src: 'images/hair/116362.jpg', caption: '頭皮新生髮寶寶，真實拍攝' },
+        { src: 'images/hair/116400.jpg', caption: '髮量明顯改善，客戶超開心！' },
+        { src: 'images/hair/116411.jpg', caption: '持續療程，髮絲越來越有活力' },
+        { src: 'images/hair/116440.jpg', caption: '客戶分享：髮量慢慢變多了' },
+        { src: 'images/hair/116509.jpg', caption: '頭皮健康，髮根才能穩固' },
+        { src: 'images/hair/159627.jpg', caption: '健髮前後對比，效果有目共睹' },
+        { src: 'images/hair/159628.jpg', caption: '每一根髮寶寶，都是努力的成果' },
+      ];
+      return (
+        <section style={{ background: '#040904', padding: '100px 0 140px' }}>
+          <div style={{ maxWidth: 860, margin: '0 auto', padding: '0 48px' }}>
+            <div style={{ textAlign: 'center', marginBottom: 80 }}>
+              <div className="reveal" style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.55em', color: '#C5A059' }}>CUSTOMER STORIES</div>
+              <span className="gold-line" />
+              <h2 className="reveal delay-1" style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 400, color: '#F0ECE4', lineHeight: 1.4 }}>
+                顧客健髮喜悅分享<br />
+                <em style={{ color: '#C5A059', fontStyle: 'italic' }}>真實見證・用心陪伴</em>
+              </h2>
+              <p className="reveal delay-2" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 20, color: '#9EA89C', lineHeight: 2.2, marginTop: 28, letterSpacing: '0.08em' }}>
+                每一張照片背後，都是一段從擔心到放心的旅程。<br />
+                我們陪你一步一步，把頭髮養回來。
+              </p>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
+              {photos.map((p, i) => (
+                <div key={i} className={`reveal delay-${(i % 3) + 1}`} style={{ border: '1px solid rgba(197,160,89,0.15)' }}>
+                  <img src={p.src} alt={p.caption} style={{ width: '100%', display: 'block' }} />
+                  <div style={{ padding: '20px 28px', background: 'rgba(13,26,14,0.7)' }}>
+                    <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#C5A059', letterSpacing: '0.1em', margin: 0 }}>{p.caption}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function App() {
+      useScrollReveal();
+      return (
+        <React.Fragment>
+          <Nav currentPage="hair" />
+          <HairCare />
+          <HairTestimonials />
+          <HairCustomerShares />
+          <Footer />
+        </React.Fragment>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+
+  <script src="mgd-beauty-particles.js"></script>
+  <script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'F12') { e.preventDefault(); return false; }
+      if (e.ctrlKey && ['u','U','s','S'].includes(e.key)) { e.preventDefault(); return false; }
+      if (e.ctrlKey && e.shiftKey && ['i','I','j','J','c','C'].includes(e.key)) { e.preventDefault(); return false; }
+    });
+  </script>
+</body>
+</html>
