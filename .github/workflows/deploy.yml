@@ -1,4 +1,4 @@
-name: Deploy to Netlify
+name: Deploy to Cloudflare Pages
 
 on:
   push:
@@ -9,10 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy to Netlify
-        uses: netlify/actions/cli@master
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
         with:
-          args: deploy --prod --dir .
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 3f08613f38e6ea765293538f09e6fff3
+          projectName: mgd-beauty-garden
+          directory: .
+          branch: main
