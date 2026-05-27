@@ -210,7 +210,7 @@
             </div>
           </div>
 
-          <div style={{ position: 'absolute', bottom: 40, left: '50%', transform: 'translateX(-50%)', zIndex: 3, textAlign: 'center' }}>
+          <div className="scroll-indicator" style={{ position: 'absolute', bottom: 40, left: '50%', transform: 'translateX(-50%)', zIndex: 3, textAlign: 'center' }}>
             <div style={{ fontFamily: 'Cinzel, serif', fontSize: 14, letterSpacing: '0.4em', color: '#9EA89C', marginBottom: 12 }}>SCROLL</div>
             <div style={{ width: 1, height: 48, background: 'linear-gradient(180deg, #C5A059, transparent)', margin: '0 auto' }} className="scroll-dot" />
           </div>
@@ -225,6 +225,7 @@
               .hero-stats { gap: 16px !important; flex-wrap: nowrap !important; margin-top: 40px !important; }
               .hero-stat-num { font-size: 22px !important; }
               .hero-stat-label { font-size: 11px !important; letter-spacing: 0.05em !important; margin-top: 4px !important; }
+              .scroll-indicator { display: none !important; }
             }
           `}</style>
         </section>
