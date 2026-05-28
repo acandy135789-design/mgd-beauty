@@ -1,48 +1,83 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>?銝剖? 繚 Magic Garden 蝢??勗?</title>
+  <title>會員中心 · Magic Garden 美肌花園</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Cinzel:wght@400;500;600&family=Noto+Serif+TC:wght@300;400;500&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --gold: #C5A059; --gold-lt: #D4B06A; --forest: #0d1a0e;
-      --deep: #060d06; --mist: #9EA89C; --pearl: #F0ECE4; --cream: #FAF7F2;
+      --gold: #C5A059; --gold-lt: #D4B06A; --gold-pale: #E8D5A3;
+      --forest: #0d1a0e; --deep: #060d06; --mist: #9EA89C; --pearl: #F0ECE4; --cream: #FAF7F2;
     }
     body { background: var(--deep); color: var(--pearl); font-family: 'Noto Serif TC', sans-serif; min-height: 100vh; }
     a { color: var(--gold); text-decoration: none; }
 
-    /* NAV */
     .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(6,13,6,0.95); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(197,160,89,0.2); height: 68px; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; }
     .nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--gold); letter-spacing: 0.12em; }
     .nav-back { font-family: 'Noto Serif TC', serif; font-size: 15px; color: var(--mist); transition: color 0.3s; }
     .nav-back:hover { color: var(--gold); }
 
-    /* MAIN */
     .main { padding-top: 68px; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
 
-    /* AUTH BOX */
+    /* AUTH */
     .auth-box { width: 100%; max-width: 440px; margin: 40px auto; padding: 0 20px; }
     .auth-card { background: rgba(13,26,14,0.9); border: 1px solid rgba(197,160,89,0.2); padding: 48px 40px; }
     .auth-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; color: var(--pearl); text-align: center; margin-bottom: 8px; }
-    .auth-sub { font-size: 15px; color: var(--mist); text-align: center; margin-bottom: 36px; letter-spacing: 0.06em; }
+    .auth-sub { font-size: 14px; color: var(--mist); text-align: center; margin-bottom: 36px; letter-spacing: 0.06em; }
     .auth-tabs { display: flex; border-bottom: 1px solid rgba(197,160,89,0.2); margin-bottom: 32px; }
     .auth-tab { flex: 1; padding: 12px; text-align: center; font-size: 16px; color: var(--mist); cursor: pointer; transition: all 0.3s; border-bottom: 2px solid transparent; margin-bottom: -1px; }
     .auth-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+    /* FORM */
     .form-group { margin-bottom: 20px; }
-    .form-label { display: block; font-size: 14px; color: var(--mist); margin-bottom: 8px; letter-spacing: 0.06em; }
+    .form-label { display: block; font-size: 13px; color: var(--mist); margin-bottom: 8px; letter-spacing: 0.06em; }
+    .form-hint { font-size: 12px; color: rgba(158,168,156,0.65); margin-top: 5px; line-height: 1.5; }
     .form-input { width: 100%; background: rgba(6,13,6,0.8); border: 1px solid rgba(197,160,89,0.25); color: var(--pearl); padding: 12px 16px; font-size: 16px; font-family: 'Noto Serif TC', serif; outline: none; transition: border-color 0.3s; }
     .form-input:focus { border-color: var(--gold); }
-    .form-input::placeholder { color: rgba(158,168,156,0.5); }
+    .form-input::placeholder { color: rgba(158,168,156,0.4); }
+    .form-input:disabled { opacity: 0.55; cursor: not-allowed; background: rgba(6,13,6,0.4); }
+    .input-wrap { position: relative; }
+    .pw-toggle { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--mist); font-size: 13px; user-select: none; transition: color 0.2s; }
+    .pw-toggle:hover { color: var(--gold); }
+
+    .pw-rules { margin-top: 8px; display: flex; flex-direction: column; gap: 4px; }
+    .pw-rule { font-size: 12px; display: flex; align-items: center; gap: 6px; color: rgba(158,168,156,0.6); transition: color 0.3s; }
+    .pw-rule.ok { color: #6fcf8a; }
+    .pw-rule::before { content: '○'; font-size: 10px; }
+    .pw-rule.ok::before { content: '●'; }
+
     .btn-submit { width: 100%; padding: 14px; background: transparent; border: 1px solid var(--gold); color: var(--gold); font-family: 'Noto Serif TC', serif; font-size: 17px; letter-spacing: 0.1em; cursor: pointer; transition: all 0.3s; margin-top: 8px; }
     .btn-submit:hover { background: rgba(197,160,89,0.12); }
     .msg { margin-top: 16px; padding: 12px 16px; font-size: 14px; text-align: center; }
     .msg.error { background: rgba(180,60,60,0.15); border: 1px solid rgba(180,60,60,0.3); color: #f5a5a5; }
     .msg.success { background: rgba(60,140,60,0.15); border: 1px solid rgba(60,140,60,0.3); color: #a5f5a5; }
+    .msg.info { background: rgba(197,160,89,0.08); border: 1px solid rgba(197,160,89,0.2); color: var(--mist); }
+
+    /* PROFILE SETUP */
+    .setup-box { width: 100%; max-width: 480px; margin: 40px auto; padding: 0 20px; }
+    .setup-card { background: rgba(13,26,14,0.9); border: 1px solid rgba(197,160,89,0.2); padding: 48px 40px; }
+    .setup-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--pearl); text-align: center; margin-bottom: 8px; }
+    .setup-sub { font-size: 14px; color: var(--mist); text-align: center; margin-bottom: 32px; letter-spacing: 0.04em; line-height: 1.6; }
+    .locked-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; color: var(--mist); background: rgba(158,168,156,0.1); border: 1px solid rgba(158,168,156,0.2); padding: 2px 8px; margin-left: 8px; vertical-align: middle; letter-spacing: 0.05em; }
+
+    /* TOAST */
+    .toast { position: fixed; top: 90px; left: 50%; transform: translateX(-50%) translateY(-20px); background: rgba(13,26,14,0.97); border: 1px solid rgba(197,160,89,0.5); color: var(--gold); font-family: 'Noto Serif TC', serif; font-size: 15px; padding: 14px 32px; letter-spacing: 0.08em; opacity: 0; transition: all 0.4s ease; pointer-events: none; z-index: 9999; white-space: nowrap; }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* AVATAR */
+    .avatar-section { background: rgba(13,26,14,0.7); border: 1px solid rgba(197,160,89,0.12); padding: 28px; margin-bottom: 20px; display: flex; align-items: center; gap: 28px; }
+    .avatar-wrap { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+    .avatar-ring { width: 88px; height: 88px; border-radius: 50%; border: 2px solid rgba(197,160,89,0.5); padding: 3px; cursor: pointer; transition: border-color 0.3s; }
+    .avatar-ring:hover { border-color: var(--gold); }
+    .avatar-initials { width: 82px; height: 82px; border-radius: 50%; background: linear-gradient(135deg, #1a3020, #0d1a0e); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--gold); font-weight: 400; }
+    .avatar-edit-hint { font-size: 11px; color: var(--mist); margin-top: 6px; opacity: 0.7; }
+    .avatar-info { flex: 1; }
+    .avatar-info-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--pearl); margin-bottom: 4px; }
+    .avatar-info-row { font-size: 13px; color: var(--mist); margin-bottom: 3px; }
 
     /* DASHBOARD */
     .dashboard { max-width: 760px; margin: 0 auto; padding: 40px 20px 80px; }
@@ -50,9 +85,8 @@
     .member-card::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(197,160,89,0.08), transparent); }
     .card-tier { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.5em; color: var(--gold); margin-bottom: 12px; }
     .card-name { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 400; color: var(--pearl); margin-bottom: 4px; }
-    .card-email { font-size: 14px; color: var(--mist); margin-bottom: 28px; }
-    .card-points-row { display: flex; gap: 40px; }
-    .card-points-item { }
+    .card-meta { font-size: 13px; color: var(--mist); margin-bottom: 4px; }
+    .card-points-row { display: flex; gap: 40px; margin-top: 20px; }
     .card-points-label { font-size: 12px; color: var(--mist); letter-spacing: 0.1em; margin-bottom: 4px; }
     .card-points-value { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--gold); font-weight: 300; }
     .card-points-unit { font-size: 14px; color: var(--mist); margin-left: 4px; }
@@ -62,11 +96,9 @@
     .progress-bar { height: 4px; background: rgba(197,160,89,0.15); border-radius: 2px; overflow: hidden; }
     .progress-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-lt)); border-radius: 2px; transition: width 0.8s ease; }
 
-    /* SECTIONS */
     .section { background: rgba(13,26,14,0.7); border: 1px solid rgba(197,160,89,0.12); margin-bottom: 20px; }
     .section-header { padding: 20px 28px; border-bottom: 1px solid rgba(197,160,89,0.1); display: flex; align-items: center; justify-content: space-between; }
     .section-title { font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 0.35em; color: var(--gold); }
-    .section-body { padding: 0; }
     .history-item { display: flex; justify-content: space-between; align-items: center; padding: 16px 28px; border-bottom: 1px solid rgba(197,160,89,0.07); }
     .history-item:last-child { border-bottom: none; }
     .history-desc { font-size: 15px; color: var(--pearl); margin-bottom: 4px; }
@@ -79,109 +111,194 @@
     .logout-btn { display: block; width: 100%; padding: 14px; background: transparent; border: 1px solid rgba(197,160,89,0.3); color: var(--mist); font-family: 'Noto Serif TC', serif; font-size: 15px; cursor: pointer; transition: all 0.3s; margin-top: 32px; }
     .logout-btn:hover { border-color: var(--gold); color: var(--gold); }
 
+    .btn-google { width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: var(--pearl); font-family: 'Noto Serif TC', serif; font-size: 15px; letter-spacing: 0.05em; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 4px; }
+    .btn-google:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+
+    /* MODAL */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .modal-box { background: rgba(13,26,14,0.98); border: 1px solid rgba(197,160,89,0.3); padding: 40px 36px; width: 100%; max-width: 420px; position: relative; }
+    .modal-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--pearl); margin-bottom: 8px; text-align: center; }
+    .modal-sub { font-size: 13px; color: var(--mist); text-align: center; margin-bottom: 28px; line-height: 1.6; }
+    .modal-close { position: absolute; top: 16px; right: 20px; font-size: 20px; color: var(--mist); cursor: pointer; background: none; border: none; line-height: 1; }
+    .modal-close:hover { color: var(--gold); }
+    .btn-danger { width: 100%; padding: 13px; background: transparent; border: 1px solid rgba(200,60,60,0.5); color: #f5a5a5; font-family: 'Noto Serif TC', serif; font-size: 15px; cursor: pointer; transition: all 0.3s; margin-top: 12px; }
+    .btn-danger:hover { background: rgba(200,60,60,0.1); border-color: rgba(200,60,60,0.8); }
+    .btn-secondary { width: 100%; padding: 13px; background: transparent; border: 1px solid rgba(197,160,89,0.25); color: var(--mist); font-family: 'Noto Serif TC', serif; font-size: 15px; cursor: pointer; transition: all 0.3s; margin-top: 8px; }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+    .otp-input { letter-spacing: 0.4em; text-align: center; font-size: 24px; font-family: 'Cormorant Garamond', serif; }
+
     .hidden { display: none !important; }
     .loading { text-align: center; padding: 80px 20px; color: var(--mist); font-size: 16px; letter-spacing: 0.1em; }
 
     @media (max-width: 600px) {
-      .auth-card { padding: 36px 24px; }
+      .auth-card, .setup-card { padding: 36px 24px; }
       .member-card { padding: 28px 24px; }
       .card-points-row { gap: 24px; }
       .card-points-value { font-size: 28px; }
       .tier-badge { display: none; }
+      .avatar-section { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
 
+<div id="toast" class="toast"></div>
+<input type="file" id="avatar-file-input" accept="image/*" style="display:none" onchange="handleAvatarUpload(event)" />
+
 <nav class="nav">
-  <div class="nav-brand">Magic Garden 蝢??勗?</div>
-  <a href="index.html" class="nav-back">???蜓??/a>
+  <div class="nav-brand">Magic Garden 美肌花園</div>
+  <a href="index.html" class="nav-back">← 返回首頁</a>
 </nav>
 
 <div class="main">
-  <div id="loading" class="loading">頛銝?..</div>
+  <div id="loading" class="loading">
+    <div style="margin-bottom:16px;font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.4em;color:rgba(197,160,89,0.6);">MAGIC GARDEN</div>
+    <div>載入中...</div>
+  </div>
 
-  <!-- ?餃/閮餃? -->
+  <!-- 登入／註冊 -->
   <div id="auth-section" class="auth-box hidden">
     <div class="auth-card">
       <div class="auth-title">Magic Garden</div>
-      <div class="auth-sub">蝢??勗??銝剖?</div>
+      <div class="auth-sub">美肌花園 會員中心</div>
       <div class="auth-tabs">
-        <div class="auth-tab active" id="tab-login" onclick="switchTab('login')">??餃</div>
-        <div class="auth-tab" id="tab-register" onclick="switchTab('register')">蝡?</div>
+        <div class="auth-tab active" id="tab-login" onclick="switchTab('login')">登入</div>
+        <div class="auth-tab" id="tab-register" onclick="switchTab('register')">註冊</div>
       </div>
 
-      <!-- ?餃銵典 -->
+      <!-- 登入表單 -->
       <div id="form-login">
-        <div class="form-group">
-          <label class="form-label">?餃??萎辣</label>
-          <input class="form-input" type="email" id="login-email" placeholder="your@email.com" />
+        <!-- Google 登入放最上面 -->
+        <button class="btn-google" onclick="loginGoogle()">
+          <svg width="18" height="18" viewBox="0 0 24 24" style="flex-shrink:0"><path fill="#EA4335" d="M5.266 9.765A7.077 7.077 0 0 1 12 4.909c1.69 0 3.218.6 4.418 1.582L19.91 3C17.782 1.145 15.055 0 12 0 7.27 0 3.198 2.698 1.24 6.65l4.026 3.115Z"/><path fill="#34A853" d="M16.04 18.013c-1.09.703-2.474 1.078-4.04 1.078a7.077 7.077 0 0 1-6.723-4.823l-4.04 3.067A11.965 11.965 0 0 0 12 24c2.933 0 5.735-1.043 7.834-3l-3.793-2.987Z"/><path fill="#4A90E2" d="M19.834 21c2.195-2.048 3.62-5.096 3.62-9 0-.71-.109-1.473-.272-2.182H12v4.637h6.436c-.317 1.559-1.17 2.766-2.395 3.558L19.834 21Z"/><path fill="#FBBC05" d="M5.277 14.268A7.12 7.12 0 0 1 4.909 12c0-.782.125-1.533.357-2.235L1.24 6.65A11.934 11.934 0 0 0 0 12c0 1.92.445 3.73 1.237 5.335l4.04-3.067Z"/></svg>
+          使用 Google 帳號登入
+        </button>
+        <div style="display:flex;align-items:center;gap:12px;margin:20px 0;">
+          <div style="flex:1;height:1px;background:rgba(197,160,89,0.2);"></div>
+          <span style="font-size:13px;color:var(--mist);white-space:nowrap;">或用信箱登入</span>
+          <div style="flex:1;height:1px;background:rgba(197,160,89,0.2);"></div>
         </div>
         <div class="form-group">
-          <label class="form-label">撖Ⅳ</label>
-          <input class="form-input" type="password" id="login-password" placeholder="?ＴＴＴＴＴＴＴ? />
+          <label class="form-label">電子信箱</label>
+          <input class="form-input" type="email" id="login-email" placeholder="your@gmail.com" autocomplete="email" />
         </div>
-        <button class="btn-submit" onclick="login()">?餃?</button>
-        <div id="login-msg"></div>
+        <div class="form-group">
+          <label class="form-label">密碼</label>
+          <div class="input-wrap">
+            <input class="form-input" type="password" id="login-password" placeholder="請輸入密碼" autocomplete="new-password" style="padding-right:52px" />
+            <span class="pw-toggle" onclick="togglePw('login-password', this)">顯示</span>
+          </div>
+        </div>
+        <button class="btn-submit" onclick="login()">登入</button>
+        <div id="login-msg" style="margin-top:16px;padding:12px;font-size:15px;text-align:center;border-radius:2px;"></div>
+        <div style="text-align:center;margin-top:16px;">
+          <span onclick="showForgotPassword()" style="font-size:13px;color:var(--mist);cursor:pointer;border-bottom:1px solid rgba(158,168,156,0.3);padding-bottom:1px;transition:color 0.2s;" onmouseover="this.style.color='#C5A059'" onmouseout="this.style.color='var(--mist)'">忘記密碼？</span>
+        </div>
       </div>
 
-      <!-- 閮餃?銵典 -->
+      <!-- 註冊表單 -->
       <div id="form-register" class="hidden">
         <div class="form-group">
-          <label class="form-label">憪?</label>
-          <input class="form-input" type="text" id="reg-name" placeholder="?函?憪?" />
+          <label class="form-label">電子信箱</label>
+          <input class="form-input" type="email" id="reg-email" placeholder="your@gmail.com" autocomplete="email" />
         </div>
         <div class="form-group">
-          <label class="form-label">???Ⅳ</label>
-          <input class="form-input" type="tel" id="reg-phone" placeholder="09XX-XXX-XXX" />
+          <label class="form-label">密碼</label>
+          <div class="input-wrap">
+            <input class="form-input" type="password" id="reg-password" placeholder="8–16 字元" autocomplete="new-password" style="padding-right:52px" oninput="checkPwStrength(this.value)" />
+            <span class="pw-toggle" onclick="togglePw('reg-password', this)">顯示</span>
+          </div>
+          <div class="pw-rules">
+            <div class="pw-rule" id="rule-len">長度 8–16 字元</div>
+            <div class="pw-rule" id="rule-upper">包含大寫英文字母（A–Z）</div>
+            <div class="pw-rule" id="rule-lower">包含小寫英文字母（a–z）</div>
+            <div class="pw-rule" id="rule-num">包含數字（0–9）</div>
+          </div>
         </div>
         <div class="form-group">
-          <label class="form-label">?餃??萎辣</label>
-          <input class="form-input" type="email" id="reg-email" placeholder="your@email.com" />
+          <label class="form-label">確認密碼</label>
+          <div class="input-wrap">
+            <input class="form-input" type="password" id="reg-confirm" placeholder="再次輸入密碼" autocomplete="new-password" style="padding-right:52px" />
+            <span class="pw-toggle" onclick="togglePw('reg-confirm', this)">顯示</span>
+          </div>
         </div>
-        <div class="form-group">
-          <label class="form-label">閮剖?撖Ⅳ嚗撠?6 雿?</label>
-          <input class="form-input" type="password" id="reg-password" placeholder="?ＴＴＴＴＴＴＴ? />
-        </div>
-        <div class="form-group">
-          <label class="form-label">蝣箄?撖Ⅳ</label>
-          <input class="form-input" type="password" id="reg-confirm" placeholder="?ＴＴＴＴＴＴＴ? />
-        </div>
-        <button class="btn-submit" onclick="register()">??</button>
+        <button class="btn-submit" onclick="register()">建立帳號</button>
         <div id="register-msg"></div>
       </div>
     </div>
   </div>
 
-  <!-- ??銵冽 -->
+  <!-- 個人資料設定（首次登入） -->
+  <div id="setup-section" class="setup-box hidden">
+    <div class="setup-card">
+      <div style="text-align:center;margin-bottom:12px;font-size:13px;color:#6fcf8a;letter-spacing:0.08em;">✓ 登入成功</div>
+      <div class="setup-title">完善個人資料</div>
+      <div class="setup-sub">請填寫以下資料以完成會員設定<br>生日一經儲存即無法修改</div>
+      <div class="form-group">
+        <label class="form-label">姓名 <span style="color:#f5a5a5">*</span></label>
+        <input class="form-input" type="text" id="setup-name" placeholder="請輸入真實姓名" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">電話號碼 <span style="color:#f5a5a5">*</span></label>
+        <input class="form-input" type="tel" id="setup-phone" placeholder="09XX-XXX-XXX" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">
+          生日 <span style="color:#f5a5a5">*</span>
+          <span id="birthday-locked-badge" class="locked-badge hidden">🔒 已鎖定</span>
+        </label>
+        <input class="form-input" type="date" id="setup-birthday" />
+        <div class="form-hint" id="birthday-hint">生日僅能設定一次，儲存後將無法更改</div>
+      </div>
+      <button class="btn-submit" onclick="saveProfile()">儲存資料</button>
+      <div id="setup-msg"></div>
+    </div>
+  </div>
+
+  <!-- 會員儀表板 -->
   <div id="dashboard-section" class="dashboard hidden">
 
-    <!-- ???-->
-    <div class="member-card" id="member-card">
+    <!-- 個人檔案 -->
+    <div class="avatar-section">
+      <div class="avatar-wrap">
+        <div class="avatar-ring" onclick="document.getElementById('avatar-file-input').click()" title="點擊更換大頭貼">
+          <div id="avatar-display" class="avatar-initials">?</div>
+        </div>
+        <div class="avatar-edit-hint">點擊更換照片</div>
+      </div>
+      <div class="avatar-info">
+        <div class="avatar-info-name" id="profile-name">—</div>
+        <div class="avatar-info-row" id="profile-email"></div>
+        <div class="avatar-info-row" id="profile-phone"></div>
+        <div class="avatar-info-row" id="profile-birthday"></div>
+      </div>
+    </div>
+
+    <!-- 會員卡 -->
+    <div class="member-card">
       <div class="card-tier" id="card-tier-label">MAGIC GARDEN MEMBER</div>
-      <div class="card-name" id="card-name">??/div>
-      <div class="card-email" id="card-email">??/div>
-      <div class="tier-badge" id="card-tier-badge">銝?祆???/div>
+      <div class="card-name" id="card-name">—</div>
+      <div class="tier-badge" id="card-tier-badge">入門會員</div>
       <div class="card-points-row">
-        <div class="card-points-item">
-          <div class="card-points-label">?舐暺</div>
+        <div>
+          <div class="card-points-label">可用點數</div>
           <div>
             <span class="card-points-value" id="card-points">0</span>
-            <span class="card-points-unit">暺?/span>
+            <span class="card-points-unit">點</span>
           </div>
         </div>
-        <div class="card-points-item">
-          <div class="card-points-label">蝝舐?蝮賡???/div>
+        <div>
+          <div class="card-points-label">累計獲得點數</div>
           <div>
             <span class="card-points-value" id="card-total">0</span>
-            <span class="card-points-unit">暺?/span>
+            <span class="card-points-unit">點</span>
           </div>
         </div>
       </div>
       <div class="progress-bar-wrap" id="progress-wrap">
         <div class="progress-label">
-          <span id="progress-current-tier">銝?祆???/span>
-          <span id="progress-next-tier">??⊥???(1,000暺?</span>
+          <span id="progress-current-tier">入門會員</span>
+          <span id="progress-next-tier">銀卡會員 (1,000點)</span>
         </div>
         <div class="progress-bar">
           <div class="progress-fill" id="progress-fill" style="width:0%"></div>
@@ -189,67 +306,198 @@
       </div>
     </div>
 
-    <!-- 蝑?隤芣? -->
+    <!-- 等級說明 -->
     <div class="section" style="margin-bottom:20px;">
-      <div class="section-header"><div class="section-title">?蝑??嗅漲</div></div>
+      <div class="section-header"><div class="section-title">會員等級說明</div></div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(197,160,89,0.1);">
         <div style="padding:20px 16px;background:rgba(13,26,14,0.8);text-align:center;">
-          <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.3em;color:var(--mist);margin-bottom:8px;">銝?祆???/div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--pearl);">0 ??999</div>
-          <div style="font-size:12px;color:var(--mist);margin-top:4px;">暺?/div>
+          <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.3em;color:var(--mist);margin-bottom:8px;">入門會員</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--pearl);">0 至 999</div>
+          <div style="font-size:12px;color:var(--mist);margin-top:4px;">點</div>
         </div>
         <div style="padding:20px 16px;background:rgba(13,26,14,0.8);text-align:center;">
-          <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.3em;color:#C0C0C0;margin-bottom:8px;">??⊥???/div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--pearl);">1,000 ??4,999</div>
-          <div style="font-size:12px;color:var(--mist);margin-top:4px;">暺?/div>
+          <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.3em;color:#C0C0C0;margin-bottom:8px;">銀卡會員</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--pearl);">1,000 至 4,999</div>
+          <div style="font-size:12px;color:var(--mist);margin-top:4px;">點</div>
         </div>
         <div style="padding:20px 16px;background:rgba(13,26,14,0.8);text-align:center;">
-          <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.3em;color:var(--gold);margin-bottom:8px;">??</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--pearl);">5,000 ??14,999</div>
-          <div style="font-size:12px;color:var(--mist);margin-top:4px;">暺?/div>
+          <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.3em;color:var(--gold);margin-bottom:8px;">金卡</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--pearl);">5,000 至 14,999</div>
+          <div style="font-size:12px;color:var(--mist);margin-top:4px;">點</div>
         </div>
         <div style="padding:20px 16px;background:rgba(13,26,14,0.8);text-align:center;">
-          <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.3em;color:#E8D5A3;margin-bottom:8px;">VIP 暺</div>
+          <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.3em;color:#E8D5A3;margin-bottom:8px;">VIP 鑽石</div>
           <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--pearl);">15,000+</div>
-          <div style="font-size:12px;color:var(--mist);margin-top:4px;">暺?/div>
+          <div style="font-size:12px;color:var(--mist);margin-top:4px;">點</div>
         </div>
       </div>
     </div>
 
-    <!-- 暺蝝??-->
+    <!-- 點數記錄 -->
     <div class="section">
-      <div class="section-header"><div class="section-title">暺蝝??/div></div>
-      <div class="section-body" id="points-list">
-        <div class="empty-state">撠暺蝝??/div>
-      </div>
+      <div class="section-header"><div class="section-title">點數記錄</div></div>
+      <div id="points-list"><div class="empty-state">尚無點數記錄</div></div>
     </div>
 
-    <!-- ??蝝??-->
+    <!-- 消費記錄 -->
     <div class="section">
-      <div class="section-header"><div class="section-title">??蝝??/div></div>
-      <div class="section-body" id="services-list">
-        <div class="empty-state">撠??蝝??/div>
-      </div>
+      <div class="section-header"><div class="section-title">消費記錄</div></div>
+      <div id="services-list"><div class="empty-state">尚無消費記錄</div></div>
     </div>
 
-    <button class="logout-btn" onclick="logout()">?餃?</button>
+    <button class="logout-btn" id="logout-btn">登出</button>
+    <div style="text-align:center;margin-top:16px;">
+      <span onclick="showDeleteModal()" style="font-size:13px;color:rgba(200,100,100,0.6);cursor:pointer;border-bottom:1px solid rgba(200,100,100,0.2);padding-bottom:1px;transition:color 0.2s;" onmouseover="this.style.color='#f5a5a5'" onmouseout="this.style.color='rgba(200,100,100,0.6)'">註銷帳號</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── 忘記密碼 Modal ── -->
+<div id="forgot-modal" class="modal-overlay hidden">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('forgot-modal').classList.add('hidden')">✕</button>
+    <div class="modal-title">重設密碼</div>
+    <div class="modal-sub" id="forgot-sub">輸入您的電子信箱，我們將寄送重設連結</div>
+    <div id="forgot-form">
+      <div class="form-group">
+        <label class="form-label">電子信箱</label>
+        <input class="form-input" type="email" id="forgot-email" placeholder="your@gmail.com" />
+      </div>
+      <button class="btn-submit" onclick="sendForgotPassword()">寄送重設連結</button>
+      <div id="forgot-msg" style="margin-top:14px;font-size:14px;text-align:center;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 重設密碼 Modal（從信箱連結回來時） ── -->
+<div id="reset-modal" class="modal-overlay hidden">
+  <div class="modal-box">
+    <div class="modal-title">設定新密碼</div>
+    <div class="modal-sub">請輸入您的新密碼</div>
+    <div class="form-group">
+      <label class="form-label">新密碼</label>
+      <div class="input-wrap">
+        <input class="form-input" type="password" id="reset-password" placeholder="8–16 字元" style="padding-right:52px" oninput="checkPwStrength2(this.value)" />
+        <span class="pw-toggle" onclick="togglePw('reset-password', this)">顯示</span>
+      </div>
+      <div class="pw-rules" style="margin-top:8px;">
+        <div class="pw-rule" id="r2-len">長度 8–16 字元</div>
+        <div class="pw-rule" id="r2-upper">包含大寫英文字母（A–Z）</div>
+        <div class="pw-rule" id="r2-lower">包含小寫英文字母（a–z）</div>
+        <div class="pw-rule" id="r2-num">包含數字（0–9）</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">確認新密碼</label>
+      <div class="input-wrap">
+        <input class="form-input" type="password" id="reset-confirm" placeholder="再次輸入" style="padding-right:52px" />
+        <span class="pw-toggle" onclick="togglePw('reset-confirm', this)">顯示</span>
+      </div>
+    </div>
+    <button class="btn-submit" onclick="doResetPassword()">確認更新密碼</button>
+    <div id="reset-msg" style="margin-top:14px;font-size:14px;text-align:center;"></div>
+  </div>
+</div>
+
+<!-- ── 刪除帳號 Modal ── -->
+<div id="delete-modal" class="modal-overlay hidden">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('delete-modal').classList.add('hidden')">✕</button>
+    <div id="delete-step1">
+      <div class="modal-title" style="color:#f5a5a5;">⚠ 註銷帳號</div>
+      <div class="modal-sub">此操作<strong style="color:#f5a5a5;">無法復原</strong>，帳號及所有資料將永久刪除。<br>我們將寄送驗證碼到您的信箱確認身份。</div>
+      <button class="btn-danger" onclick="sendDeleteOTP()">寄送驗證碼到信箱</button>
+      <button class="btn-secondary" onclick="document.getElementById('delete-modal').classList.add('hidden')">取消</button>
+      <div id="delete-msg1" style="margin-top:14px;font-size:14px;text-align:center;"></div>
+    </div>
+    <div id="delete-step2" class="hidden">
+      <div class="modal-title" style="color:#f5a5a5;">輸入驗證碼</div>
+      <div class="modal-sub" id="delete-otp-hint">請輸入寄到信箱的 6 位數驗證碼</div>
+      <div class="form-group" style="margin-top:8px;">
+        <input class="form-input otp-input" type="text" id="delete-otp" placeholder="000000" maxlength="6" />
+      </div>
+      <button class="btn-danger" onclick="confirmDeleteAccount()">確認刪除帳號</button>
+      <button class="btn-secondary" onclick="showDeleteStep(1)">重新寄送</button>
+      <div id="delete-msg2" style="margin-top:14px;font-size:14px;text-align:center;"></div>
+    </div>
   </div>
 </div>
 
 <script>
+  // ── Toast ──
+  function showToast(text) {
+    const t = document.getElementById('toast');
+    t.textContent = text;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 4000);
+  }
+
+  // ── 大頭貼 ──
+  function setAvatarDisplay(src, initials) {
+    const el = document.getElementById('avatar-display');
+    if (src) {
+      el.style.cssText = 'width:82px;height:82px;border-radius:50%;overflow:hidden;';
+      el.innerHTML = `<img src="${src}" style="width:100%;height:100%;object-fit:cover;" />`;
+    } else {
+      el.className = 'avatar-initials';
+      el.style.cssText = '';
+      el.textContent = initials || '?';
+    }
+  }
+
+  async function handleAvatarUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      const base64 = e.target.result;
+      setAvatarDisplay(base64, null);
+      await sb.auth.updateUser({ data: { avatar: base64 } });
+      showToast('大頭貼已更新');
+    };
+    reader.readAsDataURL(file);
+  }
+
+  // ── Supabase ──
   const SUPABASE_URL = 'https://fplhhulzvcahvdujmwfj.supabase.co';
   const SUPABASE_KEY = 'sb_publishable_5MUc48gygOAJCzxr_WEGqg_meuCQY6E';
-  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+    auth: {
+      detectSessionInUrl: true,
+      persistSession: true,
+      autoRefreshToken: true,
+    }
+  });
 
-  const TIERS = [
-    { name: '銝?祆???, min: 0,     max: 999,   next: '??⊥???, nextMin: 1000 },
-    { name: '??⊥???, min: 1000,  max: 4999,  next: '??', nextMin: 5000 },
-    { name: '??', min: 5000,  max: 14999, next: 'VIP 暺', nextMin: 15000 },
-    { name: 'VIP 暺', min: 15000, max: Infinity, next: null,    nextMin: null },
-  ];
+  let currentUserEmail = '';
 
-  function getTier(total) {
-    return TIERS.find(t => total >= t.min && total <= t.max) || TIERS[0];
+  // ── 驗證 ──
+  function validateEmail(email) {
+    if (!email) return '請輸入電子信箱';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return '請輸入有效的電子信箱格式';
+    return null;
+  }
+
+  function validatePassword(pw) {
+    if (!pw) return '請輸入密碼';
+    if (pw.length < 8 || pw.length > 16) return '密碼長度需為 8–16 字元';
+    if (!/[A-Z]/.test(pw)) return '密碼須包含大寫英文字母';
+    if (!/[a-z]/.test(pw)) return '密碼須包含小寫英文字母';
+    if (!/[0-9]/.test(pw)) return '密碼須包含數字';
+    return null;
+  }
+
+  // ── UI ──
+  function showMsg(id, text, type) {
+    const el = document.getElementById(id);
+    el.className = 'msg ' + (type || '');
+    el.textContent = text;
+  }
+
+  function togglePw(inputId, btn) {
+    const input = document.getElementById(inputId);
+    if (input.type === 'password') { input.type = 'text'; btn.textContent = '隱藏'; }
+    else { input.type = 'password'; btn.textContent = '顯示'; }
   }
 
   function switchTab(tab) {
@@ -257,115 +505,372 @@
     document.getElementById('form-register').classList.toggle('hidden', tab !== 'register');
     document.getElementById('tab-login').classList.toggle('active', tab === 'login');
     document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+    document.getElementById('login-msg').textContent = '';
+    document.getElementById('register-msg').textContent = '';
   }
 
-  function showMsg(id, text, type) {
-    const el = document.getElementById(id);
-    el.className = 'msg ' + type;
-    el.textContent = text;
+  function checkPwStrength(pw) {
+    document.getElementById('rule-len').classList.toggle('ok', pw.length >= 8 && pw.length <= 16);
+    document.getElementById('rule-upper').classList.toggle('ok', /[A-Z]/.test(pw));
+    document.getElementById('rule-lower').classList.toggle('ok', /[a-z]/.test(pw));
+    document.getElementById('rule-num').classList.toggle('ok', /[0-9]/.test(pw));
   }
 
+  function showSection(name) {
+    ['loading','auth-section','setup-section','dashboard-section'].forEach(id => {
+      document.getElementById(id).classList.add('hidden');
+    });
+    document.getElementById(name).classList.remove('hidden');
+  }
+
+  // ── Google 登入 ──
+  async function loginGoogle() {
+    const el = document.getElementById('login-msg');
+    el.style.cssText = 'margin-top:16px;padding:14px;font-size:15px;text-align:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);color:#e8d5c4;';
+    el.textContent = '正在跳轉到 Google 登入...';
+    try {
+      const { data, error } = await sb.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: 'https://mgd-beauty-garden.pages.dev/member.html',
+          skipBrowserRedirect: false,
+          queryParams: { prompt: 'select_account' }
+        }
+      });
+      if (error) throw error;
+      if (data?.url) {
+        window.location.assign(data.url);
+      } else {
+        el.style.cssText = 'margin-top:16px;padding:14px;font-size:15px;text-align:center;background:rgba(180,60,60,0.2);border:1px solid rgba(180,60,60,0.4);color:#f5a5a5;';
+        el.textContent = '⚠ 無法取得 Google 登入連結（data.url 為空），請確認 Supabase Google 設定是否正確';
+      }
+    } catch(e) {
+      el.style.cssText = 'margin-top:16px;padding:14px;font-size:15px;text-align:center;background:rgba(180,60,60,0.2);border:1px solid rgba(180,60,60,0.4);color:#f5a5a5;';
+      el.textContent = '⚠ Google 登入錯誤：' + (e.message || JSON.stringify(e));
+    }
+  }
+
+  // ── 登入 ──
   async function login() {
     const email = document.getElementById('login-email').value.trim();
     const password = document.getElementById('login-password').value;
-    if (!email || !password) return showMsg('login-msg', '隢‵撖恍摮隞嗉?撖Ⅳ', 'error');
-    showMsg('login-msg', '?餃銝?..', '');
-    const { error } = await sb.auth.signInWithPassword({ email, password });
-    if (error) showMsg('login-msg', '?餃憭望?嚗? + (error.message === 'Invalid login credentials' ? '撣唾???蝣潮隤? : error.message), 'error');
+    const emailErr = validateEmail(email);
+    if (emailErr) return showMsg('login-msg', emailErr, 'error');
+    if (!password) return showMsg('login-msg', '請輸入密碼', 'error');
+    showMsg('login-msg', '登入中...', 'info');
+    const { data, error } = await sb.auth.signInWithPassword({ email, password });
+    if (error) {
+      let msg = error.message;
+      if (msg.includes('Invalid login credentials') || msg.includes('invalid_credentials')) {
+        msg = '信箱或密碼錯誤，請確認後重試';
+      } else if (msg.includes('Email not confirmed')) {
+        msg = '帳號尚未驗證，請至信箱點擊確認連結';
+      } else if (msg.includes('Too many requests')) {
+        msg = '嘗試次數過多，請稍後再試';
+      }
+      const el = document.getElementById('login-msg');
+      el.style.cssText = 'margin-top:16px;padding:14px;font-size:15px;text-align:center;background:rgba(180,60,60,0.2);border:1px solid rgba(180,60,60,0.4);color:#f5a5a5;';
+      el.textContent = '⚠ ' + msg;
+    }
   }
 
+  // ── 註冊 ──
   async function register() {
-    const name = document.getElementById('reg-name').value.trim();
-    const phone = document.getElementById('reg-phone').value.trim();
     const email = document.getElementById('reg-email').value.trim();
     const password = document.getElementById('reg-password').value;
     const confirm = document.getElementById('reg-confirm').value;
-    if (!name || !email || !password) return showMsg('register-msg', '隢‵撖急???憛急?雿?, 'error');
-    if (password !== confirm) return showMsg('register-msg', '?拇活撖Ⅳ銝???, 'error');
-    if (password.length < 6) return showMsg('register-msg', '撖Ⅳ?喳??閬?6 ????, 'error');
-    showMsg('register-msg', '撱箇?撣唾?銝?..', '');
+    const emailErr = validateEmail(email);
+    if (emailErr) return showMsg('register-msg', emailErr, 'error');
+    const pwErr = validatePassword(password);
+    if (pwErr) return showMsg('register-msg', pwErr, 'error');
+    if (password !== confirm) return showMsg('register-msg', '兩次密碼不一致', 'error');
+    showMsg('register-msg', '建立帳號中...', 'info');
     const { error } = await sb.auth.signUp({
       email, password,
-      options: { data: { name, phone } }
+      options: { emailRedirectTo: 'https://mgd-beauty-garden.pages.dev/member.html' }
     });
-    if (error) showMsg('register-msg', '閮餃?憭望?嚗? + error.message, 'error');
-    else showMsg('register-msg', '閮餃???嚗??交撽?靽∴?撽?敺?舐??, 'success');
-  }
-
-  async function logout() {
-    await sb.auth.signOut();
-  }
-
-  async function loadDashboard(user) {
-    const { data: profile } = await sb.from('profiles').select('*').eq('id', user.id).single();
-    if (!profile) return;
-
-    const tier = getTier(profile.total_earned || 0);
-    document.getElementById('card-name').textContent = profile.name || user.email;
-    document.getElementById('card-email').textContent = profile.email || user.email;
-    document.getElementById('card-tier-badge').textContent = tier.name;
-    document.getElementById('card-tier-label').textContent = 'MAGIC GARDEN 繚 ' + tier.name.toUpperCase();
-    document.getElementById('card-points').textContent = (profile.points || 0).toLocaleString();
-    document.getElementById('card-total').textContent = (profile.total_earned || 0).toLocaleString();
-
-    // Progress bar
-    if (tier.next) {
-      const progress = Math.min(100, ((profile.total_earned - tier.min) / (tier.nextMin - tier.min)) * 100);
-      document.getElementById('progress-fill').style.width = progress + '%';
-      document.getElementById('progress-current-tier').textContent = tier.name;
-      document.getElementById('progress-next-tier').textContent = tier.next + ' (' + tier.nextMin.toLocaleString() + '暺?';
+    if (error) {
+      showMsg('register-msg', '註冊失敗：' + error.message, 'error');
     } else {
-      document.getElementById('progress-wrap').innerHTML = '<div style="text-align:center;font-size:14px;color:var(--gold);margin-top:16px;letter-spacing:0.1em;">???典歇??擃?蝝?VIP 暺 ??/div>';
+      showMsg('register-msg', '帳號建立成功！請至信箱點擊確認連結後登入。', 'success');
+      setTimeout(() => switchTab('login'), 2500);
+    }
+  }
+
+  // ── 儲存個人資料 ──
+  async function saveProfile() {
+    const name = document.getElementById('setup-name').value.trim();
+    const phone = document.getElementById('setup-phone').value.trim();
+    const birthday = document.getElementById('setup-birthday').value;
+    const birthdayDisabled = document.getElementById('setup-birthday').disabled;
+    if (!name) return showMsg('setup-msg', '請輸入姓名', 'error');
+    if (!phone) return showMsg('setup-msg', '請輸入電話號碼', 'error');
+    if (!birthdayDisabled && !birthday) return showMsg('setup-msg', '請輸入生日', 'error');
+    showMsg('setup-msg', '儲存中...', 'info');
+    const { data: { user } } = await sb.auth.getUser();
+    if (!user) return showMsg('setup-msg', '請重新登入', 'error');
+    const updateData = { name, phone };
+    if (!birthdayDisabled && birthday) updateData.birthday = birthday;
+    const { error } = await sb.auth.updateUser({ data: updateData });
+    if (error) return showMsg('setup-msg', '儲存失敗：' + error.message, 'error');
+    const payload = { id: user.id, name, phone };
+    if (!birthdayDisabled && birthday) payload.birthday = birthday;
+    await sb.from('profiles').upsert(payload);
+    showMsg('setup-msg', '資料已儲存！', 'success');
+    setTimeout(async () => {
+      await loadDashboard(user);
+      showToast('歡迎加入 Magic Garden，' + name + '！');
+    }, 800);
+  }
+
+  // ── 等級 ──
+  const TIERS = [
+    { name: '入門會員', min: 0,     max: 999,   next: '銀卡會員', nextMin: 1000 },
+    { name: '銀卡會員', min: 1000,  max: 4999,  next: '金卡',     nextMin: 5000 },
+    { name: '金卡',     min: 5000,  max: 14999, next: 'VIP 鑽石', nextMin: 15000 },
+    { name: 'VIP 鑽石', min: 15000, max: Infinity, next: null, nextMin: null },
+  ];
+
+  function getTier(total) {
+    return TIERS.find(t => total >= t.min && total <= t.max) || TIERS[0];
+  }
+
+  // ── 儀表板 ──
+  async function loadDashboard(user) {
+    // 先用 user_metadata（不需等待網路）
+    const meta = user.user_metadata || {};
+
+    if (!meta.name || !meta.phone || !meta.birthday) {
+      showSection('setup-section');
+      const autoName = meta.name || meta.full_name || user.email || '';
+      showToast('✓ 登入成功！請完善您的個人資料');
+      if (autoName) document.getElementById('setup-name').value = autoName;
+      if (meta.phone) document.getElementById('setup-phone').value = meta.phone;
+      if (meta.birthday) {
+        document.getElementById('setup-birthday').value = meta.birthday;
+        document.getElementById('setup-birthday').disabled = true;
+        document.getElementById('birthday-locked-badge').classList.remove('hidden');
+        document.getElementById('birthday-hint').textContent = '生日已設定，無法再次修改';
+      }
+      return;
     }
 
-    // Points history
+    // 立刻顯示畫面，不等資料庫
+    currentUserEmail = user.email || '';
+    const displayName = meta.name || meta.full_name || user.email || '會員';
+    showSection('dashboard-section');
+    setTimeout(() => showToast('✓ 歡迎回來，' + displayName + '！'), 300);
+
+    const initials = displayName.charAt(0).toUpperCase();
+    // 優先用自訂頭像，其次用 Google 頭像
+    const avatarSrc = meta.avatar || meta.avatar_url || meta.picture || null;
+    setAvatarDisplay(avatarSrc, initials);
+    document.getElementById('profile-name').textContent = displayName;
+    document.getElementById('card-name').textContent = displayName;
+    document.getElementById('profile-email').textContent = user.email || '';
+    document.getElementById('profile-phone').textContent = meta.phone ? '📞 ' + meta.phone : '';
+    document.getElementById('profile-birthday').textContent = meta.birthday ? '🎂 ' + meta.birthday : '';
+
+    const { data: profile } = await sb.from('profiles').select('*').eq('id', user.id).single();
+    const points = profile?.points || 0;
+    const totalEarned = profile?.total_earned || 0;
+    const tier = getTier(totalEarned);
+
+    document.getElementById('card-name').textContent = meta.name;
+    document.getElementById('card-tier-badge').textContent = tier.name;
+    document.getElementById('card-tier-label').textContent = 'MAGIC GARDEN · ' + tier.name.toUpperCase();
+    document.getElementById('card-points').textContent = points.toLocaleString();
+    document.getElementById('card-total').textContent = totalEarned.toLocaleString();
+
+    if (tier.next) {
+      const pct = Math.min(100, ((totalEarned - tier.min) / (tier.nextMin - tier.min)) * 100);
+      document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('progress-current-tier').textContent = tier.name;
+      document.getElementById('progress-next-tier').textContent = tier.next + ' (' + tier.nextMin.toLocaleString() + '點)';
+    } else {
+      document.getElementById('progress-wrap').innerHTML = '<div style="text-align:center;font-size:14px;color:var(--gold);margin-top:16px;letter-spacing:0.1em;">您已達到最高等級 VIP 鑽石 ✦</div>';
+    }
+
     const { data: history } = await sb.from('points_history').select('*').eq('user_id', user.id).order('created_at', { ascending: false }).limit(20);
     const pList = document.getElementById('points-list');
-    if (history && history.length > 0) {
-      pList.innerHTML = history.map(h => `
-        <div class="history-item">
-          <div>
-            <div class="history-desc">${h.description || '暺?啣?'}</div>
-            <div class="history-date">${new Date(h.created_at).toLocaleDateString('zh-TW')}</div>
-          </div>
-          <div class="history-pts ${h.type === 'earn' ? 'earn' : 'adjust'}">
-            ${h.points > 0 ? '+' : ''}${h.points} 暺?          </div>
-        </div>
-      `).join('');
-    } else {
-      pList.innerHTML = '<div class="empty-state">撠暺蝝??/div>';
-    }
+    pList.innerHTML = (history && history.length > 0)
+      ? history.map(h => `<div class="history-item"><div><div class="history-desc">${h.description || '點數異動'}</div><div class="history-date">${new Date(h.created_at).toLocaleDateString('zh-TW')}</div></div><div class="history-pts ${h.type === 'earn' ? 'earn' : 'adjust'}">${h.points > 0 ? '+' : ''}${h.points} 點</div></div>`).join('')
+      : '<div class="empty-state">尚無點數記錄</div>';
 
-    // Services history
     const { data: services } = await sb.from('services').select('*').eq('user_id', user.id).order('created_at', { ascending: false }).limit(20);
     const sList = document.getElementById('services-list');
-    if (services && services.length > 0) {
-      sList.innerHTML = services.map(s => `
-        <div class="history-item">
-          <div>
-            <div class="history-desc">${s.service_name}</div>
-            <div class="history-date">${new Date(s.created_at).toLocaleDateString('zh-TW')} 繚 瘨祥 NT$ ${s.amount.toLocaleString()}</div>
-          </div>
-          <div class="history-pts earn">+${s.points_earned} 暺?/div>
-        </div>
-      `).join('');
+    sList.innerHTML = (services && services.length > 0)
+      ? services.map(s => `<div class="history-item"><div><div class="history-desc">${s.service_name}</div><div class="history-date">${new Date(s.created_at).toLocaleDateString('zh-TW')} · 消費 NT$ ${s.amount.toLocaleString()}</div></div><div class="history-pts earn">+${s.points_earned} 點</div></div>`).join('')
+      : '<div class="empty-state">尚無消費記錄</div>';
+  }
+
+  function logout() {
+    // 只清除這個 Supabase 專案的 session token
+    const PROJECT = 'fplhhulzvcahvdujmwfj';
+    Object.keys(localStorage).filter(k => k.includes(PROJECT)).forEach(k => localStorage.removeItem(k));
+    window.location.href = 'https://mgd-beauty-garden.pages.dev/member.html';
+  }
+
+  // ── 忘記密碼 ──
+  function showForgotPassword() {
+    document.getElementById('forgot-email').value = document.getElementById('login-email').value || '';
+    document.getElementById('forgot-msg').textContent = '';
+    document.getElementById('forgot-modal').classList.remove('hidden');
+  }
+
+  async function sendForgotPassword() {
+    const email = document.getElementById('forgot-email').value.trim();
+    if (!email) { document.getElementById('forgot-msg').textContent = '請輸入信箱'; return; }
+    document.getElementById('forgot-msg').style.color = 'var(--mist)';
+    document.getElementById('forgot-msg').textContent = '寄送中...';
+    const { error } = await sb.auth.resetPasswordForEmail(email, {
+      redirectTo: 'https://mgd-beauty-garden.pages.dev/member.html'
+    });
+    if (error) {
+      document.getElementById('forgot-msg').style.color = '#f5a5a5';
+      document.getElementById('forgot-msg').textContent = '寄送失敗：' + error.message;
     } else {
-      sList.innerHTML = '<div class="empty-state">撠??蝝??/div>';
+      document.getElementById('forgot-msg').style.color = '#6fcf8a';
+      document.getElementById('forgot-msg').textContent = '✓ 重設連結已寄出，請至信箱查收';
+      document.getElementById('forgot-form').style.opacity = '0.5';
+      document.getElementById('forgot-form').style.pointerEvents = 'none';
     }
   }
 
-  // Auth state listener
-  sb.auth.onAuthStateChange(async (event, session) => {
-    document.getElementById('loading').classList.add('hidden');
-    if (session && session.user) {
-      document.getElementById('auth-section').classList.add('hidden');
-      document.getElementById('dashboard-section').classList.remove('hidden');
-      await loadDashboard(session.user);
+  // ── 重設密碼（從信箱連結回來） ──
+  function checkPwStrength2(pw) {
+    document.getElementById('r2-len').classList.toggle('ok', pw.length >= 8 && pw.length <= 16);
+    document.getElementById('r2-upper').classList.toggle('ok', /[A-Z]/.test(pw));
+    document.getElementById('r2-lower').classList.toggle('ok', /[a-z]/.test(pw));
+    document.getElementById('r2-num').classList.toggle('ok', /[0-9]/.test(pw));
+  }
+
+  async function doResetPassword() {
+    const pw = document.getElementById('reset-password').value;
+    const confirm = document.getElementById('reset-confirm').value;
+    const err = validatePassword(pw);
+    if (err) { document.getElementById('reset-msg').style.color='#f5a5a5'; document.getElementById('reset-msg').textContent = err; return; }
+    if (pw !== confirm) { document.getElementById('reset-msg').style.color='#f5a5a5'; document.getElementById('reset-msg').textContent = '兩次密碼不一致'; return; }
+    document.getElementById('reset-msg').style.color = 'var(--mist)';
+    document.getElementById('reset-msg').textContent = '更新中...';
+    const { error } = await sb.auth.updateUser({ password: pw });
+    if (error) {
+      document.getElementById('reset-msg').style.color = '#f5a5a5';
+      document.getElementById('reset-msg').textContent = '更新失敗：' + error.message;
     } else {
-      document.getElementById('dashboard-section').classList.add('hidden');
-      document.getElementById('auth-section').classList.remove('hidden');
+      document.getElementById('reset-msg').style.color = '#6fcf8a';
+      document.getElementById('reset-msg').textContent = '✓ 密碼已更新！';
+      setTimeout(() => { document.getElementById('reset-modal').classList.add('hidden'); }, 1500);
+    }
+  }
+
+  // ── 刪除帳號 ──
+  function showDeleteModal() {
+    showDeleteStep(1);
+    document.getElementById('delete-modal').classList.remove('hidden');
+  }
+
+  function showDeleteStep(n) {
+    document.getElementById('delete-step1').classList.toggle('hidden', n !== 1);
+    document.getElementById('delete-step2').classList.toggle('hidden', n !== 2);
+    document.getElementById('delete-msg1').textContent = '';
+    document.getElementById('delete-msg2').textContent = '';
+  }
+
+  async function sendDeleteOTP() {
+    const email = currentUserEmail;
+    if (!email) { document.getElementById('delete-msg1').textContent = '找不到信箱，請重新登入'; return; }
+    document.getElementById('delete-msg1').style.color = 'var(--mist)';
+    document.getElementById('delete-msg1').textContent = '寄送中...';
+    const { error } = await sb.auth.signInWithOtp({ email, options: { shouldCreateUser: false } });
+    if (error) {
+      document.getElementById('delete-msg1').style.color = '#f5a5a5';
+      document.getElementById('delete-msg1').textContent = '寄送失敗：' + error.message;
+    } else {
+      document.getElementById('delete-otp-hint').textContent = '驗證碼已寄至 ' + email;
+      showDeleteStep(2);
+    }
+  }
+
+  async function confirmDeleteAccount() {
+    const otp = document.getElementById('delete-otp').value.trim();
+    if (otp.length !== 6) { document.getElementById('delete-msg2').style.color='#f5a5a5'; document.getElementById('delete-msg2').textContent='請輸入 6 位數驗證碼'; return; }
+    document.getElementById('delete-msg2').style.color = 'var(--mist)';
+    document.getElementById('delete-msg2').textContent = '驗證中...';
+    const { error: otpErr } = await sb.auth.verifyOtp({ email: currentUserEmail, token: otp, type: 'email' });
+    if (otpErr) {
+      document.getElementById('delete-msg2').style.color = '#f5a5a5';
+      document.getElementById('delete-msg2').textContent = '驗證碼錯誤，請重試';
+      return;
+    }
+    document.getElementById('delete-msg2').textContent = '刪除帳號中...';
+    const { error: delErr } = await sb.rpc('delete_current_user');
+    if (delErr) {
+      document.getElementById('delete-msg2').style.color = '#f5a5a5';
+      document.getElementById('delete-msg2').textContent = '刪除失敗：' + delErr.message;
+      return;
+    }
+    showToast('帳號已成功刪除');
+    setTimeout(() => { window.location.href = 'member.html'; }, 1500);
+  }
+
+  // 頁面載入時清空密碼欄
+  window.addEventListener('load', () => {
+    document.getElementById('login-password').value = '';
+    document.getElementById('login-email').value = '';
+    // 檢查是否從重設密碼信箱連結回來（implicit flow 用 hash）
+    const hash = window.location.hash;
+    if (hash.includes('type=recovery')) {
+      document.getElementById('reset-modal').classList.remove('hidden');
     }
   });
+
+  document.getElementById('logout-btn').addEventListener('click', logout);
+
+  // ── Auth 監聽 ──
+  let dashboardLoaded = false;
+  // PKCE: ?code= in URL；implicit: #access_token in hash
+  const isOAuthCallback = window.location.search.includes('code=') ||
+                          window.location.hash.includes('access_token');
+
+  async function handleSession(session) {
+    if (!session || !session.user || dashboardLoaded) return;
+    dashboardLoaded = true;
+    // 清除 OAuth 參數
+    if (window.location.search || window.location.hash)
+      history.replaceState(null, '', window.location.pathname);
+    try {
+      await loadDashboard(session.user);
+    } catch(e) {
+      console.error('loadDashboard error:', e);
+      showSection('auth-section');
+    }
+  }
+
+  sb.auth.onAuthStateChange(async (event, session) => {
+    if (event === 'PASSWORD_RECOVERY') {
+      showSection('auth-section');
+      document.getElementById('reset-modal').classList.remove('hidden');
+      return;
+    }
+    if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
+      await handleSession(session);
+    } else if (event === 'SIGNED_OUT') {
+      dashboardLoaded = false;
+      showSection('auth-section');
+    } else if (event === 'INITIAL_SESSION') {
+      if (session && session.user) {
+        await handleSession(session);
+      } else if (!isOAuthCallback) {
+        showSection('auth-section');
+      }
+    }
+  });
+
+  // 備用：OAuth callback 等 10 秒，一般頁面 3 秒
+  setTimeout(() => {
+    if (!dashboardLoaded) showSection('auth-section');
+  }, isOAuthCallback ? 10000 : 3000);
 </script>
 </body>
 </html>

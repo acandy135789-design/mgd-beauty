@@ -20,7 +20,12 @@
       "PowerShell(ls \"$env:APPDATA\\\\netlify\\\\Config\")",
       "PowerShell(\\(Get-Command netlify -ErrorAction SilentlyContinue\\).Source; netlify --version 2>&1)",
       "PowerShell(npm install -g netlify-cli 2>&1)",
-      "PowerShell(npm install -g @anthropic-ai/claude-code)"
+      "PowerShell(npm install -g @anthropic-ai/claude-code)",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "PowerShell(cd \"d:\\\\美肌花園網站\"; Start-Process powershell -ArgumentList '-NoExit', '-Command', 'cd \"d:\\\\美肌花園網站\"; npx serve . -p 8080')",
+      "Bash(npm run *)",
+      "Bash(npx wrangler *)"
     ]
   }
 }
