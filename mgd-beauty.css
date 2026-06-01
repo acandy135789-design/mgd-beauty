@@ -107,8 +107,14 @@
     /* ── Hero parallax bg ── */
     .hero-bg {
       background-image:
-        linear-gradient(180deg, rgba(255,245,248,0.04) 0%, rgba(249,248,252,0.45) 65%, rgba(249,248,252,1) 100%),
-        url('https://images.unsplash.com/photo-1778690525439-3b9732f2e762?auto=format&fit=crop&w=1920&q=85');
+        linear-gradient(180deg,
+          rgba(249,248,252,0.10) 0%,
+          rgba(249,248,252,0.20) 40%,
+          rgba(249,248,252,0.72) 65%,
+          rgba(249,248,252,0.96) 85%,
+          rgba(249,248,252,1)    100%
+        ),
+        url('https://images.unsplash.com/photo-1758413149266-c52917b9b23e?auto=format&fit=crop&w=1920&q=85');
       background-size: cover;
       background-position: center top;
       background-attachment: fixed;
