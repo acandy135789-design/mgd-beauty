@@ -36,7 +36,10 @@
     /* ── Canvas overlay ── */
     #mist-canvas {
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       pointer-events: none;
       z-index: 9998;
       width: 100%;
@@ -100,7 +103,7 @@
     /* ── Hero parallax bg ── */
     .hero-bg {
       background-image:
-        linear-gradient(180deg, rgba(6,13,6,0.35) 0%, rgba(6,13,6,0.62) 60%, rgba(6,13,6,1) 100%),
+        linear-gradient(180deg, rgba(6,13,6,0.15) 0%, rgba(6,13,6,0.42) 60%, rgba(6,13,6,1) 100%),
         url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1920&q=85');
       background-size: cover;
       background-position: center;
@@ -221,10 +224,10 @@
 
     /* ── Section bg gradient ── */
     .sec-dark {
-      background: linear-gradient(180deg, #060d06 0%, #0a1509 50%, #060d06 100%);
+      background: linear-gradient(180deg, #0a1a0a 0%, #0e1f0e 50%, #0a1a0a 100%);
     }
     .sec-forest {
-      background: linear-gradient(180deg, #0a1509 0%, #0d1a0e 60%, #0a1509 100%);
+      background: linear-gradient(180deg, #0e1f0e 0%, #122212 60%, #0e1f0e 100%);
     }
 
     /* ── Horizontal service card image ── */
@@ -266,6 +269,7 @@
       gap: 0;
       background: rgba(6,13,6,0.97);
       border-bottom: 1px solid rgba(197,160,89,0.22);
+      -webkit-backdrop-filter: blur(16px);
       backdrop-filter: blur(16px);
     }
     .mobile-nav-link {
