@@ -107,10 +107,10 @@
     /* ── Hero parallax bg ── */
     .hero-bg {
       background-image:
-        linear-gradient(180deg, rgba(209,196,233,0.08) 0%, rgba(224,237,232,0.35) 65%, rgba(249,248,252,1) 100%),
-        url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1920&q=85');
+        linear-gradient(180deg, rgba(255,245,248,0.04) 0%, rgba(249,248,252,0.45) 65%, rgba(249,248,252,1) 100%),
+        url('https://images.unsplash.com/photo-1778690525439-3b9732f2e762?auto=format&fit=crop&w=1920&q=85');
       background-size: cover;
-      background-position: center;
+      background-position: center top;
       background-attachment: fixed;
     }
     /* iOS Safari does not support background-attachment: fixed */
