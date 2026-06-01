@@ -22,7 +22,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      background-color: #07080e;
+      background-color: #080c10;
       color: #F0ECE4;
       overflow-x: hidden;
       font-family: 'Noto Serif TC', serif;
@@ -30,7 +30,7 @@
 
     /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #07080e; }
+    ::-webkit-scrollbar-track { background: #080c10; }
     ::-webkit-scrollbar-thumb { background: var(--bronze); border-radius: 3px; }
 
     /* ── Canvas overlay ── */
@@ -234,10 +234,10 @@
 
     /* ── Section bg gradient ── */
     .sec-dark {
-      background: linear-gradient(160deg, #07080e 0%, #0e1e12 50%, #07080e 100%);
+      background: linear-gradient(150deg, #080c18 0%, #0c1e10 50%, #080c18 100%);
     }
     .sec-forest {
-      background: linear-gradient(160deg, #0e1e12 0%, #142816 60%, #0a0c12 100%);
+      background: linear-gradient(150deg, #0c1e10 0%, #163020 55%, #0a0e1a 100%);
     }
 
     /* ── Horizontal service card image ── */
