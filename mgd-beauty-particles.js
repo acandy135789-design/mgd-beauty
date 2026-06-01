@@ -1,6 +1,9 @@
 ﻿    (function () {
+      try {
       const canvas = document.getElementById('mist-canvas');
-      const ctx    = canvas.getContext('2d');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
 
       let W = canvas.width  = window.innerWidth;
       let H = canvas.height = window.innerHeight;
@@ -107,4 +110,5 @@
       }
 
       requestAnimationFrame(animate);
+      } catch (e) { /* particles non-critical, ignore errors */ }
     })();

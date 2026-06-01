@@ -1,0 +1,17 @@
+{
+  "name": "mgd-beauty-garden",
+  "scripts": {
+    "deploy": "npx wrangler pages deploy . --project-name mgd-beauty-garden --commit-dirty=true"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.29.7",
+    "@babel/core": "^7.29.7",
+    "@babel/preset-react": "^7.29.7",
+    "@tailwindcss/cli": "^4.3.0",
+    "sucrase": "^3.35.1",
+    "tailwindcss": "^4.3.0"
+  },
+  "dependencies": {
+    "caniuse-lite": "^1.0.30001793"
+  }
+}

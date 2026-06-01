@@ -13,9 +13,9 @@
         theme: {
           extend: {
             colors: {
-              midnight:'#060d06',forest:'#0d1a0e','deep-forest':'#0a1509',moss:'#2d4a30',leaf:'#3d6840',
-              bronze:'#C5A059','bronze-lt':'#D4B06A','bronze-pale':'#E8D5A3',mist:'#9EA89C','mist-lt':'#C8D0C4',
-              pearl:'#F0ECE4',cream:'#FAF7F2',
+              midnight:'#FFFBF9',forest:'#0d1a0e','deep-forest':'#0a1509',moss:'#2d4a30',leaf:'#3d6840',
+              bronze:'#523A34','bronze-lt':'#7A5548','bronze-pale':'#8B6B5E',mist:'#8B6B5E','mist-lt':'#7A5548',
+              pearl:'#523A34',cream:'#FFFBF9',
             },
             fontFamily: {
               serif:['"Cormorant Garamond"','Georgia','serif'],
@@ -66,25 +66,25 @@
       return (
         <nav style={{
           position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-          background: 'rgba(6,13,6,0.97)', backdropFilter: 'blur(14px)',
-          borderBottom: '1px solid rgba(197,160,89,0.22)',
+          background: 'rgba(255,251,249,0.97)', backdropFilter: 'blur(14px)',
+          borderBottom: '1px solid rgba(82,58,52,0.22)',
         }}>
           <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 76 }}>
             <a href="index.html" style={{ textDecoration: 'none', flexShrink: 0 }}>
-              <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 21, fontWeight: 500, letterSpacing: '0.1em', color: '#C5A059', lineHeight: 1 }}>Magic Garden 美肌花園</div>
-              <div style={{ fontFamily: 'Cinzel, serif', fontSize: 11, letterSpacing: '0.35em', color: '#9EA89C', marginTop: 4 }}>ENERGY · BEAUTY · VITALITY</div>
+              <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 21, fontWeight: 500, letterSpacing: '0.1em', color: '#523A34', lineHeight: 1 }}>Magic Garden 美肌花園</div>
+              <div style={{ fontFamily: 'Cinzel, serif', fontSize: 11, letterSpacing: '0.35em', color: '#8B6B5E', marginTop: 4 }}>ENERGY · BEAUTY · VITALITY</div>
             </a>
             <div className="nav-links" style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
               {links.map(l => (
                 <a key={l.label} href={l.href} className="nav-link" style={{
                   fontFamily: '"Noto Serif TC", serif', fontSize: 17, letterSpacing: '0.05em',
-                  color: currentPage === l.page ? '#C5A059' : '#C8D0C4',
+                  color: currentPage === l.page ? '#523A34' : '#7A5548',
                   textDecoration: 'none', whiteSpace: 'nowrap',
-                  borderBottom: currentPage === l.page ? '1px solid rgba(197,160,89,0.5)' : 'none',
+                  borderBottom: currentPage === l.page ? '1px solid rgba(82,58,52,0.5)' : 'none',
                   paddingBottom: 2,
                 }}
-                  onMouseEnter={e => e.currentTarget.style.color = '#C5A059'}
-                  onMouseLeave={e => e.currentTarget.style.color = currentPage === l.page ? '#C5A059' : '#C8D0C4'}
+                  onMouseEnter={e => e.currentTarget.style.color = '#523A34'}
+                  onMouseLeave={e => e.currentTarget.style.color = currentPage === l.page ? '#523A34' : '#7A5548'}
                 >{l.label}</a>
               ))}
               <a href="partners.html" style={{ textDecoration: "none" }}><button className="btn-gold" style={{ padding: "11px 24px", fontSize: 15 }}><span>立即預約</span></button></a>
@@ -116,66 +116,66 @@
         { title: '聯絡',     links: [{ label: 'LINE 預約', href: 'partners.html' }, { label: '電話諮詢', type: 'phone' }, { label: '電子郵件', type: 'email' }] },
       ];
       return (
-        <footer style={{ background: '#040904', borderTop: '1px solid rgba(197,160,89,0.15)', padding: '80px 48px 40px' }}>
+        <footer style={{ background: '#F7D6C8', borderTop: '1px solid rgba(82,58,52,0.15)', padding: '80px 48px 40px' }}>
           <div style={{ maxWidth: 1380, margin: '0 auto' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 60, paddingBottom: 60, borderBottom: '1px solid rgba(197,160,89,0.1)' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 60, paddingBottom: 60, borderBottom: '1px solid rgba(82,58,52,0.1)' }}>
               <div>
-                <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 26, fontWeight: 500, letterSpacing: '0.15em', color: '#C5A059', marginBottom: 4 }}>Magic Garden 美肌花園</div>
-                <div style={{ fontFamily: 'Cinzel, serif', fontSize: 13, letterSpacing: '0.45em', color: '#9EA89C', marginBottom: 24 }}>ENERGY · BEAUTY · VITALITY</div>
-                <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#9EA89C', lineHeight: 2.2, letterSpacing: '0.07em', maxWidth: 300 }}>能量美學品牌 · 開運美容護膚／秀髮養育<br />貴賓預約優先制</p>
+                <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 26, fontWeight: 500, letterSpacing: '0.15em', color: '#523A34', marginBottom: 4 }}>Magic Garden 美肌花園</div>
+                <div style={{ fontFamily: 'Cinzel, serif', fontSize: 13, letterSpacing: '0.45em', color: '#8B6B5E', marginBottom: 24 }}>ENERGY · BEAUTY · VITALITY</div>
+                <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#8B6B5E', lineHeight: 2.2, letterSpacing: '0.07em', maxWidth: 300 }}>能量美學品牌 · 開運美容護膚／秀髮養育<br />貴賓預約優先制</p>
                 <div style={{ marginTop: 20 }}>
-                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#C8D0C4', letterSpacing: '0.07em', marginBottom: 8 }}>📞 0927-186-901</div>
-                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#C8D0C4', letterSpacing: '0.07em' }}>✉️ acandy135789@gmail.com</div>
+                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#7A5548', letterSpacing: '0.07em', marginBottom: 8 }}>📞 0927-186-901</div>
+                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#7A5548', letterSpacing: '0.07em' }}>✉️ acandy135789@gmail.com</div>
                 </div>
                 <div style={{ display: 'flex', gap: 14, marginTop: 28 }}>
                   {['IG', 'FB', 'LINE'].map(s => (
-                    <a key={s} href="#" style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.25em', color: '#9EA89C', textDecoration: 'none', border: '1px solid rgba(197,160,89,0.25)', padding: '8px 14px', transition: 'all 0.3s' }}
-                      onMouseEnter={e => { e.currentTarget.style.borderColor = '#C5A059'; e.currentTarget.style.color = '#C5A059'; }}
-                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(197,160,89,0.25)'; e.currentTarget.style.color = '#9EA89C'; }}
+                    <a key={s} href="#" style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.25em', color: '#8B6B5E', textDecoration: 'none', border: '1px solid rgba(82,58,52,0.25)', padding: '8px 14px', transition: 'all 0.3s' }}
+                      onMouseEnter={e => { e.currentTarget.style.borderColor = '#523A34'; e.currentTarget.style.color = '#523A34'; }}
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(82,58,52,0.25)'; e.currentTarget.style.color = '#8B6B5E'; }}
                     >{s}</a>
                   ))}
                 </div>
               </div>
               {cols.map(col => (
                 <div key={col.title}>
-                  <div style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.35em', color: '#C5A059', marginBottom: 24 }}>{col.title}</div>
+                  <div style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.35em', color: '#523A34', marginBottom: 24 }}>{col.title}</div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                     {col.links.map(l => (
                       l.type === 'phone' ? (
                         <div key={l.label} style={{ position: 'relative' }}>
-                          <span onClick={() => setPhoneOpen(o => !o)} style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#9EA89C', letterSpacing: '0.07em', cursor: 'pointer', transition: 'color 0.3s' }}
-                            onMouseEnter={e => e.currentTarget.style.color = '#C5A059'}
-                            onMouseLeave={e => e.currentTarget.style.color = '#9EA89C'}
+                          <span onClick={() => setPhoneOpen(o => !o)} style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#8B6B5E', letterSpacing: '0.07em', cursor: 'pointer', transition: 'color 0.3s' }}
+                            onMouseEnter={e => e.currentTarget.style.color = '#523A34'}
+                            onMouseLeave={e => e.currentTarget.style.color = '#8B6B5E'}
                           >{l.label}</span>
                           {phoneOpen && (
                             <React.Fragment>
                             <div style={{ position: 'fixed', inset: 0, zIndex: 99 }} onClick={() => setPhoneOpen(false)} />
-                            <div style={{ position: 'absolute', left: 0, top: '110%', background: 'rgba(13,26,14,0.97)', border: '1px solid rgba(197,160,89,0.3)', padding: '12px 20px', zIndex: 100, display: 'flex', flexDirection: 'column', gap: 12 }}>
-                              <a href="tel:0906607856" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#C5A059', textDecoration: 'none', letterSpacing: '0.07em' }}>0906-607-856</a>
-                              <a href="tel:0927186901" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#C5A059', textDecoration: 'none', letterSpacing: '0.07em' }}>0927-186-901</a>
+                            <div style={{ position: 'absolute', left: 0, top: '110%', background: 'rgba(13,26,14,0.97)', border: '1px solid rgba(82,58,52,0.3)', padding: '12px 20px', zIndex: 100, display: 'flex', flexDirection: 'column', gap: 12 }}>
+                              <a href="tel:0906607856" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#523A34', textDecoration: 'none', letterSpacing: '0.07em' }}>0906-607-856</a>
+                              <a href="tel:0927186901" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#523A34', textDecoration: 'none', letterSpacing: '0.07em' }}>0927-186-901</a>
                             </div>
                             </React.Fragment>
                           )}
                         </div>
                       ) : l.type === 'email' ? (
                         <div key={l.label} style={{ position: 'relative' }}>
-                          <span onClick={() => setEmailOpen(o => !o)} style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#9EA89C', letterSpacing: '0.07em', cursor: 'pointer', transition: 'color 0.3s' }}
-                            onMouseEnter={e => e.currentTarget.style.color = '#C5A059'}
-                            onMouseLeave={e => e.currentTarget.style.color = '#9EA89C'}
+                          <span onClick={() => setEmailOpen(o => !o)} style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#8B6B5E', letterSpacing: '0.07em', cursor: 'pointer', transition: 'color 0.3s' }}
+                            onMouseEnter={e => e.currentTarget.style.color = '#523A34'}
+                            onMouseLeave={e => e.currentTarget.style.color = '#8B6B5E'}
                           >{l.label}</span>
                           {emailOpen && (
                             <React.Fragment>
                             <div style={{ position: 'fixed', inset: 0, zIndex: 99 }} onClick={() => setEmailOpen(false)} />
-                            <div style={{ position: 'absolute', left: 0, top: '110%', background: 'rgba(13,26,14,0.97)', border: '1px solid rgba(197,160,89,0.3)', padding: '12px 20px', zIndex: 100 }}>
-                              <a href="mailto:acandy135789@gmail.com" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#C5A059', textDecoration: 'none', letterSpacing: '0.07em' }}>acandy135789@gmail.com</a>
+                            <div style={{ position: 'absolute', left: 0, top: '110%', background: 'rgba(13,26,14,0.97)', border: '1px solid rgba(82,58,52,0.3)', padding: '12px 20px', zIndex: 100 }}>
+                              <a href="mailto:acandy135789@gmail.com" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#523A34', textDecoration: 'none', letterSpacing: '0.07em' }}>acandy135789@gmail.com</a>
                             </div>
                             </React.Fragment>
                           )}
                         </div>
                       ) : (
-                        <a key={l.label} href={l.href} style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#9EA89C', textDecoration: 'none', letterSpacing: '0.07em', transition: 'color 0.3s' }}
-                          onMouseEnter={e => e.currentTarget.style.color = '#C5A059'}
-                          onMouseLeave={e => e.currentTarget.style.color = '#9EA89C'}
+                        <a key={l.label} href={l.href} style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#8B6B5E', textDecoration: 'none', letterSpacing: '0.07em', transition: 'color 0.3s' }}
+                          onMouseEnter={e => e.currentTarget.style.color = '#523A34'}
+                          onMouseLeave={e => e.currentTarget.style.color = '#8B6B5E'}
                         >{l.label}</a>
                       )
                     ))}
@@ -213,18 +213,18 @@
 
       return (
         <section className="sec-dark" style={{ padding: '140px 0', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontFamily: '"Cormorant Garamond", serif', fontSize: 160, fontWeight: 700, color: 'rgba(197,160,89,0.025)', whiteSpace: 'nowrap', userSelect: 'none', pointerEvents: 'none' }}>
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontFamily: '"Cormorant Garamond", serif', fontSize: 160, fontWeight: 700, color: 'rgba(82,58,52,0.025)', whiteSpace: 'nowrap', userSelect: 'none', pointerEvents: 'none' }}>
             PARTNERS
           </div>
           <div style={{ maxWidth: 1380, margin: '0 auto', padding: '0 48px', position: 'relative' }}>
             <div style={{ textAlign: 'center', marginBottom: 80 }}>
-              <div className="reveal" style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.55em', color: '#C5A059' }}>PARTNER LOCATIONS</div>
+              <div className="reveal" style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.55em', color: '#523A34' }}>PARTNER LOCATIONS</div>
               <span className="gold-line" />
-              <h2 className="reveal delay-1" style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 'clamp(2rem, 3.5vw, 3.2rem)', fontWeight: 400, color: '#F0ECE4', lineHeight: 1.3 }}>
+              <h2 className="reveal delay-1" style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 'clamp(2rem, 3.5vw, 3.2rem)', fontWeight: 400, color: '#523A34', lineHeight: 1.3 }}>
                 夥伴資訊<br />
-                <em style={{ color: '#C5A059', fontStyle: 'italic' }}>全桃園服務據點</em>
+                <em style={{ color: '#523A34', fontStyle: 'italic' }}>全桃園服務據點</em>
               </h2>
-              <p className="reveal delay-2" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 19, color: '#9EA89C', lineHeight: 2, marginTop: 20, letterSpacing: '0.07em' }}>
+              <p className="reveal delay-2" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 19, color: '#8B6B5E', lineHeight: 2, marginTop: 20, letterSpacing: '0.07em' }}>
                 桃園各區皆有專業技師駐點服務 · LINE 預約 · 貴賓優先制
               </p>
             </div>
@@ -243,37 +243,37 @@
                     </div>
                   )}
                   <div style={{ padding: '28px 28px 32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ fontFamily: 'Cinzel, serif', fontSize: 14, letterSpacing: '0.15em', color: '#C5A059', marginBottom: 14, opacity: 0.8 }}>{p.shop}</div>
+                  <div style={{ fontFamily: 'Cinzel, serif', fontSize: 14, letterSpacing: '0.15em', color: '#523A34', marginBottom: 14, opacity: 0.8 }}>{p.shop}</div>
                   <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 10, gap: 8 }}>
-                    <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 25, fontWeight: 500, color: '#F0ECE4', letterSpacing: '0.06em', lineHeight: 1.2 }}>{p.name}</div>
-                    <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 15, letterSpacing: '0.12em', color: '#C5A059', border: '1px solid rgba(197,160,89,0.35)', padding: '4px 10px', whiteSpace: 'nowrap', flexShrink: 0 }}>{p.area}</div>
+                    <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 25, fontWeight: 500, color: '#523A34', letterSpacing: '0.06em', lineHeight: 1.2 }}>{p.name}</div>
+                    <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 15, letterSpacing: '0.12em', color: '#523A34', border: '1px solid rgba(82,58,52,0.35)', padding: '4px 10px', whiteSpace: 'nowrap', flexShrink: 0 }}>{p.area}</div>
                   </div>
                   <div style={{ width: 36, height: 1, background: 'linear-gradient(90deg, #C5A059, transparent)', marginBottom: 12 }} />
-                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#9EA89C', letterSpacing: '0.07em', marginBottom: 10 }}>{p.role}</div>
-                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#C8D0C4', letterSpacing: '0.06em', lineHeight: 1.9, marginBottom: p.feature ? 8 : 0 }}>
-                    <span style={{ color: 'rgba(197,160,89,0.7)', fontSize: 16 }}>專長｜</span>{p.specialty}
+                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#8B6B5E', letterSpacing: '0.07em', marginBottom: 10 }}>{p.role}</div>
+                  <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#7A5548', letterSpacing: '0.06em', lineHeight: 1.9, marginBottom: p.feature ? 8 : 0 }}>
+                    <span style={{ color: 'rgba(82,58,52,0.7)', fontSize: 16 }}>專長｜</span>{p.specialty}
                   </div>
                   {p.feature && (
-                    <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#C8D0C4', letterSpacing: '0.06em', lineHeight: 1.9 }}>
-                      <span style={{ color: 'rgba(197,160,89,0.7)', fontSize: 16 }}>特點｜</span>{p.feature}
+                    <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#7A5548', letterSpacing: '0.06em', lineHeight: 1.9 }}>
+                      <span style={{ color: 'rgba(82,58,52,0.7)', fontSize: 16 }}>特點｜</span>{p.feature}
                     </div>
                   )}
                   <div style={{ marginTop: 'auto', paddingTop: 20, display: 'flex', alignItems: 'center', gap: 16 }}>
                     {p.qr ? (
-                      <img src={p.qr} alt={`${p.name} LINE QR`} style={{ width: 72, height: 72, objectFit: 'contain', border: '1px solid rgba(197,160,89,0.25)', padding: 4, background: '#fff' }} />
+                      <img src={p.qr} alt={`${p.name} LINE QR`} style={{ width: 72, height: 72, objectFit: 'contain', border: '1px solid rgba(82,58,52,0.25)', padding: 4, background: '#fff' }} />
                     ) : (
-                      <div style={{ width: 72, height: 72, border: '1px dashed rgba(197,160,89,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <span style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 15, color: '#9EA89C', textAlign: 'center' }}>QR 圖檔待補</span>
+                      <div style={{ width: 72, height: 72, border: '1px dashed rgba(82,58,52,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <span style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 15, color: '#8B6B5E', textAlign: 'center' }}>QR 圖檔待補</span>
                       </div>
                     )}
                     {p.line && p.line !== '#' ? (
                       <a href={p.line} target="_blank" rel="noopener noreferrer" style={{
                         fontFamily: '"Noto Serif TC", serif', fontSize: 18, letterSpacing: '0.2em',
-                        color: 'rgba(197,160,89,0.85)', border: '1px solid rgba(197,160,89,0.3)',
+                        color: 'rgba(82,58,52,0.85)', border: '1px solid rgba(82,58,52,0.3)',
                         padding: '10px 20px', textDecoration: 'none', display: 'inline-block', transition: 'all 0.3s',
                       }}
-                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(197,160,89,0.12)'; e.currentTarget.style.borderColor = '#C5A059'; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(197,160,89,0.3)'; }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(82,58,52,0.12)'; e.currentTarget.style.borderColor = '#523A34'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(82,58,52,0.3)'; }}
                       >LINE 預約</a>
                     ) : (
                       <span style={{

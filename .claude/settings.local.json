@@ -25,7 +25,11 @@
       "Skill(update-config:*)",
       "PowerShell(cd \"d:\\\\美肌花園網站\"; Start-Process powershell -ArgumentList '-NoExit', '-Command', 'cd \"d:\\\\美肌花園網站\"; npx serve . -p 8080')",
       "Bash(npm run *)",
-      "Bash(npx wrangler *)"
+      "Bash(npx wrangler *)",
+      "Bash(dir \"D:\\\\美肌花園網站\\\\member.html\")",
+      "Bash(git -C \"D:\\\\美肌花園網站\" log --oneline -3)",
+      "Bash(dir \"D:\\\\美肌花園網站\" /b)",
+      "PowerShell(cmd /c \"rmdir /s /q \"\"D:\\\\美肌花園網站\\\\node_modules\"\"\" 2>&1; Write-Host \"Exit: $LASTEXITCODE\")"
     ]
   }
 }
