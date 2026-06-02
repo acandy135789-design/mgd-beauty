@@ -201,7 +201,7 @@
               fontFamily: '"Cormorant Garamond", serif',
               fontSize: 'clamp(3.5rem, 7vw, 6.5rem)',
               fontWeight: 700, lineHeight: 1.1, letterSpacing: '2px',
-              background: 'linear-gradient(135deg, #2E1F1A 40%, #A38465 100%)',
+              background: 'linear-gradient(120deg, #8B6914 0%, #D4AF37 28%, #F5E6B8 52%, #D4AF37 76%, #9A7B2C 100%)',
               WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
               filter: 'drop-shadow(0px 2px 5px rgba(255,255,255,0.9))',

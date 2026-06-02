@@ -209,7 +209,7 @@
     /* ── Hero title: gradient text + white drop-shadow ── */
     .hero-h1 {
       font-weight: 700 !important;
-      background: linear-gradient(135deg, #2E1F1A 40%, #A38465 100%) !important;
+      background: linear-gradient(120deg, #8B6914 0%, #D4AF37 28%, #F5E6B8 52%, #D4AF37 76%, #9A7B2C 100%) !important;
       -webkit-background-clip: text !important;
       -webkit-text-fill-color: transparent !important;
       background-clip: text !important;
