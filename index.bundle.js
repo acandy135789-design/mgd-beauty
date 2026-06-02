@@ -50,9 +50,10 @@
               , links.map(l => (
                 React.createElement('a', { key: l.label, href: l.href, className: "nav-link", style: {
                   fontFamily: '"Noto Serif TC", serif', fontSize: 17, letterSpacing: '0.05em',
-                  color: currentPage === l.page ? '#2E2541' : '#4A3A65',
+                  fontWeight: currentPage === l.page ? 600 : 500,
+                  color: currentPage === l.page ? '#3A252E' : '#4A3A65',
                   textDecoration: 'none', whiteSpace: 'nowrap',
-                  borderBottom: currentPage === l.page ? '1px solid rgba(46,37,65,0.5)' : 'none',
+                  borderBottom: currentPage === l.page ? '1px solid rgba(58,37,46,0.5)' : 'none',
                   paddingBottom: 2,
                 },
                   onMouseEnter: e => e.currentTarget.style.color = '#2E2541',
@@ -199,16 +200,18 @@
             , React.createElement('h1', { className: "hero-h1", style: {
               fontFamily: '"Cormorant Garamond", serif',
               fontSize: 'clamp(3.5rem, 7vw, 6.5rem)',
-              fontWeight: 300, lineHeight: 1.1, letterSpacing: '-0.01em',
-              color: '#2E2541', maxWidth: 860,
+              fontWeight: 700, lineHeight: 1.1, letterSpacing: '-0.01em',
+              color: '#3A252E', maxWidth: 860,
+              textShadow: '0 1px 3px rgba(255,255,255,0.85), 0 2px 8px rgba(255,255,255,0.5)',
               opacity: 0, animation: 'fadeSlide 1.2s ease 0.7s forwards',
             }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 201}}, "能量美學"
               , React.createElement('br', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 208}} )
-              , React.createElement('em', { style: { fontStyle: 'italic', color: '#2E2541' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 209}}, "喚醒你的美麗魔法")
+              , React.createElement('em', { style: { fontStyle: 'italic', color: '#3A252E' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 209}}, "喚醒你的美麗魔法")
             )
             , React.createElement('p', { style: {
-              fontFamily: '"Noto Serif TC", serif', fontSize: 20, fontWeight: 300,
-              color: '#6B5A8E', lineHeight: 2, marginTop: 28, maxWidth: 500, letterSpacing: '0.08em',
+              fontFamily: '"Noto Serif TC", serif', fontSize: 20, fontWeight: 500,
+              color: '#5A454F', lineHeight: 2, marginTop: 28, maxWidth: 500, letterSpacing: '0.08em',
+              textShadow: '0 1px 2px rgba(255,255,255,0.7)',
               opacity: 0, animation: 'fadeSlide 1.2s ease 1s forwards',
             }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 211}}, "開運美容護膚 · 秀髮養育 · 身心靈整體調理"
                   , React.createElement('br', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 216}} ), "結合韓國頂級護膚技術與外泌體科技"
@@ -217,7 +220,7 @@
             )
             , React.createElement('div', { className: "hero-cta-row", style: { display: 'flex', gap: 20, marginTop: 52, alignItems: 'center', flexWrap: 'wrap', opacity: 0, animation: 'fadeSlide 1.2s ease 1.3s forwards' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 220}}
               , React.createElement('a', { href: "partners.html", style: { textDecoration: 'none' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 221}}, React.createElement('button', { className: "btn-gold", __self: this, __source: {fileName: _jsxFileName, lineNumber: 221}}, React.createElement('span', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 221}}, "立即預約體驗")))
-              , React.createElement('a', { href: "member.html", style: { textDecoration: 'none' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 222}}, React.createElement('button', { style: { padding: "14px 32px", fontFamily: '"Noto Serif TC", serif', fontSize: 18, letterSpacing: '0.1em', color: '#2E2541', background: 'transparent', border: '1px solid rgba(46,37,65,0.6)', borderRadius: 4, cursor: 'pointer', transition: 'all 0.3s' }, onMouseEnter: e => e.currentTarget.style.background='rgba(46,37,65,0.1)', onMouseLeave: e => e.currentTarget.style.background='transparent', __self: this, __source: {fileName: _jsxFileName, lineNumber: 222}}, React.createElement('span', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 222}}, "加入會員")))
+              , React.createElement('a', { href: "member.html", style: { textDecoration: 'none' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 222}}, React.createElement('button', { style: { padding: "14px 32px", fontFamily: '"Noto Serif TC", serif', fontSize: 18, fontWeight: 500, letterSpacing: '0.1em', color: '#4A323D', background: 'rgba(255,255,255,0.40)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', border: '1px solid #4A323D', borderRadius: 4, cursor: 'pointer', transition: 'all 0.3s' }, onMouseEnter: e => { e.currentTarget.style.background='rgba(255,255,255,0.65)'; e.currentTarget.style.boxShadow='0 4px 16px rgba(74,50,61,0.15)'; }, onMouseLeave: e => { e.currentTarget.style.background='rgba(255,255,255,0.40)'; e.currentTarget.style.boxShadow='none'; }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 222}}, React.createElement('span', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 222}}, "加入會員")))
               , React.createElement('a', { href: "founder.html", style: { fontFamily: '"Noto Serif TC", serif', fontSize: 19, color: '#6B5A8E', textDecoration: 'none', letterSpacing: '0.1em', borderBottom: '1px solid rgba(158,168,156,0.4)', paddingBottom: 2, transition: 'color 0.3s' },
                 onMouseEnter: e => e.currentTarget.style.color = '#2E2541',
                 onMouseLeave: e => e.currentTarget.style.color = '#6B5A8E', __self: this, __source: {fileName: _jsxFileName, lineNumber: 223}}
