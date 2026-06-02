@@ -107,16 +107,32 @@
     /* ── Hero parallax bg ── */
     .hero-bg {
       background-image:
-        linear-gradient(180deg,
-          rgba(249,248,252,0.10) 0%,
-          rgba(249,248,252,0.20) 40%,
-          rgba(249,248,252,0.72) 65%,
-          rgba(249,248,252,0.96) 85%,
-          rgba(249,248,252,1)    100%
+        /* 夢幻能量光點：上方散落暖金色光斑 */
+        radial-gradient(ellipse 16% 20% at 10% 10%, rgba(255,218,120,0.32) 0%, transparent 75%),
+        radial-gradient(ellipse 12% 16% at 88% 8%,  rgba(255,210,110,0.28) 0%, transparent 75%),
+        radial-gradient(ellipse  9% 12% at 68% 25%, rgba(255,228,150,0.22) 0%, transparent 70%),
+        radial-gradient(ellipse 11% 14% at 28% 20%, rgba(255,222,135,0.20) 0%, transparent 70%),
+        radial-gradient(ellipse  7%  9% at 50%  8%, rgba(255,235,170,0.18) 0%, transparent 65%),
+        /* 朦朧雲霧：中央橢圓留白，邊緣柔和暈染 */
+        radial-gradient(ellipse 62% 58% at 50% 44%,
+          rgba(255,253,248,0.00)  0%,
+          rgba(255,251,242,0.10) 45%,
+          rgba(255,246,228,0.42) 72%,
+          rgba(253,242,215,0.72) 88%,
+          rgba(251,240,210,0.90) 100%
         ),
-        url('https://images.unsplash.com/photo-1758413149266-c52917b9b23e?auto=format&fit=crop&w=1920&q=85');
+        /* 電影級金色時光：頂部透光、底部淡出承接頁底 */
+        linear-gradient(180deg,
+          rgba(255,226,148,0.14)  0%,
+          rgba(255,242,210,0.06) 22%,
+          rgba(255,250,238,0.03) 46%,
+          rgba(252,244,220,0.68) 68%,
+          rgba(249,241,212,1.00) 100%
+        ),
+        /* 歐式皇家花園：捷克 Lednice 城堡 × 粉玫瑰 × 金色晨光 */
+        url('https://images.unsplash.com/photo-1756762657127-7a19d39b20ef?auto=format&fit=crop&w=1920&q=85');
       background-size: cover;
-      background-position: center top;
+      background-position: center 35%;
       background-attachment: fixed;
     }
     /* iOS Safari does not support background-attachment: fixed */
@@ -173,8 +189,8 @@
 
     /* ── CTA button ── */
     .btn-gold {
-      border: 1px solid var(--bronze);
-      color: var(--bronze);
+      border: 1px solid #C5A059;
+      color: #8B6830;
       background: transparent;
       font-family: 'Cinzel', serif;
       letter-spacing: 0.25em;
@@ -192,13 +208,13 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: var(--bronze);
+      background: linear-gradient(135deg, #C5A059 0%, #B8864A 100%);
       transform: translateX(-101%);
       transition: transform 0.4s cubic-bezier(.16,1,.3,1);
     }
     .btn-gold:hover::after { transform: translateX(0); }
     .btn-gold span { position: relative; z-index: 1; }
-    .btn-gold:hover span { color: #F9F8FC; }
+    .btn-gold:hover span { color: #FFF8EE; }
 
     /* ── Nav link underline ── */
     .nav-link::after {
