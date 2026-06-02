@@ -129,8 +129,8 @@
           rgba(252,244,220,0.68) 68%,
           rgba(249,241,212,1.00) 100%
         ),
-        /* 歐式皇家花園：捷克 Lednice 城堡 × 粉玫瑰 × 金色晨光 */
-        url('https://images.unsplash.com/photo-1756762657127-7a19d39b20ef?auto=format&fit=crop&w=1920&q=85');
+        /* 歐式皇家花園：AI 生成 × 大理石拱門 × 粉橘玫瑰 × 金色晨光 */
+        url('images/hero-garden.jpg');
       background-size: cover;
       background-position: center 35%;
       background-attachment: fixed;
