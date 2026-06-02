@@ -201,7 +201,7 @@
               fontFamily: '"Cormorant Garamond", serif',
               fontSize: 'clamp(3.5rem, 7vw, 6.5rem)',
               fontWeight: 700, lineHeight: 1.1, letterSpacing: '2px',
-              background: 'linear-gradient(120deg, #8B6914 0%, #D4AF37 28%, #F5E6B8 52%, #D4AF37 76%, #9A7B2C 100%)',
+              background: 'linear-gradient(to top, #3D1F0A 0%, #7B4A18 25%, #C9922E 55%, #E8CF82 80%, #F5E6B8 100%)',
               WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
               filter: 'drop-shadow(0px 2px 5px rgba(255,255,255,0.9))',
@@ -214,7 +214,7 @@
             , React.createElement('p', { style: {
               fontFamily: '"Noto Serif TC", serif', fontSize: 20, fontWeight: 600,
               color: '#4A362D', lineHeight: 2, marginTop: 28, maxWidth: 500, letterSpacing: '1px',
-              textShadow: '0 1px 2px rgba(255,255,255,0.9)',
+              textShadow: '0 0 8px rgba(255,255,255,0.95), 0 1px 3px rgba(255,255,255,1), 0 2px 6px rgba(255,240,200,0.6)',
               opacity: 0, animation: 'fadeSlide 1.2s ease 1s forwards',
             }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 211}}, "開運美容護膚 · 秀髮養育 · 身心靈整體調理"
                   , React.createElement('br', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 216}} ), "結合韓國頂級護膚技術與外泌體科技"
