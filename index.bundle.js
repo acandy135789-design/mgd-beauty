@@ -200,18 +200,21 @@
             , React.createElement('h1', { className: "hero-h1", style: {
               fontFamily: '"Cormorant Garamond", serif',
               fontSize: 'clamp(3.5rem, 7vw, 6.5rem)',
-              fontWeight: 700, lineHeight: 1.1, letterSpacing: '-0.01em',
-              color: '#3A252E', maxWidth: 860,
-              textShadow: '0 1px 3px rgba(255,255,255,0.85), 0 2px 8px rgba(255,255,255,0.5)',
+              fontWeight: 700, lineHeight: 1.1, letterSpacing: '2px',
+              background: 'linear-gradient(135deg, #2E1F1A 40%, #A38465 100%)',
+              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              filter: 'drop-shadow(0px 2px 5px rgba(255,255,255,0.9))',
+              maxWidth: 860,
               opacity: 0, animation: 'fadeSlide 1.2s ease 0.7s forwards',
             }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 201}}, "能量美學"
               , React.createElement('br', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 208}} )
-              , React.createElement('em', { style: { fontStyle: 'italic', color: '#3A252E' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 209}}, "喚醒你的美麗魔法")
+              , React.createElement('em', { style: { fontStyle: 'italic' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 209}}, "喚醒你的美麗魔法")
             )
             , React.createElement('p', { style: {
-              fontFamily: '"Noto Serif TC", serif', fontSize: 20, fontWeight: 500,
-              color: '#5A454F', lineHeight: 2, marginTop: 28, maxWidth: 500, letterSpacing: '0.08em',
-              textShadow: '0 1px 2px rgba(255,255,255,0.7)',
+              fontFamily: '"Noto Serif TC", serif', fontSize: 20, fontWeight: 600,
+              color: '#4A362D', lineHeight: 2, marginTop: 28, maxWidth: 500, letterSpacing: '1px',
+              textShadow: '0 1px 2px rgba(255,255,255,0.9)',
               opacity: 0, animation: 'fadeSlide 1.2s ease 1s forwards',
             }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 211}}, "開運美容護膚 · 秀髮養育 · 身心靈整體調理"
                   , React.createElement('br', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 216}} ), "結合韓國頂級護膚技術與外泌體科技"

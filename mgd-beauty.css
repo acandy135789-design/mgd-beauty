@@ -206,11 +206,15 @@
       box-shadow: 0 16px 48px rgba(0,0,0,0.4);
     }
 
-    /* ── Hero title readability ── */
+    /* ── Hero title: gradient text + white drop-shadow ── */
     .hero-h1 {
       font-weight: 700 !important;
-      color: #3A252E !important;
-      text-shadow: 0 1px 3px rgba(255,255,255,0.85), 0 2px 8px rgba(255,255,255,0.5) !important;
+      background: linear-gradient(135deg, #2E1F1A 40%, #A38465 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      filter: drop-shadow(0px 2px 5px rgba(255,255,255,0.9)) !important;
+      letter-spacing: 2px !important;
     }
 
     /* ── CTA button ── */
