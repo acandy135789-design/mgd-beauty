@@ -202,31 +202,31 @@
           id: '01', title: '基礎韓系護膚', en: 'BASIC KOREAN SKINCARE',
           desc: '以富含維生素 B5 的韓國進口產品進行深層保溼護理，有效修復敏感肌膚，低刺激配方讓肌膚重現水潤光澤。',
           suitable: '適合：乾性、油性、混合性、敏感肌',
-          img: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=700&q=80',
+          img: 'images/beauty/basic-skincare.jpg',
         },
         {
           id: '02', title: '痘痘粉刺淨化療程', en: 'ACNE & BLACKHEAD TREATMENT',
           desc: '針對油性、痘痘肌設計，以溫和的物理清潔方式疏通毛孔、去除老廢角質，不傷害肌膚結構，讓毛孔自由呼吸。',
           suitable: '適合：油性肌、痘痘肌',
-          img: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=700&q=80',
+          img: 'images/beauty/acne-treatment.jpg',
         },
         {
           id: '03', title: '微針毛孔精緻療程', en: 'MICRONEEDLE PORE REFINEMENT',
           desc: '利用微針技術促進保養品有效滲透，縮小毛孔、細緻肌膚紋理，不破壞肌膚屏障，效果顯著且持久。',
           suitable: '適合：油性、混合肌（敏感乾性建議先進行基礎護膚）',
-          img: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=700&q=80',
+          img: 'images/beauty/pore-treatment.jpg',
         },
         {
           id: '04', title: '韓系水光美白療程', en: 'KOREAN WATER-LIGHT WHITENING',
           desc: '運用維生素 B3 有效成分改善膚色不均、暗沉與曬黑，讓肌膚恢復透亮光采。乾性敏感肌建議先完成基礎護理後進行。',
           suitable: '適合：所有膚質（乾敏肌建議先做基礎護膚）',
-          img: 'https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=700&q=80',
+          img: 'images/beauty/whitening-treatment.jpg',
         },
         {
           id: '05', title: '手部手臂嫩白護理', en: 'HAND & ARM CARE',
           desc: '專為騎車族、戶外工作者設計，針對手部與手臂的曬黑、老化問題進行深度美白與嫩膚護理，恢復年輕細嫩肌膚。',
           suitable: '適合：所有膚質',
-          img: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80',
+          img: 'images/beauty/hand-care.jpg',
         },
       ];
 
@@ -293,12 +293,74 @@
       );
     }
 
+    function HandTestimonials() {
+      const photos = [
+        { src: 'images/beauty/hand-01.jpg', name: '惠宇' },
+        { src: 'images/beauty/hand-02.jpg', name: '美玲' },
+        { src: 'images/beauty/hand-03.jpg', name: '揚逵' },
+        { src: 'images/beauty/hand-04.jpg', name: '伯融' },
+        { src: 'images/beauty/hand-05.jpg', name: '揚逵媽媽' },
+        { src: 'images/beauty/hand-06.jpg', name: '指關節改善' },
+        { src: 'images/beauty/hand-07.jpg', name: '客戶見證' },
+        { src: 'images/beauty/hand-08.jpg', name: '客戶見證' },
+      ];
+      return (
+        <section style={{ padding: '120px 0', background: '#FAF9FC', position: 'relative' }}>
+          <div style={{ maxWidth: 1380, margin: '0 auto', padding: '0 48px' }}>
+            <div style={{ textAlign: 'center', marginBottom: 70 }}>
+              <div className="reveal" style={{ fontFamily: 'Cinzel, serif', fontSize: 14, letterSpacing: '0.55em', color: '#3A1E52' }}>BEFORE & AFTER</div>
+              <span className="gold-line" />
+              <h2 className="reveal delay-1" style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 400, color: '#1A0828', lineHeight: 1.4 }}>
+                護手嫩白見證<br />
+                <em style={{ fontStyle: 'italic', color: '#3A1E52' }}>真實客戶成果紀錄</em>
+              </h2>
+              <p className="reveal delay-2" style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#3A1E52', lineHeight: 2, marginTop: 16, letterSpacing: '0.07em' }}>
+                全程使用韓國原裝進口護膚品 · 一對一客製護膚體驗
+              </p>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+              {photos.map((p, i) => (
+                <div key={i} className={`reveal delay-${(i % 4) + 1}`} style={{ position: 'relative', border: '1px solid rgba(90,50,110,0.2)', background: '#f3f0f7' }}>
+                  <img src={p.src} alt="手部護理成果" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function PriceSection() {
+      return (
+        <section style={{ padding: '120px 0', background: 'linear-gradient(180deg, #F3F0F7 0%, #FAF9FC 100%)', position: 'relative' }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 48px' }}>
+            <div style={{ textAlign: 'center', marginBottom: 60 }}>
+              <div className="reveal" style={{ fontFamily: 'Cinzel, serif', fontSize: 14, letterSpacing: '0.55em', color: '#3A1E52' }}>SERVICE MENU</div>
+              <span className="gold-line" />
+              <h2 className="reveal delay-1" style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 400, color: '#1A0828', lineHeight: 1.4 }}>
+                護膚價目表
+              </h2>
+            </div>
+            <div className="reveal delay-2" style={{ border: '1px solid rgba(90,50,110,0.25)', overflow: 'hidden', background: '#fff' }}>
+              <img src="images/beauty/price-list.png" alt="護膚價目表" style={{ width: '100%', display: 'block' }} />
+            </div>
+            <div className="reveal delay-3" style={{ textAlign: 'center', marginTop: 48 }}>
+              <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#3A1E52', letterSpacing: '0.07em', marginBottom: 28 }}>預約制・初體驗約 1–1.5 小時・電話：0906-607-856</p>
+              <a href="partners.html" style={{ textDecoration: 'none' }}><button className="btn-gold"><span>立即預約療程</span></button></a>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
     function App() {
       useScrollReveal();
       return (
         <React.Fragment>
           <Nav currentPage="beauty" />
           <BeautyCare />
+          <HandTestimonials />
+          <PriceSection />
           <Footer />
         </React.Fragment>
       );
