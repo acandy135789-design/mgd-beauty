@@ -1,4 +1,4 @@
-﻿    (function () {
+    (function () {
       try {
       const canvas = document.getElementById('mist-canvas');
       if (!canvas) return;
@@ -14,82 +14,132 @@
       }, { passive: true });
 
       const particles = [];
-      const mouse = { x: W / 2, y: H / 2 };
+      const trail = [];   /* recent mouse positions for arc curve */
+      const mouse = { x: W / 2, y: H / 2, px: W / 2, py: H / 2 };
 
-      /* ── Particle class ── */
+      /* ─── Colour palettes ─────────────────────────────────────── */
+      /* smoky pink crystal  */
+      const ROSE  = ['rgba(230,190,200,', 'rgba(218,172,185,', 'rgba(240,205,215,', 'rgba(212,160,175,'];
+      /* micro-crystal white light  */
+      const PEARL = ['rgba(255,248,250,', 'rgba(252,242,248,', 'rgba(255,252,255,', 'rgba(248,238,244,'];
+      /* warm champagne glint  */
+      const GOLD  = ['rgba(220,190,140,', 'rgba(210,175,120,', 'rgba(232,205,155,'];
+
+      /* ─── Particle class ──────────────────────────────────────── */
       function Particle(x, y, type) {
-        this.x    = x + (Math.random() - 0.5) * 24;
-        this.y    = y + (Math.random() - 0.5) * 24;
-        this.type = type || 'gold';
-        this.r    = this.type === 'mist' ? Math.random() * 4 + 2 : Math.random() * 2.2 + 0.5;
-        this.a    = this.type === 'mist' ? Math.random() * 0.18 + 0.05 : Math.random() * 0.55 + 0.25;
-        this.vx   = (Math.random() - 0.5) * 0.9;
-        this.vy   = -(Math.random() * 0.9 + 0.25);
+        this.x  = x + (Math.random() - 0.5) * 18;
+        this.y  = y + (Math.random() - 0.5) * 18;
+        this.type = type;
+
+        /* arc drift — elegant curved scatter */
+        const angle = Math.random() * Math.PI * 2;
+        const spd   = Math.random() * 0.7 + 0.15;
+        this.vx = Math.cos(angle) * spd * 0.9;
+        this.vy = -Math.random() * 1.1 - 0.2;   /* upward float */
+        this.curve = (Math.random() - 0.5) * 0.018; /* lateral drift curve */
+
+        if (type === 'rose') {
+          this.r   = Math.random() * 3.5 + 1.2;
+          this.a   = Math.random() * 0.38 + 0.12;
+          this.dec = 0.009 + Math.random() * 0.010;
+          this.col = ROSE[Math.floor(Math.random() * ROSE.length)];
+          this.blur = 10;
+        } else if (type === 'pearl') {
+          this.r   = Math.random() * 1.6 + 0.5;
+          this.a   = Math.random() * 0.65 + 0.25;
+          this.dec = 0.018 + Math.random() * 0.018;
+          this.col = PEARL[Math.floor(Math.random() * PEARL.length)];
+          this.blur = 6;
+        } else if (type === 'mist') {
+          this.r   = Math.random() * 6 + 3;
+          this.a   = Math.random() * 0.10 + 0.03;
+          this.dec = 0.004 + Math.random() * 0.005;
+          this.col = ROSE[Math.floor(Math.random() * ROSE.length)];
+          this.blur = 22;
+          this.vx  *= 0.4;
+          this.vy  *= 0.4;
+        } else {
+          this.r   = Math.random() * 1.2 + 0.4;
+          this.a   = Math.random() * 0.50 + 0.20;
+          this.dec = 0.022 + Math.random() * 0.018;
+          this.col = GOLD[Math.floor(Math.random() * GOLD.length)];
+          this.blur = 7;
+        }
+
         this.life = 1;
-        this.dec  = this.type === 'mist' ? 0.006 + Math.random() * 0.008 : 0.012 + Math.random() * 0.016;
       }
 
       Particle.prototype.update = function () {
+        this.vx  += this.curve;           /* arc curvature */
+        this.vx  *= 0.982;
+        this.vy  -= 0.003;               /* gentle upward acceleration */
         this.x   += this.vx;
         this.y   += this.vy;
-        this.vy  -= 0.004;
-        this.vx  *= 0.985;
         this.life -= this.dec;
-        if (this.type === 'mist') this.r *= 1.012;
+        if (this.type === 'mist') this.r *= 1.010;
       };
 
       Particle.prototype.draw = function () {
         if (this.life <= 0) return;
         ctx.save();
-        ctx.globalAlpha = this.life * this.a;
-
-        if (this.type === 'gold') {
-          ctx.shadowBlur  = 14;
-          ctx.shadowColor = 'rgba(197,160,89,0.85)';
-          ctx.fillStyle   = '#C5A059';
-        } else if (this.type === 'mist') {
-          ctx.shadowBlur  = 24;
-          ctx.shadowColor = 'rgba(200,208,196,0.3)';
-          ctx.fillStyle   = 'rgba(200,208,196,0.55)';
-        } else {
-          ctx.shadowBlur  = 10;
-          ctx.shadowColor = 'rgba(212,176,106,0.7)';
-          ctx.fillStyle   = '#D4B06A';
-        }
-
+        const alpha = this.life * this.a;
+        ctx.globalAlpha = alpha;
+        ctx.shadowBlur  = this.blur;
+        ctx.shadowColor = this.col + '0.6)';
+        ctx.fillStyle   = this.col + '1)';
         ctx.beginPath();
         ctx.arc(this.x, this.y, Math.max(0, this.r), 0, Math.PI * 2);
         ctx.fill();
+
+        /* pearl gets a tiny extra bright core */
+        if (this.type === 'pearl') {
+          ctx.globalAlpha = alpha * 0.85;
+          ctx.fillStyle   = 'rgba(255,255,255,1)';
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, Math.max(0, this.r * 0.35), 0, Math.PI * 2);
+          ctx.fill();
+        }
+
         ctx.restore();
       };
 
       Particle.prototype.dead = function () { return this.life <= 0; };
 
-      /* ── Spawn on mouse move ── */
+      /* ─── Spawn on mouse move ─────────────────────────────────── */
       document.addEventListener('mousemove', function (e) {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
+        mouse.px = mouse.x;
+        mouse.py = mouse.y;
+        mouse.x  = e.clientX;
+        mouse.y  = e.clientY;
 
-        const n = Math.floor(Math.random() * 3) + 1;
-        for (let i = 0; i < n; i++) {
-          particles.push(new Particle(mouse.x, mouse.y, 'gold'));
-          if (Math.random() < 0.28) particles.push(new Particle(mouse.x, mouse.y, 'mist'));
-          if (Math.random() < 0.12) particles.push(new Particle(mouse.x, mouse.y, 'pale'));
+        const speed = Math.hypot(mouse.x - mouse.px, mouse.y - mouse.py);
+        const burst = Math.min(Math.floor(speed * 0.18) + 1, 6);
+
+        for (let i = 0; i < burst; i++) {
+          /* smoky pink crystal — main trail */
+          particles.push(new Particle(mouse.x, mouse.y, 'rose'));
+          /* micro white light refraction */
+          if (Math.random() < 0.55) particles.push(new Particle(mouse.x, mouse.y, 'pearl'));
+          /* ambient mist puff */
+          if (Math.random() < 0.20) particles.push(new Particle(mouse.x, mouse.y, 'mist'));
+          /* champagne glint */
+          if (Math.random() < 0.14) particles.push(new Particle(mouse.x, mouse.y, 'gold'));
         }
       }, { passive: true });
 
-      /* ── Ambient background sparkles ── */
+      /* ─── Ambient background blooms ──────────────────────────── */
       let ambientT = 0;
       let lastTs   = 0;
 
       function spawnAmbient() {
         const x = Math.random() * W;
-        const y = H * 0.4 + Math.random() * H * 0.6;
+        const y = H * 0.2 + Math.random() * H * 0.7;
         particles.push(new Particle(x, y, 'mist'));
-        if (Math.random() < 0.4) particles.push(new Particle(x + (Math.random() - 0.5) * 60, y, 'gold'));
+        if (Math.random() < 0.35) particles.push(new Particle(x + (Math.random()-0.5)*40, y, 'rose'));
+        if (Math.random() < 0.15) particles.push(new Particle(x + (Math.random()-0.5)*20, y, 'pearl'));
       }
 
-      /* ── Animation loop ── */
+      /* ─── Animation loop ─────────────────────────────────────── */
       function animate(ts) {
         requestAnimationFrame(animate);
         const dt = ts - lastTs;
@@ -97,7 +147,7 @@
         ctx.clearRect(0, 0, W, H);
 
         ambientT += dt;
-        if (ambientT > 700) { spawnAmbient(); ambientT = 0; }
+        if (ambientT > 900) { spawnAmbient(); ambientT = 0; }
 
         for (let i = particles.length - 1; i >= 0; i--) {
           particles[i].update();
@@ -105,10 +155,10 @@
           if (particles[i].dead()) particles.splice(i, 1);
         }
 
-        /* Cap at 200 particles */
-        while (particles.length > 200) particles.shift();
+        /* Cap to keep performance smooth */
+        while (particles.length > 260) particles.shift();
       }
 
       requestAnimationFrame(animate);
-      } catch (e) { /* particles non-critical, ignore errors */ }
+      } catch (e) { /* particles non-critical */ }
     })();
