@@ -53,14 +53,14 @@
                   fontWeight: currentPage === l.page ? 600 : 500,
                   color: currentPage === l.page ? '#3A252E' : '#4A3A65',
                   textDecoration: 'none', whiteSpace: 'nowrap',
-                  borderBottom: currentPage === l.page ? '1px solid rgba(58,37,46,0.5)' : 'none',
+                  borderBottom: currentPage === l.page ? '1px solid rgba(200,168,88,0.65)' : 'none',
                   paddingBottom: 2,
                 },
-                  onMouseEnter: e => e.currentTarget.style.color = '#2E2541',
+                  onMouseEnter: e => e.currentTarget.style.color = '#1A0828',
                   onMouseLeave: e => e.currentTarget.style.color = currentPage === l.page ? '#2E2541' : '#4A3A65', __self: this, __source: {fileName: _jsxFileName, lineNumber: 51}}
 , l.label)
               ))
-              , React.createElement('a', { href: "member.html", style: { textDecoration: "none" }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 62}}, React.createElement('button', { style: { padding: "9px 20px", fontSize: 14, fontFamily: '"Noto Serif TC", serif', letterSpacing: '0.05em', color: '#1A0828', background: 'transparent', border: '1px solid rgba(46,37,65,0.5)', borderRadius: 4, cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.3s' }, onMouseEnter: e => { e.currentTarget.style.background='rgba(26,8,40,0.08)'; e.currentTarget.style.borderColor='#2E2541'; }, onMouseLeave: e => { e.currentTarget.style.background='transparent'; e.currentTarget.style.borderColor='rgba(46,37,65,0.5)'; }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 62}}, React.createElement('span', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 62}}, "會員登入")))
+              , React.createElement('a', { href: "member.html", style: { textDecoration: "none" }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 62}}, React.createElement('button', { style: { padding: "9px 20px", fontSize: 14, fontFamily: '"Noto Serif TC", serif', letterSpacing: '0.05em', color: '#1A0828', background: 'transparent', border: '1px solid rgba(200,168,88,0.55)', borderRadius: 4, cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.3s' }, onMouseEnter: e => { e.currentTarget.style.background='rgba(26,8,40,0.08)'; e.currentTarget.style.borderColor='rgba(200,168,88,0.85)'; }, onMouseLeave: e => { e.currentTarget.style.background='transparent'; e.currentTarget.style.borderColor='rgba(26,8,40,0.5)'; }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 62}}, React.createElement('span', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 62}}, "會員登入")))
             )
             , React.createElement('button', { className: "mobile-menu-btn", onClick: () => setMenuOpen(o => !o), 'aria-label': "選單", __self: this, __source: {fileName: _jsxFileName, lineNumber: 65}}
               , React.createElement('span', { style: { transform: menuOpen ? 'rotate(45deg) translate(0, 8px)' : 'none' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 66}} )
@@ -73,7 +73,7 @@
               , links.map(l => (
                 React.createElement('a', { key: l.label, href: l.href, className: `mobile-nav-link${currentPage === l.page ? ' active' : ''}`, __self: this, __source: {fileName: _jsxFileName, lineNumber: 74}}, l.label)
               ))
-              , React.createElement('a', { href: "member.html", style: { textDecoration: "none", display: "block" }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 76}}, React.createElement('button', { className: "btn-gold", style: { marginTop: 16, width: "100%", background: 'transparent', border: '1px solid rgba(46,37,65,0.7)', color: '#1A0828' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 76}}, React.createElement('span', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 76}}, "會員登入 / 註冊"  )))
+              , React.createElement('a', { href: "member.html", style: { textDecoration: "none", display: "block" }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 76}}, React.createElement('button', { className: "btn-gold", style: { marginTop: 16, width: "100%", background: 'transparent', border: '1px solid rgba(200,168,88,0.72)', color: '#1A0828' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 76}}, React.createElement('span', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 76}}, "會員登入 / 註冊"  )))
             )
           )
         )
@@ -125,13 +125,13 @@
                       l.type === 'phone' ? (
                         React.createElement('div', { key: l.label, style: { position: 'relative' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 127}}
                           , React.createElement('span', { onClick: () => setPhoneOpen(o => !o), style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#3A1E52', letterSpacing: '0.07em', cursor: 'pointer', transition: 'color 0.3s' },
-                            onMouseEnter: e => e.currentTarget.style.color = '#2E2541',
+                            onMouseEnter: e => e.currentTarget.style.color = '#1A0828',
                             onMouseLeave: e => e.currentTarget.style.color = '#6B5A8E', __self: this, __source: {fileName: _jsxFileName, lineNumber: 128}}
 , l.label)
                           , phoneOpen && (
                             React.createElement(React.Fragment, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 133}}
                             , React.createElement('div', { style: { position: 'fixed', inset: 0, zIndex: 99 }, onClick: () => setPhoneOpen(false), __self: this, __source: {fileName: _jsxFileName, lineNumber: 134}} )
-                            , React.createElement('div', { style: { position: 'absolute', left: 0, top: '110%', background: 'rgba(13,26,14,0.97)', border: '1px solid rgba(46,37,65,0.3)', padding: '12px 20px', zIndex: 100, display: 'flex', flexDirection: 'column', gap: 12 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 135}}
+                            , React.createElement('div', { style: { position: 'absolute', left: 0, top: '110%', background: 'rgba(13,26,14,0.97)', border: '1px solid rgba(200,168,88,0.52)', padding: '12px 20px', zIndex: 100, display: 'flex', flexDirection: 'column', gap: 12 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 135}}
                               , React.createElement('a', { href: "tel:0906607856", style: { fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#1A0828', textDecoration: 'none', letterSpacing: '0.07em' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 136}}, "0906-607-856")
                               , React.createElement('a', { href: "tel:0927186901", style: { fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#1A0828', textDecoration: 'none', letterSpacing: '0.07em' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 137}}, "0927-186-901")
                             )
@@ -141,13 +141,13 @@
                       ) : l.type === 'email' ? (
                         React.createElement('div', { key: l.label, style: { position: 'relative' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 143}}
                           , React.createElement('span', { onClick: () => setEmailOpen(o => !o), style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#3A1E52', letterSpacing: '0.07em', cursor: 'pointer', transition: 'color 0.3s' },
-                            onMouseEnter: e => e.currentTarget.style.color = '#2E2541',
+                            onMouseEnter: e => e.currentTarget.style.color = '#1A0828',
                             onMouseLeave: e => e.currentTarget.style.color = '#6B5A8E', __self: this, __source: {fileName: _jsxFileName, lineNumber: 144}}
 , l.label)
                           , emailOpen && (
                             React.createElement(React.Fragment, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 149}}
                             , React.createElement('div', { style: { position: 'fixed', inset: 0, zIndex: 99 }, onClick: () => setEmailOpen(false), __self: this, __source: {fileName: _jsxFileName, lineNumber: 150}} )
-                            , React.createElement('div', { style: { position: 'absolute', left: 0, top: '110%', background: 'rgba(13,26,14,0.97)', border: '1px solid rgba(46,37,65,0.3)', padding: '12px 20px', zIndex: 100 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 151}}
+                            , React.createElement('div', { style: { position: 'absolute', left: 0, top: '110%', background: 'rgba(13,26,14,0.97)', border: '1px solid rgba(200,168,88,0.52)', padding: '12px 20px', zIndex: 100 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 151}}
                               , React.createElement('a', { href: "mailto:acandy135789@gmail.com", style: { fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#1A0828', textDecoration: 'none', letterSpacing: '0.07em' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 152}}, "acandy135789@gmail.com")
                             )
                             )
@@ -155,7 +155,7 @@
                         )
                       ) : (
                         React.createElement('a', { key: l.label, href: l.href, style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#3A1E52', textDecoration: 'none', letterSpacing: '0.07em', transition: 'color 0.3s' },
-                          onMouseEnter: e => e.currentTarget.style.color = '#2E2541',
+                          onMouseEnter: e => e.currentTarget.style.color = '#1A0828',
                           onMouseLeave: e => e.currentTarget.style.color = '#6B5A8E', __self: this, __source: {fileName: _jsxFileName, lineNumber: 158}}
 , l.label)
                       )
@@ -187,8 +187,8 @@
           ].map((o, i) => (
             React.createElement('div', { key: i, className: "orb", style: {
               width: o.size, height: o.size, left: o.left, bottom: o.bottom,
-              background: 'radial-gradient(circle, rgba(46,37,65,0.9), rgba(26,8,40,0.08))',
-              boxShadow: '0 0 8px rgba(46,37,65,0.6)',
+              background: 'radial-gradient(circle, rgba(26,8,40,0.9), rgba(26,8,40,0.08))',
+              boxShadow: '0 0 8px rgba(26,8,40,0.6)',
               animationDuration: `${o.dur}s`, animationDelay: `${o.delay}s`, zIndex: 2,
             }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 189}} )
           ))
@@ -265,7 +265,7 @@
       const words = ['開運科技健髮', '開運科技美容', '外泌體育髮技術', '韓國頂級護膚', '身心靈整體調理', '能量美學品牌', '貴賓預約優先', '開運能量加持', '科技煥膚療程', '美麗從心出發'];
       const items = [...words, ...words];
       return (
-        React.createElement('div', { style: { background: 'rgba(46,37,65,0.08)', borderTop: '1px solid rgba(26,8,40,0.12)', borderBottom: '1px solid rgba(26,8,40,0.12)', padding: '18px 0', overflow: 'hidden' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 266}}
+        React.createElement('div', { style: { background: 'rgba(26,8,40,0.08)', borderTop: '1px solid rgba(26,8,40,0.12)', borderBottom: '1px solid rgba(26,8,40,0.12)', padding: '18px 0', overflow: 'hidden' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 266}}
           , React.createElement('div', { className: "marquee-track", __self: this, __source: {fileName: _jsxFileName, lineNumber: 267}}
             , items.map((w, i) => (
               React.createElement('span', { key: i, style: { fontFamily: '"Noto Serif TC", serif', fontSize: 19, letterSpacing: '0.2em', color: '#1A0828', padding: '0 40px', whiteSpace: 'nowrap', opacity: 0.85 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 269}}
