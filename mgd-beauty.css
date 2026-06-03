@@ -206,28 +206,30 @@
       box-shadow: 0 16px 48px rgba(0,0,0,0.4);
     }
 
-    /* ── Hero text container: radial glow backdrop ── */
+    /* ── Hero text container: frosted jade-white glass ── */
     .hero-text-container {
-      background: radial-gradient(circle, rgba(255, 253, 247, 0.35) 0%, rgba(255, 255, 255, 0) 70%);
-      padding: 40px;
-      border-radius: 50%;
+      background: radial-gradient(ellipse 90% 85% at 42% 50%,
+        rgba(242, 248, 244, 0.78) 0%,
+        rgba(238, 246, 241, 0.58) 38%,
+        rgba(234, 244, 238, 0.28) 65%,
+        rgba(255, 255, 255, 0)   100%
+      );
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      padding: 48px 56px 48px 0;
+      border-radius: 0;
     }
 
-    /* ── Main title: gold gradient + heavy compound dark shadow ── */
+    /* ── Main title: deep burnished antique gold ── */
     .main-title {
-      background: linear-gradient(to bottom, #FFE566 0%, #D4AF37 40%, #A07818 75%, #7A5510 100%);
+      background: linear-gradient(to bottom, #C8951E 0%, #A07520 45%, #7A5510 80%, #5C3C08 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       text-fill-color: transparent;
       font-weight: 700;
       letter-spacing: 2px;
-      filter: drop-shadow(0px 0px 1.5px rgba(40, 15, 3, 1))
-              drop-shadow(0px 0px 3px   rgba(40, 15, 3, 0.95))
-              drop-shadow(0px 0px 5px   rgba(35, 12, 2, 0.88))
-              drop-shadow(0px 2px 6px   rgba(30, 10, 2, 0.75))
-              drop-shadow(0px 4px 14px  rgba(25,  8, 2, 0.55))
-              drop-shadow(0px 8px 28px  rgba(20,  5, 1, 0.35));
+      filter: drop-shadow(0px 1px 2px rgba(30, 10, 2, 0.25));
     }
     /* ── Hero title: gradient text + white drop-shadow ── */
     .hero-h1 {
