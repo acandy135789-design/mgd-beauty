@@ -129,9 +129,9 @@
                 </div>
                 <div style={{ display: 'flex', gap: 14, marginTop: 28 }}>
                   {['IG', 'FB', 'LINE'].map(s => (
-                    <a key={s} href="#" style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.25em', color: '#3A1E52', textDecoration: 'none', border: '1px solid rgba(26,8,40,0.25)', padding: '8px 14px', transition: 'all 0.3s' }}
+                    <a key={s} href="#" style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.25em', color: '#3A1E52', textDecoration: 'none', border: '1px solid rgba(200,168,88,0.50)', padding: '8px 14px', background: 'rgba(253,249,246,0.90)', borderRadius: '4px', transition: 'all 0.3s' }}
                       onMouseEnter={e => { e.currentTarget.style.borderColor = '#2E2541'; e.currentTarget.style.color = '#1A0828'; }}
-                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(26,8,40,0.25)'; e.currentTarget.style.color = '#3A1E52'; }}
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(200,168,88,0.50)'; e.currentTarget.style.background = 'rgba(253,249,246,0.90)'; e.currentTarget.style.color = '#1A0828'; }}
                     >{s}</a>
                   ))}
                 </div>

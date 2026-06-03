@@ -129,9 +129,9 @@
                 </div>
                 <div style={{ display: 'flex', gap: 14, marginTop: 28 }}>
                   {['IG', 'FB', 'LINE'].map(s => (
-                    <a key={s} href="#" style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.25em', color: '#3A1E52', textDecoration: 'none', border: '1px solid rgba(26,8,40,0.25)', padding: '8px 14px', transition: 'all 0.3s' }}
+                    <a key={s} href="#" style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.25em', color: '#3A1E52', textDecoration: 'none', border: '1px solid rgba(200,168,88,0.50)', padding: '8px 14px', background: 'rgba(253,249,246,0.90)', borderRadius: '4px', transition: 'all 0.3s' }}
                       onMouseEnter={e => { e.currentTarget.style.borderColor = '#2E2541'; e.currentTarget.style.color = '#1A0828'; }}
-                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(26,8,40,0.25)'; e.currentTarget.style.color = '#3A1E52'; }}
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(200,168,88,0.50)'; e.currentTarget.style.background = 'rgba(253,249,246,0.90)'; e.currentTarget.style.color = '#1A0828'; }}
                     >{s}</a>
                   ))}
                 </div>
@@ -229,7 +229,7 @@
                 <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 19, fontWeight: 300, color: '#3A1E52', lineHeight: 2.1, letterSpacing: '0.07em' }}>
                   採用台灣獨家專利外泌體原液，結合科技儀器深入頭皮底層，有效改善掉髮、頭皮老化等問題，喚醒髮絲的生命力。每次療程皆由專業技術顧問一對一全程服務，並提供後續追蹤諮詢。
                 </p>
-                <div style={{ marginTop: 32, padding: '20px 24px', border: '1px solid rgba(26,8,40,0.25)', display: 'inline-block' }}>
+                <div style={{ marginTop: 32, padding: '20px 24px', border: '1px solid rgba(200,168,88,0.45)', display: 'inline-block', borderRadius: '6px' }}>
                   <div style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.3em', color: '#3A1E52', marginBottom: 4 }}>STARTING FROM</div>
                   <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 38, color: '#1A0828', fontWeight: 300 }}>NT$ 3,500</div>
                   <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#3A1E52', marginTop: 4 }}>單次體驗 · 套組方案另洽技師</div>
@@ -295,7 +295,7 @@
                 <a href="partners.html" className="reveal delay-3">
                   <button className="btn-gold" style={{ padding: '14px 40px', fontSize: 18, marginTop: 8 }}><span>聯絡我們</span></button>
                 </a>
-                <div className="reveal delay-3" style={{ marginTop: 8, padding: '18px 36px', border: '1px solid rgba(26,8,40,0.3)', display: 'inline-block', background: 'rgba(26,8,40,0.08)' }}>
+                <div className="reveal delay-3" style={{ marginTop: 8, padding: '18px 36px', border: '1px solid rgba(200,168,88,0.50)', display: 'inline-block', background: 'rgba(253,249,246,0.88)', borderRadius: '6px' }}>
                   <div style={{ fontFamily: 'Cinzel, serif', fontSize: 13, letterSpacing: '0.4em', color: '#3A1E52', marginBottom: 6 }}>SINGLE SESSION</div>
                   <div style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: 34, color: '#1A0828', fontWeight: 300, letterSpacing: '0.05em' }}>單堂體驗價 NT$ 3,500</div>
                   <div style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 16, color: '#3A1E52', marginTop: 6, letterSpacing: '0.06em' }}>儲值優惠請洽詢技術老師</div>
@@ -320,12 +320,12 @@
                   position: 'absolute', top: '50%', transform: 'translateY(-50%)',
                   ...side, zIndex: 10,
                   width: 52, height: 52, borderRadius: '50%',
-                  background: 'rgba(250,248,255,0.82)', border: '1px solid rgba(26,8,40,0.4)',
+                  background: 'rgba(253,249,246,0.92)', border: '1px solid rgba(200,168,88,0.50)',
                   color: '#1A0828', fontSize: 26, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
                   transition: 'all 0.3s',
                 }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(26,8,40,0.2)'; e.currentTarget.style.borderColor = '#2E2541'; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(250,248,255,0.82)'; e.currentTarget.style.borderColor = 'rgba(26,8,40,0.4)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(253,249,246,0.92)'; e.currentTarget.style.borderColor = 'rgba(200,168,88,0.50)'; }}
                 >
                   {idx === 0 ? '‹' : '›'}
                 </button>
