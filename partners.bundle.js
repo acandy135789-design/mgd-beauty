@@ -32,8 +32,8 @@
         }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 28}}
           , React.createElement('div', { style: { maxWidth: 1440, margin: '0 auto', padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 76 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 33}}
             , React.createElement('a', { href: "index.html", style: { textDecoration: 'none', flexShrink: 0 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 34}}
-              , React.createElement('div', { style: { fontFamily: '"Cormorant Garamond", serif', fontSize: 21, fontWeight: 500, letterSpacing: '0.1em', color: '#2E2541', lineHeight: 1 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 35}}, "Magic Garden 美肌花園"  )
-              , React.createElement('div', { style: { fontFamily: 'Cinzel, serif', fontSize: 11, letterSpacing: '0.35em', color: '#6B5A8E', marginTop: 4 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 36}}, "ENERGY · BEAUTY · VITALITY"    )
+              , React.createElement('div', { style: { fontFamily: '"Cormorant Garamond", serif', fontSize: 21, fontWeight: 500, letterSpacing: '0.1em', color: '#1A0828', lineHeight: 1 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 35}}, "Magic Garden 美肌花園"  )
+              , React.createElement('div', { style: { fontFamily: 'Cinzel, serif', fontSize: 11, letterSpacing: '0.35em', color: '#3A1E52', marginTop: 4 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 36}}, "ENERGY · BEAUTY · VITALITY"    )
             )
             , React.createElement('div', { className: "nav-links", style: { display: 'flex', gap: 20, alignItems: 'center' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 38}}
               , links.map(l => (
@@ -81,22 +81,22 @@
           , React.createElement('div', { style: { maxWidth: 1380, margin: '0 auto' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 81}}
             , React.createElement('div', { style: { display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 60, paddingBottom: 60, borderBottom: '1px solid rgba(46,37,65,0.1)' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 82}}
               , React.createElement('div', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 83}}
-                , React.createElement('div', { style: { fontFamily: '"Cormorant Garamond", serif', fontSize: 26, fontWeight: 500, letterSpacing: '0.15em', color: '#2E2541', marginBottom: 4 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 84}}, "Magic Garden 美肌花園"  )
-                , React.createElement('div', { style: { fontFamily: 'Cinzel, serif', fontSize: 13, letterSpacing: '0.45em', color: '#6B5A8E', marginBottom: 24 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 85}}, "ENERGY · BEAUTY · VITALITY"    )
-                , React.createElement('p', { style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#6B5A8E', lineHeight: 2.2, letterSpacing: '0.07em', maxWidth: 300 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 86}}, "能量美學品牌 · 開運美容護膚／秀髮養育"  , React.createElement('br', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 86}} ), "貴賓預約優先制")
+                , React.createElement('div', { style: { fontFamily: '"Cormorant Garamond", serif', fontSize: 26, fontWeight: 500, letterSpacing: '0.15em', color: '#1A0828', marginBottom: 4 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 84}}, "Magic Garden 美肌花園"  )
+                , React.createElement('div', { style: { fontFamily: 'Cinzel, serif', fontSize: 13, letterSpacing: '0.45em', color: '#3A1E52', marginBottom: 24 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 85}}, "ENERGY · BEAUTY · VITALITY"    )
+                , React.createElement('p', { style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#3A1E52', lineHeight: 2.2, letterSpacing: '0.07em', maxWidth: 300 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 86}}, "能量美學品牌 · 開運美容護膚／秀髮養育"  , React.createElement('br', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 86}} ), "貴賓預約優先制")
                 , React.createElement('div', { style: { marginTop: 20 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 87}}
-                  , React.createElement('div', { style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#4A3A65', letterSpacing: '0.07em', marginBottom: 8 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 88}}, "📞 0927-186-901" )
-                  , React.createElement('div', { style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#4A3A65', letterSpacing: '0.07em' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 89}}, "✉️ acandy135789@gmail.com" )
+                  , React.createElement('div', { style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#3A1E52', letterSpacing: '0.07em', marginBottom: 8 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 88}}, "📞 0927-186-901" )
+                  , React.createElement('div', { style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#3A1E52', letterSpacing: '0.07em' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 89}}, "✉️ acandy135789@gmail.com" )
                 )
               )
               , cols.map(col => (
                 React.createElement('div', { key: col.title, __self: this, __source: {fileName: _jsxFileName, lineNumber: 93}}
-                  , React.createElement('div', { style: { fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.35em', color: '#2E2541', marginBottom: 24 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 94}}, col.title)
+                  , React.createElement('div', { style: { fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.35em', color: '#1A0828', marginBottom: 24 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 94}}, col.title)
                   , React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: 14 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 95}}
                     , col.links.map(l => (
                       l.type === 'phone' ? (
                         React.createElement('div', { key: l.label, style: { position: 'relative' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 98}}
-                          , React.createElement('span', { onClick: () => setPhoneOpen(o => !o), style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#6B5A8E', letterSpacing: '0.07em', cursor: 'pointer', transition: 'color 0.3s' },
+                          , React.createElement('span', { onClick: () => setPhoneOpen(o => !o), style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#3A1E52', letterSpacing: '0.07em', cursor: 'pointer', transition: 'color 0.3s' },
                             onMouseEnter: e => e.currentTarget.style.color = '#2E2541',
                             onMouseLeave: e => e.currentTarget.style.color = '#6B5A8E', __self: this, __source: {fileName: _jsxFileName, lineNumber: 99}}
 , l.label)
@@ -104,15 +104,15 @@
                             React.createElement(React.Fragment, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 104}}
                             , React.createElement('div', { style: { position: 'fixed', inset: 0, zIndex: 99 }, onClick: () => setPhoneOpen(false), __self: this, __source: {fileName: _jsxFileName, lineNumber: 105}} )
                             , React.createElement('div', { style: { position: 'absolute', left: 0, top: '110%', background: 'rgba(13,26,14,0.97)', border: '1px solid rgba(46,37,65,0.3)', padding: '12px 20px', zIndex: 100, display: 'flex', flexDirection: 'column', gap: 12 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 106}}
-                              , React.createElement('a', { href: "tel:0906607856", style: { fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#2E2541', textDecoration: 'none', letterSpacing: '0.07em' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 107}}, "0906-607-856")
-                              , React.createElement('a', { href: "tel:0927186901", style: { fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#2E2541', textDecoration: 'none', letterSpacing: '0.07em' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 108}}, "0927-186-901")
+                              , React.createElement('a', { href: "tel:0906607856", style: { fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#1A0828', textDecoration: 'none', letterSpacing: '0.07em' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 107}}, "0906-607-856")
+                              , React.createElement('a', { href: "tel:0927186901", style: { fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#1A0828', textDecoration: 'none', letterSpacing: '0.07em' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 108}}, "0927-186-901")
                             )
                             )
                           )
                         )
                       ) : l.type === 'email' ? (
                         React.createElement('div', { key: l.label, style: { position: 'relative' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 114}}
-                          , React.createElement('span', { onClick: () => setEmailOpen(o => !o), style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#6B5A8E', letterSpacing: '0.07em', cursor: 'pointer', transition: 'color 0.3s' },
+                          , React.createElement('span', { onClick: () => setEmailOpen(o => !o), style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#3A1E52', letterSpacing: '0.07em', cursor: 'pointer', transition: 'color 0.3s' },
                             onMouseEnter: e => e.currentTarget.style.color = '#2E2541',
                             onMouseLeave: e => e.currentTarget.style.color = '#6B5A8E', __self: this, __source: {fileName: _jsxFileName, lineNumber: 115}}
 , l.label)
@@ -120,13 +120,13 @@
                             React.createElement(React.Fragment, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 120}}
                             , React.createElement('div', { style: { position: 'fixed', inset: 0, zIndex: 99 }, onClick: () => setEmailOpen(false), __self: this, __source: {fileName: _jsxFileName, lineNumber: 121}} )
                             , React.createElement('div', { style: { position: 'absolute', left: 0, top: '110%', background: 'rgba(13,26,14,0.97)', border: '1px solid rgba(46,37,65,0.3)', padding: '12px 20px', zIndex: 100 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 122}}
-                              , React.createElement('a', { href: "mailto:acandy135789@gmail.com", style: { fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#2E2541', textDecoration: 'none', letterSpacing: '0.07em' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 123}}, "acandy135789@gmail.com")
+                              , React.createElement('a', { href: "mailto:acandy135789@gmail.com", style: { fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#1A0828', textDecoration: 'none', letterSpacing: '0.07em' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 123}}, "acandy135789@gmail.com")
                             )
                             )
                           )
                         )
                       ) : (
-                        React.createElement('a', { key: l.label, href: l.href, style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#6B5A8E', textDecoration: 'none', letterSpacing: '0.07em', transition: 'color 0.3s' },
+                        React.createElement('a', { key: l.label, href: l.href, style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#3A1E52', textDecoration: 'none', letterSpacing: '0.07em', transition: 'color 0.3s' },
                           onMouseEnter: e => e.currentTarget.style.color = '#2E2541',
                           onMouseLeave: e => e.currentTarget.style.color = '#6B5A8E', __self: this, __source: {fileName: _jsxFileName, lineNumber: 129}}
 , l.label)
@@ -165,13 +165,13 @@
           )
           , React.createElement('div', { style: { maxWidth: 1380, margin: '0 auto', padding: '0 48px', position: 'relative' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 166}}
             , React.createElement('div', { style: { textAlign: 'center', marginBottom: 80 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 167}}
-              , React.createElement('div', { className: "reveal", style: { fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.55em', color: '#2E2541' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 168}}, "PARTNER LOCATIONS" )
+              , React.createElement('div', { className: "reveal", style: { fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.55em', color: '#1A0828' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 168}}, "PARTNER LOCATIONS" )
               , React.createElement('span', { className: "gold-line", __self: this, __source: {fileName: _jsxFileName, lineNumber: 169}} )
-              , React.createElement('h2', { className: "reveal delay-1" , style: { fontFamily: '"Cormorant Garamond", serif', fontSize: 'clamp(2rem, 3.5vw, 3.2rem)', fontWeight: 400, color: '#2E2541', lineHeight: 1.3 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 170}}, "夥伴資訊"
+              , React.createElement('h2', { className: "reveal delay-1" , style: { fontFamily: '"Cormorant Garamond", serif', fontSize: 'clamp(2rem, 3.5vw, 3.2rem)', fontWeight: 400, color: '#1A0828', lineHeight: 1.3 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 170}}, "夥伴資訊"
                 , React.createElement('br', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 171}} )
-                , React.createElement('em', { style: { color: '#2E2541', fontStyle: 'italic' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 172}}, "全桃園服務據點")
+                , React.createElement('em', { style: { color: '#1A0828', fontStyle: 'italic' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 172}}, "全桃園服務據點")
               )
-              , React.createElement('p', { className: "reveal delay-2" , style: { fontFamily: '"Noto Serif TC", serif', fontSize: 19, color: '#6B5A8E', lineHeight: 2, marginTop: 20, letterSpacing: '0.07em' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 174}}, "桃園各區皆有專業技師駐點服務 · LINE 預約 · 貴賓優先制"
+              , React.createElement('p', { className: "reveal delay-2" , style: { fontFamily: '"Noto Serif TC", serif', fontSize: 19, color: '#3A1E52', lineHeight: 2, marginTop: 20, letterSpacing: '0.07em' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 174}}, "桃園各區皆有專業技師駐點服務 · LINE 預約 · 貴賓優先制"
 
               )
             )
@@ -190,18 +190,18 @@
                     )
                   )
                   , React.createElement('div', { style: { padding: '28px 28px 32px', flex: 1, display: 'flex', flexDirection: 'column' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 192}}
-                  , React.createElement('div', { style: { fontFamily: 'Cinzel, serif', fontSize: 14, letterSpacing: '0.15em', color: '#2E2541', marginBottom: 14, opacity: 0.8 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 193}}, p.shop)
+                  , React.createElement('div', { style: { fontFamily: 'Cinzel, serif', fontSize: 14, letterSpacing: '0.15em', color: '#1A0828', marginBottom: 14, opacity: 0.8 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 193}}, p.shop)
                   , React.createElement('div', { style: { display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 10, gap: 8 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 194}}
-                    , React.createElement('div', { style: { fontFamily: '"Cormorant Garamond", serif', fontSize: 25, fontWeight: 500, color: '#2E2541', letterSpacing: '0.06em', lineHeight: 1.2 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 195}}, p.name)
-                    , React.createElement('div', { style: { fontFamily: '"Noto Serif TC", serif', fontSize: 15, letterSpacing: '0.12em', color: '#2E2541', border: '1px solid rgba(46,37,65,0.35)', padding: '4px 10px', whiteSpace: 'nowrap', flexShrink: 0 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 196}}, p.area)
+                    , React.createElement('div', { style: { fontFamily: '"Cormorant Garamond", serif', fontSize: 25, fontWeight: 500, color: '#1A0828', letterSpacing: '0.06em', lineHeight: 1.2 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 195}}, p.name)
+                    , React.createElement('div', { style: { fontFamily: '"Noto Serif TC", serif', fontSize: 15, letterSpacing: '0.12em', color: '#1A0828', border: '1px solid rgba(46,37,65,0.35)', padding: '4px 10px', whiteSpace: 'nowrap', flexShrink: 0 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 196}}, p.area)
                   )
                   , React.createElement('div', { style: { width: 36, height: 1, background: 'linear-gradient(90deg, #C5A059, transparent)', marginBottom: 12 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 198}} )
-                  , React.createElement('div', { style: { fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#6B5A8E', letterSpacing: '0.07em', marginBottom: 10 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 199}}, p.role)
-                  , React.createElement('div', { style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#4A3A65', letterSpacing: '0.06em', lineHeight: 1.9, marginBottom: p.feature ? 8 : 0 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 200}}
+                  , React.createElement('div', { style: { fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#3A1E52', letterSpacing: '0.07em', marginBottom: 10 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 199}}, p.role)
+                  , React.createElement('div', { style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#3A1E52', letterSpacing: '0.06em', lineHeight: 1.9, marginBottom: p.feature ? 8 : 0 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 200}}
                     , React.createElement('span', { style: { color: 'rgba(46,37,65,0.7)', fontSize: 16 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 201}}, "專長｜"), p.specialty
                   )
                   , p.feature && (
-                    React.createElement('div', { style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#4A3A65', letterSpacing: '0.06em', lineHeight: 1.9 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 204}}
+                    React.createElement('div', { style: { fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#3A1E52', letterSpacing: '0.06em', lineHeight: 1.9 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 204}}
                       , React.createElement('span', { style: { color: 'rgba(46,37,65,0.7)', fontSize: 16 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 205}}, "特點｜"), p.feature
                     )
                   )
@@ -210,7 +210,7 @@
                       React.createElement('img', { src: p.qr, alt: `${p.name} LINE QR`, style: { width: 72, height: 72, objectFit: 'contain', border: '1px solid rgba(46,37,65,0.25)', padding: 4, background: '#fff' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 210}} )
                     ) : (
                       React.createElement('div', { style: { width: 72, height: 72, border: '1px dashed rgba(46,37,65,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 212}}
-                        , React.createElement('span', { style: { fontFamily: '"Noto Serif TC", serif', fontSize: 15, color: '#6B5A8E', textAlign: 'center' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 213}}, "QR 圖檔待補" )
+                        , React.createElement('span', { style: { fontFamily: '"Noto Serif TC", serif', fontSize: 15, color: '#3A1E52', textAlign: 'center' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 213}}, "QR 圖檔待補" )
                       )
                     )
                     , p.line && p.line !== '#' ? (
