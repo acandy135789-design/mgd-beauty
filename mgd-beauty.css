@@ -107,27 +107,34 @@
     /* ── Hero parallax bg ── */
     .hero-bg {
       background-image:
-        /* 夢幻能量光點：上方散落暖金色光斑 */
-        radial-gradient(ellipse 16% 20% at 10% 10%, rgba(255,218,120,0.32) 0%, transparent 75%),
-        radial-gradient(ellipse 12% 16% at 88% 8%,  rgba(255,210,110,0.28) 0%, transparent 75%),
-        radial-gradient(ellipse  9% 12% at 68% 25%, rgba(255,228,150,0.22) 0%, transparent 70%),
-        radial-gradient(ellipse 11% 14% at 28% 20%, rgba(255,222,135,0.20) 0%, transparent 70%),
-        radial-gradient(ellipse  7%  9% at 50%  8%, rgba(255,235,170,0.18) 0%, transparent 65%),
+        /* 暮色調暗層：柔化過曝的金色光線，呈現沉靜暮光氛圍 */
+        linear-gradient(180deg,
+          rgba(28, 14, 22, 0.28)  0%,
+          rgba(22, 10, 18, 0.18) 35%,
+          rgba(18,  8, 14, 0.10) 60%,
+          rgba(15,  6, 12, 0.22) 100%
+        ),
+        /* 能量光點：降低亮度，保留花園溫柔魔力 */
+        radial-gradient(ellipse 16% 20% at 10% 10%, rgba(255,200,100,0.18) 0%, transparent 75%),
+        radial-gradient(ellipse 12% 16% at 88% 8%,  rgba(255,190, 90,0.15) 0%, transparent 75%),
+        radial-gradient(ellipse  9% 12% at 68% 25%, rgba(255,210,130,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 11% 14% at 28% 20%, rgba(255,200,115,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse  7%  9% at 50%  8%, rgba(255,215,150,0.10) 0%, transparent 65%),
         /* 朦朧雲霧：中央橢圓留白，邊緣柔和暈染 */
         radial-gradient(ellipse 62% 58% at 50% 44%,
-          rgba(255,253,248,0.00)  0%,
-          rgba(255,251,242,0.10) 45%,
-          rgba(255,246,228,0.42) 72%,
-          rgba(253,242,215,0.72) 88%,
-          rgba(251,240,210,0.90) 100%
+          rgba(255,248,240,0.00)  0%,
+          rgba(255,244,234,0.08) 45%,
+          rgba(252,236,218,0.30) 72%,
+          rgba(248,230,210,0.55) 88%,
+          rgba(244,226,205,0.78) 100%
         ),
-        /* 電影級金色時光：頂部透光、底部淡出承接頁底 */
+        /* 暮光金：降低底部白度，保留溫暖感 */
         linear-gradient(180deg,
-          rgba(255,226,148,0.14)  0%,
-          rgba(255,242,210,0.06) 22%,
-          rgba(255,250,238,0.03) 46%,
-          rgba(252,244,220,0.68) 68%,
-          rgba(249,241,212,1.00) 100%
+          rgba(240,200,120,0.08)  0%,
+          rgba(240,215,180,0.04) 22%,
+          rgba(245,230,205,0.02) 46%,
+          rgba(238,220,192,0.50) 68%,
+          rgba(232,215,188,0.85) 100%
         ),
         /* 歐式皇家花園：AI 生成 × 大理石拱門 × 粉橘玫瑰 × 金色晨光 */
         url('images/hero-garden.jpg');
@@ -206,30 +213,37 @@
       box-shadow: 0 16px 48px rgba(0,0,0,0.4);
     }
 
-    /* ── Hero text container: frosted jade-white glass ── */
+    /* ── Hero text container: soft cream halo ── */
     .hero-text-container {
-      background: radial-gradient(ellipse 90% 85% at 42% 50%,
-        rgba(242, 248, 244, 0.78) 0%,
-        rgba(238, 246, 241, 0.58) 38%,
-        rgba(234, 244, 238, 0.28) 65%,
+      background: radial-gradient(ellipse 85% 80% at 38% 50%,
+        rgba(255, 250, 242, 0.62) 0%,
+        rgba(255, 248, 238, 0.42) 40%,
+        rgba(255, 245, 232, 0.16) 65%,
         rgba(255, 255, 255, 0)   100%
       );
-      -webkit-backdrop-filter: blur(20px);
-      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
       padding: 48px 56px 48px 0;
       border-radius: 0;
     }
 
-    /* ── Main title: deep burnished antique gold ── */
+    /* ── Main title: plum-chocolate → smoked rose-gold ── */
     .main-title {
-      background: linear-gradient(to bottom, #C8951E 0%, #A07520 45%, #7A5510 80%, #5C3C08 100%);
+      background: linear-gradient(135deg,
+        #3D1828 0%,
+        #6A2840 28%,
+        #9E5A58 58%,
+        #C49278 82%,
+        #D4A888 100%
+      );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       text-fill-color: transparent;
       font-weight: 700;
       letter-spacing: 2px;
-      filter: drop-shadow(0px 1px 2px rgba(30, 10, 2, 0.25));
+      filter: drop-shadow(0px 0px 14px rgba(255, 245, 228, 0.55))
+              drop-shadow(0px 1px 6px  rgba(255, 240, 218, 0.35));
     }
     /* ── Hero title: gradient text + white drop-shadow ── */
     .hero-h1 {
