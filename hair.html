@@ -214,7 +214,7 @@
             </h2>
           </div>
           <div className="two-col-grid" style={{ maxWidth: 1380, margin: '0 auto', padding: '0 48px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, alignItems: 'start' }}>
-            <div className="svc-card reveal delay-1" style={{ background: 'rgba(13,26,14,0.8)', backdropFilter: 'blur(8px)' }}>
+            <div className="svc-card reveal delay-1" style={{ background: 'rgba(253,249,246,0.96)', backdropFilter: 'blur(8px)', border: '1px solid rgba(200,168,88,0.38)' }}>
               <div style={{ overflow: 'hidden', height: 275 }}>
                 <img
                   src="https://a4366bee14.cbaul-cdnwnd.com/ca02d7fdd37bb4374589c36778190278/200000000-5213352135/%E6%A8%99%E9%A1%8C%E8%83%8C%E6%99%AF%E7%85%A705%20LAEXO%20product%20DM%20%28%E4%B8%AD%E6%96%87page%29.png?ph=a4366bee14"
@@ -242,7 +242,7 @@
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20, paddingTop: 140 }}>
               {features.map((f, i) => (
                 <div key={f.title} className={`ing-circle reveal delay-${(i % 3) + 1}`} style={{
-                  background: 'rgba(13,26,14,0.6)', padding: '28px 32px',
+                  background: 'rgba(253,249,246,0.92)', padding: '28px 32px',
                   backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'flex-start', gap: 20,
                 }}>
                   <div style={{ fontSize: 26, flexShrink: 0, marginTop: 2 }}>{f.icon}</div>
@@ -272,7 +272,7 @@
       const cur = slides[slide];
 
       return (
-        <section style={{ background: 'linear-gradient(150deg, #F7D6C8 0%, #E2C2B9 50%, #F7D6C8 100%)', padding: '100px 0 140px', position: 'relative' }}>
+        <section style={{ background: 'linear-gradient(150deg, #FAF9FC 0%, #EDE8F5 50%, #FAF9FC 100%)', padding: '100px 0 140px', position: 'relative' }}>
           <div style={{ maxWidth: 1380, margin: '0 auto', padding: '0 48px' }}>
 
             {/* 介紹文字 */}
@@ -361,7 +361,7 @@
         { src: 'images/hair/159628.jpg', caption: '每一根髮寶寶，都是努力的成果' },
       ];
       return (
-        <section style={{ background: 'linear-gradient(180deg, #FFFBF9 0%, #F7D6C8 50%, #FFFBF9 100%)', padding: '100px 0 140px' }}>
+        <section style={{ background: 'linear-gradient(180deg, #FAF9FC 0%, #EDE8F5 50%, #FAF9FC 100%)', padding: '100px 0 140px' }}>
           <div style={{ maxWidth: 860, margin: '0 auto', padding: '0 48px' }}>
             <div style={{ textAlign: 'center', marginBottom: 80 }}>
               <div className="reveal" style={{ fontFamily: 'Cinzel, serif', fontSize: 15, letterSpacing: '0.55em', color: '#1A0828' }}>CUSTOMER STORIES</div>
@@ -379,7 +379,7 @@
               {photos.map((p, i) => (
                 <div key={i} className={`reveal delay-${(i % 3) + 1}`} style={{ border: '1px solid rgba(26,8,40,0.15)' }}>
                   <img src={p.src} alt={p.caption} style={{ width: '100%', display: 'block' }} />
-                  <div style={{ padding: '20px 28px', background: 'rgba(13,26,14,0.7)' }}>
+                  <div style={{ padding: '20px 28px', background: 'rgba(250,246,242,0.95)' }}>
                     <p style={{ fontFamily: '"Noto Serif TC", serif', fontSize: 18, color: '#1A0828', letterSpacing: '0.1em', margin: 0 }}>{p.caption}</p>
                   </div>
                 </div>
