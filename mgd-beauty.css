@@ -11,23 +11,23 @@
     }
 
     :root {
-      --primary: #EAE8E0;
-      --secondary: #E8EDE8;
-      --accent: #2C1A14;
-      --bg: #FAF9F6;
+      --primary: #EDE8F5;
+      --secondary: #E8E4F0;
+      --accent: #1A0828;
+      --bg: #FAF9FC;
       --bronze: #C8A85C;
       --bronze-lt: #D8BC7C;
-      --forest: #4A5A54;
-      --deep: #FAF9F6;
-      --mist: #6A7A72;
-      --pearl: #2C1A14;
+      --forest: #3A1E52;
+      --deep: #FAF9FC;
+      --mist: #5A3A72;
+      --pearl: #1A0828;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background-color: #FAF9F6;
-      color: #4A5A54;
+      background-color: #FAF9FC;
+      color: #3A1E52;
       overflow-x: hidden;
       font-family: 'Noto Serif TC', serif;
     }
@@ -219,14 +219,14 @@
       background: none;
     }
 
-    /* ── Main title: truffle black-chocolate → warm champagne gold ── */
+    /* ── Main title: midnight crimson-purple → velvet purple ── */
     .main-title {
       background: linear-gradient(to bottom right,
-        #1A0E08  0%,
-        #3C2214 28%,
-        #7A5228 55%,
-        #C4A048 80%,
-        #E0CC88 100%
+        #0A0418  0%,
+        #1E0832 28%,
+        #3A1250 55%,
+        #6A2878 80%,
+        #9A4898 100%
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -234,18 +234,26 @@
       text-fill-color: transparent;
       font-weight: 700;
       letter-spacing: 3px;
-      filter: drop-shadow(0px 0px 10px rgba(255, 248, 215, 0.45))
-              drop-shadow(0px 1px 4px  rgba(255, 242, 195, 0.28));
+      filter: drop-shadow(0px 0px 12px rgba(255, 248, 225, 0.50))
+              drop-shadow(0px 0px  5px rgba(255, 242, 205, 0.32))
+              drop-shadow(0px 1px  4px rgba(255, 238, 195, 0.20));
     }
+    /* ── Global heading glow ── */
+    h2, h3, h4 {
+      color: #1A0828;
+      text-shadow: 0 0 14px rgba(255, 248, 225, 0.38), 0 0 4px rgba(255, 240, 200, 0.22);
+      letter-spacing: 0.06em;
+    }
+
     /* ── Hero title: gradient text + white drop-shadow ── */
     .hero-h1 {
       font-weight: 700 !important;
-      letter-spacing: 2px !important;
+      letter-spacing: 3px !important;
     }
 
     /* ── CTA button: glassmorphism white jade glass ── */
     .btn-gold {
-      color: #2C1A14;
+      color: #1A0828;
       background: rgba(228, 242, 232, 0.60);
       -webkit-backdrop-filter: blur(14px);
       backdrop-filter: blur(14px);
@@ -271,8 +279,8 @@
         0 6px 24px rgba(40, 70, 50, 0.13);
       transform: translateY(-1px);
     }
-    .btn-gold span { position: relative; z-index: 1; color: #2C1A14; }
-    .btn-gold:hover span { color: #1A0E08; }
+    .btn-gold span { position: relative; z-index: 1; color: #1A0828; }
+    .btn-gold:hover span { color: #0A0418; }
 
     /* ── Nav link weight ── */
     .nav-link {
@@ -323,10 +331,10 @@
 
     /* ── Section bg gradient ── */
     .sec-dark {
-      background: linear-gradient(150deg, #FAF9F6 0%, #EAE8E0 50%, #FAF9F6 100%);
+      background: linear-gradient(150deg, #FAF9FC 0%, #EDE8F5 50%, #FAF9FC 100%);
     }
     .sec-forest {
-      background: linear-gradient(150deg, #EAE8E0 0%, #E8EDE8 55%, #EAE8E0 100%);
+      background: linear-gradient(150deg, #EDE8F5 0%, #E8E4F0 55%, #EDE8F5 100%);
     }
 
     /* ── Horizontal service card image ── */
