@@ -11,23 +11,23 @@
     }
 
     :root {
-      --primary: #D1C4E9;
-      --secondary: #E0EDE8;
-      --accent: #2E2541;
-      --bg: #F9F8FC;
-      --bronze: #2E2541;
-      --bronze-lt: #4A3A65;
-      --forest: #D1C4E9;
-      --deep: #F9F8FC;
-      --mist: #6B5A8E;
-      --pearl: #2E2541;
+      --primary: #EAE8E0;
+      --secondary: #E8EDE8;
+      --accent: #2C1A14;
+      --bg: #FAF9F6;
+      --bronze: #C8A85C;
+      --bronze-lt: #D8BC7C;
+      --forest: #4A5A54;
+      --deep: #FAF9F6;
+      --mist: #6A7A72;
+      --pearl: #2C1A14;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background-color: #F9F8FC;
-      color: #2E2541;
+      background-color: #FAF9F6;
+      color: #4A5A54;
       overflow-x: hidden;
       font-family: 'Noto Serif TC', serif;
     }
@@ -52,7 +52,7 @@
 
     /* ── Gold shimmer text ── */
     .gold-shimmer {
-      background: linear-gradient(90deg, #2E2541 0%, #4A3A65 40%, #2E2541 60%, #6B5A8E 100%);
+      background: linear-gradient(90deg, #A88840 0%, #E0CC96 40%, #C8A85C 60%, #B89040 100%);
       background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -82,14 +82,14 @@
       display: block;
       width: 64px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, #2E2541, transparent);
+      background: linear-gradient(90deg, transparent, #C8A85C, transparent);
       margin: 28px auto;
     }
     .gold-line-left {
       display: block;
       width: 64px;
       height: 1px;
-      background: linear-gradient(90deg, #2E2541, transparent);
+      background: linear-gradient(90deg, #C8A85C, transparent);
       margin: 24px 0;
     }
 
@@ -219,16 +219,23 @@
       background: none;
     }
 
-    /* ── Main title: warm rich cocoa-brown ── */
+    /* ── Main title: truffle black-chocolate → warm champagne gold ── */
     .main-title {
-      background: linear-gradient(to bottom, #7A4018 0%, #5C2E10 55%, #4A2208 100%);
+      background: linear-gradient(to bottom right,
+        #1A0E08  0%,
+        #3C2214 28%,
+        #7A5228 55%,
+        #C4A048 80%,
+        #E0CC88 100%
+      );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       text-fill-color: transparent;
       font-weight: 700;
-      letter-spacing: 2px;
-      filter: drop-shadow(0px 1px 8px rgba(255, 245, 225, 0.50));
+      letter-spacing: 3px;
+      filter: drop-shadow(0px 0px 10px rgba(255, 248, 215, 0.45))
+              drop-shadow(0px 1px 4px  rgba(255, 242, 195, 0.28));
     }
     /* ── Hero title: gradient text + white drop-shadow ── */
     .hero-h1 {
@@ -236,11 +243,13 @@
       letter-spacing: 2px !important;
     }
 
-    /* ── CTA button: matte silk rose gold ── */
+    /* ── CTA button: glassmorphism white jade glass ── */
     .btn-gold {
-      border: none;
-      color: #FFF0EA;
-      background: linear-gradient(170deg, #D4A090 0%, #C08878 40%, #AD7868 100%);
+      color: #2C1A14;
+      background: rgba(228, 242, 232, 0.60);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(205, 228, 212, 0.70);
       font-family: 'Cinzel', serif;
       letter-spacing: 0.25em;
       font-size: 16px;
@@ -248,24 +257,22 @@
       cursor: pointer;
       border-radius: 8px;
       box-shadow:
-        0 3px 14px rgba(150, 70, 55, 0.22),
-        inset 0 1px 0 rgba(255, 215, 200, 0.32),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.07);
-      transition: background 0.35s, box-shadow 0.35s, transform 0.2s;
+        inset 0 1px 0 rgba(255, 255, 255, 0.90),
+        0 4px 18px rgba(40, 70, 50, 0.08);
+      transition: all 0.35s;
       position: relative;
       overflow: hidden;
     }
     .btn-gold::after { content: none; }
     .btn-gold:hover {
-      background: linear-gradient(170deg, #DCA898 0%, #C89080 40%, #B88070 100%);
+      background: rgba(215, 236, 220, 0.75);
       box-shadow:
-        0 5px 20px rgba(150, 70, 55, 0.32),
-        inset 0 1px 0 rgba(255, 220, 205, 0.38),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+        inset 0 1px 0 rgba(255, 255, 255, 0.95),
+        0 6px 24px rgba(40, 70, 50, 0.13);
       transform: translateY(-1px);
     }
-    .btn-gold span { position: relative; z-index: 1; color: #FFF0EA; }
-    .btn-gold:hover span { color: #FFF8F4; }
+    .btn-gold span { position: relative; z-index: 1; color: #2C1A14; }
+    .btn-gold:hover span { color: #1A0E08; }
 
     /* ── Nav link weight ── */
     .nav-link {
@@ -316,10 +323,10 @@
 
     /* ── Section bg gradient ── */
     .sec-dark {
-      background: linear-gradient(150deg, #F9F8FC 0%, #D1C4E9 50%, #F9F8FC 100%);
+      background: linear-gradient(150deg, #FAF9F6 0%, #EAE8E0 50%, #FAF9F6 100%);
     }
     .sec-forest {
-      background: linear-gradient(150deg, #D1C4E9 0%, #E0EDE8 55%, #D1C4E9 100%);
+      background: linear-gradient(150deg, #EAE8E0 0%, #E8EDE8 55%, #EAE8E0 100%);
     }
 
     /* ── Horizontal service card image ── */
@@ -348,7 +355,7 @@
       display: block;
       width: 26px;
       height: 2px;
-      background: #C5A059;
+      background: #C8A85C;
       transition: transform 0.35s ease, opacity 0.35s ease;
       transform-origin: center;
     }
@@ -368,14 +375,14 @@
       font-family: "Noto Serif TC", serif;
       font-size: 17px;
       letter-spacing: 0.06em;
-      color: #C8D0C4;
+      color: #C8D4C8;
       text-decoration: none;
       padding: 14px 0;
-      border-bottom: 1px solid rgba(197,160,89,0.1);
+      border-bottom: 1px solid rgba(200,168,88,0.12);
       transition: color 0.25s;
     }
     .mobile-nav-link:last-of-type { border-bottom: none; }
-    .mobile-nav-link.active { color: #C5A059; }
+    .mobile-nav-link.active { color: #C8A85C; }
 
     /* ── Responsive nav ── */
     @media (max-width: 1100px) {
