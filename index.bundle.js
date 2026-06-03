@@ -193,18 +193,15 @@
             }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 189}} )
           ))
           , React.createElement('div', { className: "hero-inner", style: { position: 'relative', zIndex: 3, maxWidth: 1380, margin: '0 auto', padding: '0 48px', width: '100%', paddingTop: 120 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 196}}
+            , React.createElement('div', { className: "hero-text-container", __self: this, __source: {fileName: _jsxFileName, lineNumber: 196}}
             , React.createElement('div', { style: { display: 'flex', alignItems: 'center', gap: 20, marginBottom: 36, opacity: 0, animation: 'fadeSlide 1.2s ease 0.4s forwards' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 197}}
               , React.createElement('div', { style: { width: 40, height: 1, background: 'linear-gradient(90deg, transparent, #C5A059)' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 198}} )
               , React.createElement('span', { style: { fontFamily: 'Cinzel, serif', fontSize: 16, letterSpacing: '0.45em', color: '#2E2541' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 199}}, "ENERGY BEAUTY · MAGIC GARDEN"    )
             )
-            , React.createElement('h1', { className: "hero-h1", style: {
+            , React.createElement('h1', { className: "hero-h1 main-title", style: {
               fontFamily: '"Cormorant Garamond", serif',
               fontSize: 'clamp(3.5rem, 7vw, 6.5rem)',
-              fontWeight: 700, lineHeight: 1.1, letterSpacing: '2px',
-              background: 'linear-gradient(to top, #3D1F0A 0%, #7B4A18 25%, #C9922E 55%, #E8CF82 80%, #F5E6B8 100%)',
-              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              filter: 'drop-shadow(0px 2px 5px rgba(255,255,255,0.9))',
+              lineHeight: 1.1,
               maxWidth: 860,
               opacity: 0, animation: 'fadeSlide 1.2s ease 0.7s forwards',
             }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 201}}, "能量美學"
@@ -220,6 +217,7 @@
                   , React.createElement('br', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 216}} ), "結合韓國頂級護膚技術與外泌體科技"
               , React.createElement('br', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 217}} ), "貴賓預約優先制，為您量身打造專屬美麗方案"
 
+            )
             )
             , React.createElement('div', { className: "hero-cta-row", style: { display: 'flex', gap: 20, marginTop: 52, alignItems: 'center', flexWrap: 'wrap', opacity: 0, animation: 'fadeSlide 1.2s ease 1.3s forwards' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 220}}
               , React.createElement('a', { href: "partners.html", style: { textDecoration: 'none' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 221}}, React.createElement('button', { className: "btn-gold", __self: this, __source: {fileName: _jsxFileName, lineNumber: 221}}, React.createElement('span', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 221}}, "立即預約體驗")))
