@@ -196,7 +196,7 @@
             , React.createElement('div', { className: "hero-text-container", __self: this, __source: {fileName: _jsxFileName, lineNumber: 196}}
             , React.createElement('div', { style: { display: 'flex', alignItems: 'center', gap: 20, marginBottom: 36, opacity: 0, animation: 'fadeSlide 1.2s ease 0.4s forwards' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 197}}
               , React.createElement('div', { style: { width: 40, height: 1, background: 'linear-gradient(90deg, transparent, #C5A059)' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 198}} )
-              , React.createElement('span', { style: { fontFamily: 'Cinzel, serif', fontSize: 16, letterSpacing: '0.45em', color: '#1A0828' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 199}}, "ENERGY BEAUTY · MAGIC GARDEN"    )
+              , React.createElement('span', { style: { fontFamily: 'Cinzel, serif', fontSize: 16, letterSpacing: '0.45em', color: '#1A0828', textShadow: '0 1px 0 rgba(255,252,255,0.95), 0 0 6px rgba(252,248,255,0.65)' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 199}}, "ENERGY BEAUTY · MAGIC GARDEN"    )
             )
             , React.createElement('h1', { className: "hero-h1 main-title", style: {
               fontFamily: '"Cormorant Garamond", serif',
@@ -210,8 +210,8 @@
             )
             , React.createElement('p', { style: {
               fontFamily: '"Noto Serif TC", serif', fontSize: 20, fontWeight: 600,
-              color: '#3A1E52', lineHeight: 2, marginTop: 28, maxWidth: 500, letterSpacing: '1px',
-              textShadow: '0 0 12px rgba(255,248,220,0.60), 0 1px 4px rgba(255,245,210,0.40)',
+              color: '#1A0828', lineHeight: 2, marginTop: 28, maxWidth: 500, letterSpacing: '1px',
+              textShadow: '0 1px 0 rgba(255,252,255,0.90), 0 0 8px rgba(252,248,255,0.70)',
               opacity: 0, animation: 'fadeSlide 1.2s ease 1s forwards',
             }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 211}}, "開運美容護膚 · 秀髮養育 · 身心靈整體調理"
                   , React.createElement('br', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 216}} ), "結合韓國頂級護膚技術與外泌體科技"
@@ -222,9 +222,9 @@
             , React.createElement('div', { className: "hero-cta-row", style: { display: 'flex', gap: 20, marginTop: 52, alignItems: 'center', flexWrap: 'wrap', opacity: 0, animation: 'fadeSlide 1.2s ease 1.3s forwards' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 220}}
               , React.createElement('a', { href: "partners.html", style: { textDecoration: 'none' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 221}}, React.createElement('button', { className: "btn-gold", __self: this, __source: {fileName: _jsxFileName, lineNumber: 221}}, React.createElement('span', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 221}}, "立即預約體驗")))
               , React.createElement('a', { href: "member.html", style: { textDecoration: 'none' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 222}}, React.createElement('button', { style: { padding: "14px 32px", fontFamily: '"Noto Serif TC", serif', fontSize: 18, fontWeight: 500, letterSpacing: '0.1em', color: '#1A0828', background: 'transparent', border: '1px solid rgba(200,168,88,0.72)', borderRadius: 8, cursor: 'pointer', boxShadow: 'none', transition: 'all 0.3s' }, onMouseEnter: e => { e.currentTarget.style.background='rgba(200,168,88,0.08)'; e.currentTarget.style.borderColor='rgba(200,168,88,0.95)'; e.currentTarget.style.transform='translateY(-1px)'; }, onMouseLeave: e => { e.currentTarget.style.background='transparent'; e.currentTarget.style.borderColor='rgba(200,168,88,0.72)'; e.currentTarget.style.transform='none'; }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 222}}, React.createElement('span', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 222}}, "加入會員")))
-              , React.createElement('a', { href: "founder.html", style: { fontFamily: '"Noto Serif TC", serif', fontSize: 19, color: '#3A1E52', textDecoration: 'none', letterSpacing: '0.1em', borderBottom: '1px solid rgba(200,168,88,0.35)', paddingBottom: 2, transition: 'color 0.3s' },
-                onMouseEnter: e => e.currentTarget.style.color = '#2E2541',
-                onMouseLeave: e => e.currentTarget.style.color = '#6B5A8E', __self: this, __source: {fileName: _jsxFileName, lineNumber: 223}}
+              , React.createElement('a', { href: "founder.html", style: { fontFamily: '"Noto Serif TC", serif', fontSize: 19, color: '#1A0828', textDecoration: 'none', letterSpacing: '0.1em', borderBottom: '1px solid rgba(200,168,88,0.55)', paddingBottom: 2, transition: 'color 0.3s', textShadow: '0 1px 0 rgba(255,252,255,0.90), 0 0 6px rgba(252,248,255,0.60)' },
+                onMouseEnter: e => e.currentTarget.style.color = '#0A0418',
+                onMouseLeave: e => e.currentTarget.style.color = '#1A0828', __self: this, __source: {fileName: _jsxFileName, lineNumber: 223}}
 , "認識創辦人 →" )
             )
             , React.createElement('div', { className: "hero-stats", style: { display: 'flex', gap: 60, marginTop: 80, paddingTop: 40, borderTop: '1px solid rgba(26,8,40,0.12)', opacity: 0, animation: 'fadeSlide 1.2s ease 1.6s forwards' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 228}}
