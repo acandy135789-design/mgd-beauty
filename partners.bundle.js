@@ -103,7 +103,7 @@
                           , phoneOpen && (
                             React.createElement(React.Fragment, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 104}}
                             , React.createElement('div', { style: { position: 'fixed', inset: 0, zIndex: 99 }, onClick: () => setPhoneOpen(false), __self: this, __source: {fileName: _jsxFileName, lineNumber: 105}} )
-                            , React.createElement('div', { style: { position: 'absolute', left: 0, top: '110%', background: 'rgba(13,26,14,0.97)', border: '1px solid rgba(200,168,88,0.52)', padding: '12px 20px', zIndex: 100, display: 'flex', flexDirection: 'column', gap: 12 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 106}}
+                            , React.createElement('div', { style: { position: 'absolute', left: 0, top: '110%', background: 'rgba(13,26,14,0.97)', border: '1px solid rgba(90,50,110,0.45)', padding: '12px 20px', zIndex: 100, display: 'flex', flexDirection: 'column', gap: 12 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 106}}
                               , React.createElement('a', { href: "tel:0906607856", style: { fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#1A0828', textDecoration: 'none', letterSpacing: '0.07em' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 107}}, "0906-607-856")
                               , React.createElement('a', { href: "tel:0927186901", style: { fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#1A0828', textDecoration: 'none', letterSpacing: '0.07em' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 108}}, "0927-186-901")
                             )
@@ -119,7 +119,7 @@
                           , emailOpen && (
                             React.createElement(React.Fragment, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 120}}
                             , React.createElement('div', { style: { position: 'fixed', inset: 0, zIndex: 99 }, onClick: () => setEmailOpen(false), __self: this, __source: {fileName: _jsxFileName, lineNumber: 121}} )
-                            , React.createElement('div', { style: { position: 'absolute', left: 0, top: '110%', background: 'rgba(13,26,14,0.97)', border: '1px solid rgba(200,168,88,0.52)', padding: '12px 20px', zIndex: 100 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 122}}
+                            , React.createElement('div', { style: { position: 'absolute', left: 0, top: '110%', background: 'rgba(13,26,14,0.97)', border: '1px solid rgba(90,50,110,0.45)', padding: '12px 20px', zIndex: 100 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 122}}
                               , React.createElement('a', { href: "mailto:acandy135789@gmail.com", style: { fontFamily: '"Noto Serif TC", serif', fontSize: 17, color: '#1A0828', textDecoration: 'none', letterSpacing: '0.07em' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 123}}, "acandy135789@gmail.com")
                             )
                             )
@@ -216,11 +216,11 @@
                     , p.line && p.line !== '#' ? (
                       React.createElement('a', { href: p.line, target: "_blank", rel: "noopener noreferrer" , style: {
                         fontFamily: '"Noto Serif TC", serif', fontSize: 18, letterSpacing: '0.2em',
-                        color: 'rgba(26,8,40,0.85)', border: '1px solid rgba(200,168,88,0.52)',
+                        color: 'rgba(26,8,40,0.85)', border: '1px solid rgba(90,50,110,0.45)',
                         padding: '10px 20px', textDecoration: 'none', display: 'inline-block', transition: 'all 0.3s',
                       },
-                        onMouseEnter: e => { e.currentTarget.style.background = 'rgba(200,168,88,0.08)'; e.currentTarget.style.borderColor = '#2E2541'; },
-                        onMouseLeave: e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(200,168,88,0.52)'; }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 217}}
+                        onMouseEnter: e => { e.currentTarget.style.background = 'rgba(90,50,110,0.07)'; e.currentTarget.style.borderColor = '#2E2541'; },
+                        onMouseLeave: e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(90,50,110,0.45)'; }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 217}}
 , "LINE 預約" )
                     ) : (
                       React.createElement('span', { style: {

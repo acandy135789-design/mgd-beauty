@@ -260,24 +260,24 @@
     /* ── CTA button: clean card style ── */
     .btn-gold {
       color: #1A0828;
-      background: rgba(253, 249, 246, 0.96);
-      border: 1px solid rgba(200, 168, 88, 0.52);
+      background: rgba(253, 249, 252, 0.96);
+      border: 1px solid rgba(90, 50, 110, 0.45);
       font-family: 'Cinzel', serif;
       letter-spacing: 0.25em;
       font-size: 16px;
       padding: 14px 36px;
       cursor: pointer;
       border-radius: 6px;
-      box-shadow: 0 2px 8px rgba(26, 8, 40, 0.06), inset 0 1px 0 rgba(255,255,255,0.82);
+      box-shadow: 0 2px 8px rgba(26, 8, 40, 0.07), inset 0 1px 0 rgba(255,255,255,0.85);
       transition: all 0.35s;
       position: relative;
       overflow: hidden;
     }
     .btn-gold::after { content: none; }
     .btn-gold:hover {
-      background: rgba(250, 244, 240, 1);
-      border-color: rgba(200, 168, 88, 0.80);
-      box-shadow: 0 4px 14px rgba(26, 8, 40, 0.10), inset 0 1px 0 rgba(255,255,255,0.90);
+      background: rgba(248, 243, 252, 1);
+      border-color: rgba(90, 50, 110, 0.75);
+      box-shadow: 0 4px 14px rgba(26, 8, 40, 0.12), inset 0 1px 0 rgba(255,255,255,0.90);
       transform: translateY(-1px);
     }
     .btn-gold span { position: relative; z-index: 1; color: #1A0828; }
