@@ -798,8 +798,14 @@
       resetErrorMsg(translateResetError(error.message));
     } else {
       document.getElementById('reset-msg').style.color = '#3a7a4a';
-      document.getElementById('reset-msg').textContent = '✓ 密碼已成功更新！';
-      setTimeout(() => { document.getElementById('reset-modal').classList.add('hidden'); }, 1800);
+      document.getElementById('reset-msg').textContent = '✓ 密碼已成功更新！即將跳轉至登入頁面...';
+      setTimeout(async () => {
+        await sb.auth.signOut();
+        document.getElementById('reset-modal').classList.add('hidden');
+        dashboardLoaded = false;
+        showSection('auth-section');
+        history.replaceState(null, '', window.location.pathname);
+      }, 2000);
     }
   }
 
