@@ -29,7 +29,26 @@
       "Bash(dir \"D:\\\\美肌花園網站\\\\member.html\")",
       "Bash(git -C \"D:\\\\美肌花園網站\" log --oneline -3)",
       "Bash(dir \"D:\\\\美肌花園網站\" /b)",
-      "PowerShell(cmd /c \"rmdir /s /q \"\"D:\\\\美肌花園網站\\\\node_modules\"\"\" 2>&1; Write-Host \"Exit: $LASTEXITCODE\")"
+      "PowerShell(cmd /c \"rmdir /s /q \"\"D:\\\\美肌花園網站\\\\node_modules\"\"\" 2>&1; Write-Host \"Exit: $LASTEXITCODE\")",
+      "Bash(ls \"D:\\\\開運網站APP資料\\\\靈界好神因果內容\" 2>&1)",
+      "Read(//d/開運網站APP資料/靈界好神因果內容/**)",
+      "Bash(powershell -command \"\\(Get-Item 'D:\\\\美肌花園網站\\\\lingjie-karma.html'\\).Length\")",
+      "Bash(ls \"D:\\\\開運網站APP資料\" 2>&1 | head -20)",
+      "Read(//d/開運網站APP資料/**)",
+      "Bash(Move-Item \"D:\\\\美肌花園網站\\\\lingjie-karma.html\" \"D:\\\\開運網站APP資料\\\\lingjie-karma.html\")",
+      "PowerShell(\\(Get-Item \"D:\\\\開運網站APP\\\\lingjie-karma.html\"\\).Length)",
+      "PowerShell(\\(Get-Item \"D:\\\\開運網站APP\\\\sacred-bg.html\"\\).Length)",
+      "Bash(npx playwright *)",
+      "Bash(npm install *)",
+      "Bash(Copy-Item \"D:\\\\開運網站APP資料\\\\女生背景.png\" \"D:\\\\開運網站APP\\\\hero-bg.png\")",
+      "PowerShell(\\(Get-Content \"D:\\\\開運網站APP\\\\index.html\" -Raw -Encoding utf8\\) -match 'hero-bg')",
+      "PowerShell(\\(Get-Content \"D:\\\\開運網站APP\\\\index.html\" -Raw -Encoding utf8\\) | Select-String \"hero-bg\" | Select-Object -First 5)",
+      "Bash(cd /tmp)",
+      "WebFetch(domain:lingjie-karma.pages.dev)",
+      "WebFetch(domain:46f155f8.lingjie-karma.pages.dev)",
+      "PowerShell(Get-PSDrive -PSProvider FileSystem | Select-Object Name, Root, @{N='GB';E={[math]::Round\\($_.Used/1GB,1\\)}}, @{N='FreeGB';E={[math]::Round\\($_.Free/1GB,1\\)}}, Description | Format-Table)",
+      "PowerShell(Get-PSDrive -PSProvider FileSystem | Select-Object Name, @{N='TotalGB';E={[math]::Round\\(\\($_.Used+$_.Free\\)/1GB,1\\)}}, @{N='FreeGB';E={[math]::Round\\($_.Free/1GB,1\\)}} | Format-Table)",
+      "PowerShell(Get-ChildItem \"D:\\\\開運網站APP\" -Force | Select-Object Name, LastWriteTime, @{N='KB';E={[math]::Round\\($_.Length/1KB,1\\)}} | Format-Table)"
     ]
   }
 }
